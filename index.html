@@ -3,237 +3,204 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CS2 База Знаний | Раскидки и Советы</title>
+<title>CS2 База Знаний | Полный гайд</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #0f172a;
     --card: #1e293b;
     --text: #f8fafc;
-    --accent: #fbbf24; /* Желтый, как цвет CS */
-    --green: #10b981;
-    --red: #ef4444;
+    --accent: #fbbf24;
     --border: #334155;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-
+  body { background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
   h1 { color: var(--accent); margin-bottom: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; text-align: center; }
-
-  /* Вкладки */
-  .tabs {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .tab-btn {
-    background: var(--card);
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 12px 24px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 700;
-    transition: all 0.3s;
-  }
+  
+  .tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center; max-width: 1000px; }
+  .tab-btn { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 10px 18px; border-radius: 8px; cursor: pointer; font-weight: 700; transition: all 0.2s; font-size: 14px; }
   .tab-btn:hover { border-color: var(--accent); }
   .tab-btn.active { background: var(--accent); color: #0f172a; border-color: var(--accent); }
 
-  /* Контент */
-  .content-box {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 30px;
-    width: 100%;
-    max-width: 900px;
-    min-height: 400px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-  }
-
-  .tab-content { display: none; animation: fadeIn 0.4s ease; }
+  .content-box { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 25px; width: 100%; max-width: 1000px; min-height: 500px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+  .tab-content { display: none; animation: fadeIn 0.3s ease; }
   .tab-content.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-  h2 { color: var(--accent); margin-bottom: 15px; font-size: 22px; border-bottom: 2px solid var(--border); padding-bottom: 10px; }
-  h3 { color: var(--accent); margin-top: 20px; margin-bottom: 10px; font-size: 18px; }
-
-  ul { list-style-position: inside; margin-bottom: 15px; }
-  li { margin-bottom: 10px; line-height: 1.6; color: #cbd5e1; }
+  h2 { color: var(--accent); margin-bottom: 12px; font-size: 20px; border-bottom: 2px solid var(--border); padding-bottom: 8px; }
+  h3 { color: var(--accent); margin-top: 18px; margin-bottom: 8px; font-size: 16px; }
+  ul { list-style-position: inside; margin-bottom: 12px; }
+  li { margin-bottom: 6px; line-height: 1.5; color: #cbd5e1; font-size: 14px; }
   strong { color: var(--text); }
-
-  .tip-box {
-    background: rgba(251, 191, 36, 0.1);
-    border-left: 4px solid var(--accent);
-    padding: 15px;
-    border-radius: 0 10px 10px 0;
-    margin: 15px 0;
-    font-size: 14px;
-  }
-
+  
+  .tip-box { background: rgba(251, 191, 36, 0.1); border-left: 4px solid var(--accent); padding: 12px; border-radius: 0 8px 8px 0; margin: 12px 0; font-size: 13px; color: #e2e8f0; }
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
-
-  .map-badge {
-    display: inline-block;
-    background: var(--accent);
-    color: #000;
-    padding: 2px 8px;
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: 900;
-    margin-right: 5px;
-  }
+  @media (max-width: 700px) { .grid-2 { grid-template-columns: 1fr; } .tabs { gap: 5px; } .tab-btn { padding: 8px 12px; font-size: 12px; } }
 </style>
 </head>
 <body>
 
-  <h1>CS2: Полезные фишки</h1>
+  <h1>CS2: База Знаний</h1>
 
-  <!-- Вкладки -->
   <div class="tabs">
-    <button class="tab-btn active" onclick="openTab('economy')">💰 Экономика</button>
-    <button class="tab-btn" onclick="openTab('mirage')">🏜️ Mirage</button>
-    <button class="tab-btn" onclick="openTab('dust2')">🏜️ Dust 2</button>
-    <button class="tab-btn" onclick="openTab('inferno')">🔥 Inferno</button>
+    <button class="tab-btn active" onclick="openTab('economy', event)">💰 Экономика</button>
+    <button class="tab-btn" onclick="openTab('mirage', event)">Mirage</button>
+    <button class="tab-btn" onclick="openTab('dust2', event)">Dust 2</button>
+    <button class="tab-btn" onclick="openTab('inferno', event)">Inferno</button>
+    <button class="tab-btn" onclick="openTab('ancient', event)">Ancient</button>
+    <button class="tab-btn" onclick="openTab('anubis', event)">Anubis</button>
+    <button class="tab-btn" onclick="openTab('vertigo', event)">Vertigo</button>
+    <button class="tab-btn" onclick="openTab('overpass', event)">Overpass</button>
   </div>
 
-  <!-- Контент -->
   <div class="content-box">
 
-    <!-- ВКЛАДКА 1: ЭКОНОМИКА -->
+    <!-- ЭКОНОМИКА -->
     <div id="economy" class="tab-content active">
-      <h2>💰 Как не сливать экономику</h2>
-      <p>В CS2 побеждает не тот, кто лучше стреляет, а тот, кто правильно считает деньги. Вот база:</p>
-      
+      <h2>💰 Экономика и база</h2>
       <div class="grid-2">
         <div>
           <h3>Стартовые цифры</h3>
           <ul>
-            <li><strong>Старт раунда:</strong> $800 (в соревновательном).</li>
-            <li><strong>Максимум:</strong> $16 000 (больше не капает).</li>
-            <li><strong>За победу:</strong> $3250 (или $3500 за взрыв/дефуз).</li>
+            <li><strong>Старт:</strong> $800</li>
+            <li><strong>Максимум:</strong> $16 000</li>
+            <li><strong>За победу:</strong> $3250 (или $3500 за плант/дефуз)</li>
           </ul>
         </div>
         <div>
-          <h3>Loss Bonus (за поражение)</h3>
+          <h3>Loss Bonus</h3>
           <ul>
-            <li>1-е поражение: $1400</li>
-            <li>2-е: $1900</li>
-            <li>3-е: $2400</li>
-            <li>4-е: $2900</li>
-            <li>5-е и далее: <strong>$3400</strong> (максимум)</li>
+            <li>1: $1400 / 2: $1900 / 3: $2400 / 4: $2900 / 5+: <strong>$3400</strong></li>
           </ul>
         </div>
       </div>
-
       <div class="tip-box">
-        <strong>Главное правило:</strong> Если у команды нет денег на фулл-бай (винтовка + броня + шлем), лучше <strong>сейвиться (эко)</strong> всей командой, чем покупать «половинчатый» закуп и всё равно проиграть, оставив себя без денег на следующий раунд.
+        <strong>Правило:</strong> Если нет денег на фулл-бай — сейвитесь всей командой. Не форсите в одиночку, иначе подарите врагу винтовку. Террористам на эко всегда стоит пытаться поставить бомбу (+$800 всей команде).
       </div>
-
-      <h3>Что такое Force Buy?</h3>
-      <p>Это когда вы покупаете всё, что можете, чтобы <strong>попытаться сломать серию побед врага</strong> или выиграть критический раунд. Но форсить в одиночку (когда вся команда сейвится) — это худшее, что можно сделать. Ты просто подаришь врагу свою винтовку.</p>
-      
-      <h3>Бонус за плант</h3>
-      <p>Даже если вы проиграли раунд, но <strong>заложили бомбу</strong>, вся команда получит дополнительные $800 в следующем раунде. Поэтому на эко террористам всегда стоит пытаться хотя бы поставить бомбу.</p>
     </div>
 
-    <!-- ВКЛАДКА 2: MIRAGE -->
+    <!-- MIRAGE -->
     <div id="mirage" class="tab-content">
-      <h2>🏜️ Mirage: Ключевые позиции и раскидки</h2>
-      <p>Mirage — самая популярная карта. Здесь решает контроль центра и правильные смоки на А.</p>
-
-      <h3>Т-сторона (Атака)</h3>
+      <h2>🏜️ Mirage</h2>
+      <h3>Атака (Т)</h3>
       <ul>
-        <li><strong>Смок на CT (с респавна Т):</strong> Встань к стене у маленького угла возле Т-спавна. Целься в середину палки на здании и делай <strong>прыжок-бросок</strong>. Это отрежет обзор с CT.</li>
-        <li><strong>Смок на Jungle (Коннектор):</strong> Встань между двумя арками. Целься в верхний левый угол выступа на стене и бросай обычным броском (ЛКМ). Эти два смока полностью закрывают правую часть А-плента.</li>
-        <li><strong>Смок на Window (с Т-спавна):</strong> Встань перед мусоркой справа от Т-спавна. Целься в верх забора на стыке белой и красной стены. Зажми «D» и одновременно делай <strong>прыжок-бросок</strong>.</li>
-        <li><strong>Молотов под Palace:</strong> Если ты в Palace, встань к краю второй колонны от выхода. Целься в угол, где стена встречается с крышей, и беги вперед, отпуская молотов, когда пересечешь зеленую линию (или когда прицел будет над лампой).</li>
+        <li><strong>Смок на CT:</strong> С Т-спавна, целься в палку на здании, прыжок-бросок.</li>
+        <li><strong>Смок на Jungle:</strong> Между арками, целься в верхний левый угол выступа, обычный бросок.</li>
+        <li><strong>Смок на Window:</strong> Перед мусоркой, целься в верх забора, зажми D + прыжок-бросок.</li>
       </ul>
-
-      <div class="tip-box">
-        <strong>Совет по позиции:</strong> На Mirage очень важно контролировать <strong>Mid</strong>. Если вы взяли центр, вы можете через Connector зайти на А с двух сторон или через Short (Лестницу) зажать противника.
-      </div>
-
-      <h3>CT-сторона (Защита)</h3>
+      <h3>Защита (CT)</h3>
       <ul>
-        <li><strong>Позиция на А:</strong> Играй от укрытий (Triple, Default, Jungle). Не стой на открытом месте. Если враги кинули смоки на CT и Jungle, отходи вглубь плента или за стойку.</li>
-        <li><strong>Контроль Banana (Б):</strong> На B очень важно не пускать врага в апартаменты (Апсы). Кидай молотов в начале раунда, чтобы замедлить их.</li>
+        <li><strong>Контроль Mid:</strong> Не стойте на открытом месте. Держите укрытия (Triple, Default, Jungle).</li>
+        <li><strong>Banana (B):</strong> Кидайте молотов в начале раунда, чтобы не пустить Т в Апсы.</li>
       </ul>
     </div>
 
-    <!-- ВКЛАДКА 3: DUST 2 -->
+    <!-- DUST 2 -->
     <div id="dust2" class="tab-content">
-      <h2>🏜️ Dust 2: Контроль и Смоки</h2>
-      <p>Dust 2 — карта длинных дистанций и снайперов. Здесь смок на Mid Doors решает половину раунда.</p>
-
-      <h3>Т-сторона (Атака)</h3>
+      <h2>🏜️ Dust 2</h2>
+      <h3>Атака (Т)</h3>
       <ul>
-        <li><strong>Смок на Mid Doors (с Т-спавна):</strong> Это <strong>самый важный</strong> смок на карте. Он блокирует прострел AWP с CT. Встань на спавне и целься в определенную точку на небе (обычно по линии крыши). Бросок обычный.</li>
-        <li><strong>Смок на Long (A Cross):</strong> Если вы идете на А через Long, нужно задымить место, где CT может простреливать вас с Short (Catwalk). Это позволяет безопасно перебежать.</li>
-        <li><strong>Флешки на Long:</strong> Перед выходом с дверей кидай флешку в сторону Pit и Blue. Она должна взорваться в воздухе, чтобы враг не успел отвернуться.</li>
-        <li><strong>Смок на B Doors (с верхних туннелей):</strong> Задыми двери на B, чтобы CT не могли простреливать вход в туннель. После этого можно заходить на плент.</li>
+        <li><strong>Смок на Mid Doors:</strong> Самый важный смок. Блокирует AWP с CT. Кидается с Т-спавна.</li>
+        <li><strong>Смок на Long (Cross):</strong> Задымите место прострела с Short, чтобы безопасно перебежать.</li>
+        <li><strong>Смок на B Doors:</strong> С верхних туннелей, чтобы CT не простреливали вход.</li>
       </ul>
-
-      <h3>CT-сторона (Защита)</h3>
+      <h3>Защита (CT)</h3>
       <ul>
-        <li><strong>Держи Long:</strong> Если ты играешь на Long, твоя задача — не дать врагу выйти. Используй укрытия (Pit, Blue, Car). Если враг кинул смок на Cross, отходи ближе к пленту или ложись под смок (если есть возможность).</li>
-        <li><strong>Mid:</strong> С CT стороны Mid очень опасно стоять на открытом месте. Используй двери как укрытие и быстро отходи, если враг начал агрессивно пушить.</li>
+        <li><strong>Long:</strong> Используйте укрытия (Pit, Blue, Car). Если враг в смоке — отходите к пленту.</li>
+        <li><strong>Mid:</strong> Не стойте на открытом месте, используйте двери как укрытие.</li>
       </ul>
     </div>
 
-    <!-- ВКЛАДКА 4: INFERNO -->
+    <!-- INFERNO -->
     <div id="inferno" class="tab-content">
-      <h2>🔥 Inferno: Банан и Смоки на А</h2>
-      <p>Inferno — самая узкая карта. Здесь всё решает контроль Банана (Banana) и правильные задымления на А-пленте.</p>
-
-      <h3>Т-сторона (Атака)</h3>
+      <h2>🔥 Inferno</h2>
+      <h3>Атака (Т)</h3>
       <ul>
-        <li><strong>Контроль Банана:</strong> Это 80% успеха на Т-стороне. В начале раунда нужно закидать Банан гранатами (молотов, флешки) и занять его. Если вы контролируете Банан, вы можете идти на B или через Mid на A.</li>
-        <li><strong>Смок на Coffins (с Half Wall):</strong> Если вы зашли на B, задыми Coffins (гробы). Это изолирует самую сильную позицию якоря CT.</li>
-        <li><strong>Смок на Arch (с Mid):</strong> Для выхода на A через Mid или Alt Mid нужно задымить Arch (Арку), чтобы CT не простреливали вас со стороны спавна.</li>
-        <li><strong>Смок на Library (с Mid):</strong> Задыми Library (Библиотеку), чтобы убрать прострел со стороны CT на позицию T-спавна.</li>
-        <li><strong>Молотов на Balcony (с Boiler):</strong> Перед выходом на плент А, кинь молотов на балкон (Balcony), чтобы выкурить оттуда CT.</li>
+        <li><strong>Контроль Банана:</strong> 80% успеха. Закидайте гранатами и займите его.</li>
+        <li><strong>Смок на Coffins (B):</strong> С Half Wall, изолирует сильную позицию CT.</li>
+        <li><strong>Смок на Arch (A):</strong> Для выхода через Mid, убирает прострел с CT-спавна.</li>
+        <li><strong>Молотов на Balcony:</strong> С Boiler, чтобы выкурить CT с балкона.</li>
       </ul>
-
-      <h3>CT-сторона (Защита)</h3>
+      <h3>Защита (CT)</h3>
       <ul>
-        <li><strong>Banana:</strong> Твоя задача — задержать врага. Кидай молотов в начале раунда (Car Molotov), чтобы не дать Т занять позиции. Используй pop-flash (флешка, которая взрывается сразу за стеной) через стену Банана.</li>
-        <li><strong>Позиции на А:</strong> Играй от укрытий (Pit, Library, Graveyard). Не стой в центре плента, тебя просто разберут с дистанции.</li>
+        <li><strong>Banana:</strong> Кидайте молотов (Car Molotov), чтобы задержать Т. Используйте pop-flash через стену.</li>
+        <li><strong>Позиции на А:</strong> Играйте от Pit, Library, Graveyard. Не стойте в центре.</li>
       </ul>
+    </div>
 
-      <div class="tip-box">
-        <strong>Совет:</strong> На Inferno очень часто решает <strong>один игрок на Banana</strong>. Если ты играешь B-сайт, учись кидать молотов с Car (с первого оранжа) и правильно отходить, чтобы не умирать в первые 10 секунд.
-      </div>
+    <!-- ANCIENT -->
+    <div id="ancient" class="tab-content">
+      <h2>🏛️ Ancient</h2>
+      <p>Карта решается гранатами и контролем мида. Заходы узкие, поэтому смоки критичны [citation:1].</p>
+      <h3>Атака (Т)</h3>
+      <ul>
+        <li><strong>Захват мида:</strong> Смок на снайперскую позицию (с Т-спавна) и смок на окно. Флешки в мид, чтобы ослепить CT [citation:1].</li>
+        <li><strong>Заход на A:</strong> Смок на Храм (Temple) — самый важный смок на карте. Кидается со штанов или лестницы [citation:1].</li>
+        <li><strong>Заход на B:</strong> Смок на B-Long (с Т-спавна) и смок на Pit, чтобы безопасно занять Ruins/B Doors [citation:15].</li>
+      </ul>
+      <h3>Защита (CT)</h3>
+      <ul>
+        <li><strong>Ретейк A:</strong> Смоки на Temple, Donut и Heaven, чтобы безопасно зайти [citation:8].</li>
+        <li><strong>Ретейк B:</strong> Смоки на Cave и Ramp, чтобы лишить Т удобных позиций [citation:8].</li>
+      </ul>
+    </div>
+
+    <!-- ANUBIS -->
+    <div id="anubis" class="tab-content">
+      <h2>🐊 Anubis</h2>
+      <p>Ключ к карте — контроль Mid и воды. Ротация между плентами быстрая, поэтому смоки должны отрезать подходы [citation:13].</p>
+      <h3>Атака (Т)</h3>
+      <ul>
+        <li><strong>Заход на A:</strong> Смок на Heaven (с Walkway), чтобы закрыть обзор. Молотов под лестницу, чтобы выкурить CT [citation:13].</li>
+        <li><strong>Заход на B:</strong> Смок на Street (с Mid), чтобы безопасно подойти к Coffins. Флешки в Ruins [citation:13].</li>
+        <li><strong>Mid:</strong> Займите Bridge, чтобы контролировать воду и иметь возможность сплита [citation:13].</li>
+      </ul>
+      <h3>Защита (CT)</h3>
+      <ul>
+        <li><strong>A:</strong> Держите Palace (высокая позиция) и Heaven. Используйте HE, чтобы выбить Т из-под лестницы [citation:13].</li>
+        <li><strong>B:</strong> Играйте от Ruins и Coffins, но не засиживайтесь глубоко, чтобы успеть на ротацию [citation:13].</li>
+      </ul>
+    </div>
+
+    <!-- VERTIGO -->
+    <div id="vertigo" class="tab-content">
+      <h2>🏗️ Vertigo</h2>
+      <p>Очень открытые пленты. Без смоков заходить почти нереально [citation:10].</p>
+      <h3>Атака (Т)</h3>
+      <ul>
+        <li><strong>Смок на Девятку (A):</strong> С угла у мешков с цементом, целься по второй плите у крана, джамптроу [citation:10].</li>
+        <li><strong>Смок на Буст (A):</strong> По стыку лесов, целься в угол красной конструкции, ЛКМ без прыжка [citation:10].</li>
+        <li><strong>Смок на Элеватор (A):</strong> Упереться в мешки, целься между желтыми трубами, джамптроу с ЛКМ+ПКМ [citation:10].</li>
+        <li><strong>Смок за Электрик (B):</strong> Под лестницу, целься в замочек троса на перилах, ЛКМ [citation:10].</li>
+      </ul>
+      <h3>Совет</h3>
+      <div class="tip-box">На A используйте молотов под плент, чтобы выкурить CT с позиций. На B — молотов за ящик [citation:3].</div>
+    </div>
+
+    <!-- OVERPASS -->
+    <div id="overpass" class="tab-content">
+      <h2>🌉 Overpass</h2>
+      <p>Самая зависимая от гранат карта. Банк на A и Девятка на B решают всё [citation:11].</p>
+      <h3>Атака (Т)</h3>
+      <ul>
+        <li><strong>Туалеты:</strong> Смок с фонтана, чтобы забрать Mid. Молотов туда же, чтобы выкурить CT [citation:11].</li>
+        <li><strong>Заход на A:</strong> Смок на Банк (обязательно). Молотов на Машину (с A-Long), чтобы выжечь укрытие [citation:4][citation:11].</li>
+        <li><strong>Заход на B:</strong> Смок на Девятку (с воды или катушки). Молотов на Пески [citation:4].</li>
+      </ul>
+      <h3>Защита (CT)</h3>
+      <ul>
+        <li><strong>B:</strong> Инста-смоки на Монстр и проход с воды прямо со спавна [citation:4].</li>
+        <li><strong>A:</strong> Используйте смоки, чтобы задержать выход с Банана и Туалетов.</li>
+      </ul>
     </div>
 
   </div>
 
 <script>
-  // Функция переключения вкладок
-  function openTab(tabId) {
-    // Убираем активный класс со всех кнопок и контента
+  function openTab(tabId, event) {
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
     document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-
-    // Добавляем активный класс нажатой кнопке
-    // (Находим кнопку по тексту или индексу, но проще передать event.target в onclick)
     event.target.classList.add('active');
-
-    // Показываем нужный контент
     document.getElementById(tabId).classList.add('active');
   }
 </script>
