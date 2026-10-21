@@ -527,10 +527,10 @@
       </ul>
     </div>
 
-    !-- CONFIGS -->
+    <!-- CONFIGS -->
     <div id="configs" class="tab-content">
-      <h2>⚙️ Конфиги про-игроков (Актуальные коды CS2)</h2>
-      <p>Коды прицелов (Crosshair) в новом формате CS2. Чтобы установить прицел, зайди в настройки CS2 → «Игра» → «Прицел» → «Поделиться/Импортировать» и вставь код.</p>
+      <h2>⚙️ Конфиги про-игроков</h2>
+      <p>Коды прицелов (Crosshair) и основные настройки чувствительности. Чтобы установить прицел, зайди в настройки CS2 → «Игра» → «Прицел» → «Поделиться/Импортировать» и вставь код.</p>
       
       <div class="config-grid">
         <div class="config-card">
@@ -551,26 +551,26 @@
           <div class="config-row"><span>eDPI</span><span>1120</span></div>
           <div class="code-box">
             <span id="code-deko">CSGO-T2yih-9qOC3-uSS6R-cZOUK-PCWzE</span>
-            <button class="copy-btn" onclick="copyCode('code-deko')">Копировать (старый)</button>
+            <button class="copy-btn" onclick="copyCode('code-deko')">Копировать</button>
           </div>
         </div>
 
         <div class="config-card">
           <h3>kyousuke</h3>
-          <div class="config-row"><span>DPI</span><span>н/д</span></div>
-          <div class="config-row"><span>Сенса</span><span>н/д</span></div>
-          <div class="config-row"><span>eDPI</span><span>н/д</span></div>
+          <div class="config-row"><span>DPI</span><span>800</span></div>
+          <div class="config-row"><span>Сенса</span><span>1.05</span></div>
+          <div class="config-row"><span>eDPI</span><span>840</span></div>
           <div class="code-box">
-            <span id="code-kyousuke">CSGO-eHZw3-8hCwT-qipDN-CHFWT-nQopQ</span>
-            <button class="copy-btn" onclick="copyCode('code-kyousuke')">Копировать (старый)</button>
+            <span id="code-kyousuke">CSGO-DsMq8-mQRUy-aVcBn-fc4by-f8KvM</span>
+            <button class="copy-btn" onclick="copyCode('code-kyousuke')">Копировать</button>
           </div>
         </div>
 
         <div class="config-card">
           <h3>m0NESY</h3>
-          <div class="config-row"><span>DPI</span><span>н/д</span></div>
+          <div class="config-row"><span>DPI</span><span>400</span></div>
           <div class="config-row"><span>Сенса</span><span>2.3</span></div>
-          <div class="config-row"><span>eDPI</span><span>н/д</span></div>
+          <div class="config-row"><span>eDPI</span><span>920</span></div>
           <div class="code-box">
             <span id="code-m0nesy">CSB7LR2KRBWqjL7jxzzHmnL7zG5Rk2dGLjCGos38Cmrv6M</span>
             <button class="copy-btn" onclick="copyCode('code-m0nesy')">Копировать</button>
@@ -588,12 +588,12 @@
           </div>
         </div>
       </div>
-   
+    </div>
+
     <!-- QUIZ -->
     <div id="quiz" class="tab-content">
       <h2>🧠 Квиз на знание CS2</h2>
       
-      <!-- Экран старта -->
       <div id="quiz-start-screen" class="quiz-start">
         <h3>Выбери уровень сложности:</h3>
         <button class="btn-level btn-easy" onclick="startQuiz('easy')">🟢 Легкий (8 вопросов)</button>
@@ -601,20 +601,16 @@
         <button class="btn-level btn-hard" onclick="startQuiz('hard')">🔴 Тяжелый (20 вопросов)</button>
       </div>
 
-      <!-- Экран вопросов -->
       <div id="quiz-game-screen" style="display: none;">
         <div class="quiz-header">
           <span id="quiz-progress">Вопрос 1/8</span>
           <span id="quiz-score">Правильно: 0</span>
         </div>
         <div class="question-text" id="question-text">Текст вопроса...</div>
-        <div class="options-list" id="options-list">
-          <!-- Кнопки ответов будут тут -->
-        </div>
+        <div class="options-list" id="options-list"></div>
         <button class="next-btn" id="next-btn" onclick="nextQuestion()">Следующий вопрос</button>
       </div>
 
-      <!-- Экран результатов -->
       <div id="quiz-result-screen" class="quiz-result" style="display: none;">
         <h3 id="result-title">Результат</h3>
         <p id="result-text">Ты ответил правильно на X из Y вопросов.</p>
@@ -625,7 +621,6 @@
   </div>
 
 <script>
-  // ===== ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК =====
   function openTab(tabId, event) {
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
     document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
@@ -633,7 +628,6 @@
     document.getElementById(tabId).classList.add('active');
   }
 
-  // ===== КОПИРОВАНИЕ КОДА КОНФИГОВ =====
   function copyCode(elementId) {
     const codeText = document.getElementById(elementId).innerText;
     navigator.clipboard.writeText(codeText).then(() => {
@@ -646,7 +640,6 @@
     });
   }
 
-  // ===== КВИЗ =====
   const quizData = {
     easy: [
       { q: "Сколько денег дается игроку в начале соревновательного матча?", a: ["$500", "$800", "$1000", "$1200"], c: 1 },
@@ -739,14 +732,13 @@
 
   function selectAnswer(selectedIndex, correctIndex, btnElement) {
     const allBtns = document.querySelectorAll('.option-btn');
-    allBtns.forEach(btn => btn.disabled = true); // Блокируем все кнопки
+    allBtns.forEach(btn => btn.disabled = true);
 
     if (selectedIndex === correctIndex) {
       btnElement.classList.add('correct');
       score++;
     } else {
       btnElement.classList.add('wrong');
-      // Подсвечиваем правильный ответ зеленым
       allBtns[correctIndex].classList.add('correct');
     }
 
