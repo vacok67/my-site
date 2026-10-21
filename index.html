@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Моя страница | Web Dev</title>
+<style>
+  /* ===== ПЕРЕМЕННЫЕ ЦВЕТОВ (для тем) ===== */
+  :root {
+    --bg-color: #f0f2f5;
+    --text-color: #1a1a1a;
+    --card-bg: #ffffff;
+    --accent: #6c5ce7;
+    --shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  /* Класс, который включается при нажатии на кнопку темы */
+  .dark-theme {
+    --bg-color: #121212;
+    --text-color: #f1f1f1;
+    --card-bg: #1e1e1e;
+    --accent: #a29bfe;
+    --shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+
+  /* ===== БАЗОВЫЕ СТИЛИ ===== */
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.4s ease, color 0.4s ease;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  /* ===== КНОПКА ТЕМЫ ===== */
+  .theme-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--card-bg);
+    border: 2px solid var(--accent);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+  }
+  .theme-btn:hover {
+    transform: scale(1.05);
+    background: var(--accent);
+    color: white;
+  }
+
+  /* ===== КАРТОЧКА ===== */
+  .card {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    transition: all 0.4s ease;
+    animation: slideUp 0.8s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  @keyframes slideUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--accent), #00cec9);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+
+  h1 { font-size: 28px; margin-bottom: 10px; }
+
+  /* Эффект печатающегося текста */
+  .typewriter {
+    font-size: 18px;
+    color: var(--accent);
+    min-height: 27px;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  .cursor {
+    display: inline-block;
+    width: 3px;
+    height: 20px;
+    background: var(--accent);
+    animation: blink 1s infinite;
+    vertical-align: middle;
+    margin-left: 3px;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* ===== КНОПКА НАВЫКОВ ===== */
+  .skills-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+  }
+  .skills-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+  .skills-btn:active { transform: translateY(0); }
+
+  /* Скрытый блок с навыками */
+  .skills-list {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    margin-top: 0;
+    text-align: left;
+  }
+  .skills-list.open {
+    max-height: 300px;
+    margin-top: 20px;
+  }
+
+  .skill-item {
+    background: rgba(108, 92, 231, 0.1);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    border-left: 4px solid var(--accent);
+  }
+
+  @media (max-width: 500px) {
+    .card { padding: 20px; }
+    h1 { font-size: 22px; }
+    .theme-btn { top: 10px; right: 10px; padding: 8px 15px; font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Кнопка смены темы -->
+  <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙 Ночь</button>
+
+  <div class="card">
+    <div class="avatar">👨‍💻</div>
+    <h1>Привет, я Веб-Разработчик!</h1>
+    
+    <!-- Сюда будет печататься текст -->
+    <div class="typewriter">
+      <span id="typewriterText"></span><span class="cursor"></span>
+    </div>
+
+    <button class="skills-btn" onclick="toggleSkills()">👇 Мои навыки</button>
+
+    <!-- Список навыков -->
+    <div class="skills-list" id="skillsList">
+      <div class="skill-item">🟢 HTML — структура сайта</div>
+      <div class="skill-item">🔵 CSS — красивый дизайн</div>
+      <div class="skill-item">🟡 JavaScript — умные кнопки</div>
+      <div class="skill-item">🚀 GitHub Pages — публикация сайтов</div>
+    </div>
+  </div>
+
+<script>
+  // ==========================================
+  // 1. ПЕРЕКЛЮЧЕНИЕ ТЕМЫ
+  // ==========================================
+  function toggleTheme() {
+    // Ищем тег <body> и переключаем ему класс "dark-theme"
+    document.body.classList.toggle('dark-theme');
+    
+    const btn = document.getElementById('themeBtn');
+    
+    // Если класс добавился (стало темно), меняем текст кнопки
+    if (document.body.classList.contains('dark-theme')) {
+      btn.textContent = '☀️ День';
+    } else {
+      btn.textContent = '🌙 Ночь';
+    }
+  }
+
+  // ==========================================
+  // 2. ВЫПАДАЮЩИЙ СПИСОК НАВЫКОВ
+  // ==========================================
+  function toggleSkills() {
+    const list = document.getElementById('skillsList');
+    // Добавляем или убираем класс "open" (который меняет высоту)
+    list.classList.toggle('open');
+  }
+
+  // ==========================================
+  // 3. ЭФФЕКТ ПЕЧАТАЮЩЕГОСЯ ТЕКСТА
+  // ==========================================
+  const textToType = "Я создаю сайты с нуля. Это мой третий проект!";
+  const textElement = document.getElementById('typewriterText');
+  let i = 0;
+
+  function typeText() {
+    if (i < textToType.length) {
+      textElement.textContent += textToType.charAt(i);
+      i++;
+      setTimeout(typeText, 80); // Пауза 80 миллисекунд между буквами
+    }
+  }
+
+  // Запускаем печать через 500 мс после загрузки страницы
+  setTimeout(typeText, 500);
+
+</script>
+</body>
+</html>
