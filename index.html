@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -48,7 +47,7 @@
   <h1>CS2: База Знаний</h1>
 
   <div class="tabs">
-    <button class="tab-btn active" onclick="openTab('economy', event)">💰 Экономика (Подробно)</button>
+    <button class="tab-btn active" onclick="openTab('economy', event)">💰 Экономика</button>
     <button class="tab-btn" onclick="openTab('mirage', event)">Mirage</button>
     <button class="tab-btn" onclick="openTab('dust2', event)">Dust 2</button>
     <button class="tab-btn" onclick="openTab('inferno', event)">Inferno</button>
@@ -62,7 +61,7 @@
 
     <!-- ЭКОНОМИКА -->
     <div id="economy" class="tab-content active">
-      <h2>💰 Полный гайд по экономике</h2>
+      <h2>💰 Экономика</h2>
       
       <div class="grid-2">
         <div>
@@ -119,111 +118,137 @@
     <!-- MIRAGE -->
     <div id="mirage" class="tab-content">
       <h2>🏜️ Mirage</h2>
+      <p>Самая популярная карта. Здесь решает контроль центра и правильные смоки на А.</p>
       <h3>Атака (Т)</h3>
       <ul>
-        <li><strong>Смок на CT:</strong> С Т-спавна, целься в палку на здании, прыжок-бросок.</li>
-        <li><strong>Смок на Jungle:</strong> Между арками, целься в верхний левый угол выступа, обычный бросок.</li>
-        <li><strong>Смок на Window:</strong> Перед мусоркой, целься в верх забора, зажми D + прыжок-бросок.</li>
+        <li><strong>Смок на CT:</strong> С Т-спавна, целься в палку на здании, прыжок-бросок. Отрезает обзор с CT.</li>
+        <li><strong>Смок на Jungle:</strong> Между арками, целься в верхний левый угол выступа, обычный бросок. Закрывает правую часть А-плента.</li>
+        <li><strong>Смок на Window:</strong> Перед мусоркой справа от Т-спавна, целься в верх забора, зажми D + прыжок-бросок. Контроль мида.</li>
+        <li><strong>Молотов под Palace:</strong> Если ты в Palace, встань к краю второй колонны, целься в угол стены и крыши, отпускай молотов на бегу.</li>
       </ul>
       <h3>Защита (CT)</h3>
       <ul>
-        <li><strong>Контроль Mid:</strong> Не стойте на открытом месте. Держите укрытия (Triple, Default, Jungle).</li>
-        <li><strong>Banana (B):</strong> Кидайте молотов в начале раунда, чтобы не пустить Т в Апсы.</li>
+        <li><strong>Позиции на А:</strong> Играй от укрытий (Triple, Default, Jungle). Не стой на открытом месте.</li>
+        <li><strong>Контроль Banana (Б):</strong> Кидай молотов в начале раунда, чтобы замедлить врага в Апсах.</li>
+        <li><strong>Ретейк А:</strong> Если плент захвачен, заходи одновременно с Connector и Jungle, используй флешки, чтобы ослепить Т.</li>
       </ul>
+      <div class="tip-box"><strong>Совет:</strong> Если вы взяли Mid, вы можете через Connector зайти на А с двух сторон или через Short зажать противника.</div>
     </div>
 
     <!-- DUST 2 -->
     <div id="dust2" class="tab-content">
       <h2>🏜️ Dust 2</h2>
+      <p>Карта длинных дистанций и снайперов. Здесь смок на Mid Doors решает половину раунда.</p>
       <h3>Атака (Т)</h3>
       <ul>
-        <li><strong>Смок на Mid Doors:</strong> Самый важный смок. Блокирует AWP с CT. Кидается с Т-спавна.</li>
-        <li><strong>Смок на Long (Cross):</strong> Задымите место прострела с Short, чтобы безопасно перебежать.</li>
+        <li><strong>Смок на Mid Doors:</strong> Самый важный смок. Блокирует AWP с CT. Кидается с Т-спавна (по линии крыши).</li>
+        <li><strong>Смок на Long (A Cross):</strong> Задымите место прострела с Short, чтобы безопасно перебежать.</li>
         <li><strong>Смок на B Doors:</strong> С верхних туннелей, чтобы CT не простреливали вход.</li>
+        <li><strong>Флешки на Long:</strong> Перед выходом кидай флешку в сторону Pit и Blue, чтобы она взорвалась в воздухе.</li>
       </ul>
       <h3>Защита (CT)</h3>
       <ul>
-        <li><strong>Long:</strong> Используйте укрытия (Pit, Blue, Car). Если враг в смоке — отходите к пленту.</li>
-        <li><strong>Mid:</strong> Не стойте на открытом месте, используйте двери как укрытие.</li>
+        <li><strong>Держи Long:</strong> Используй укрытия (Pit, Blue, Car). Если враг в смоке — отходи к пленту.</li>
+        <li><strong>Mid:</strong> Не стой на открытом месте, используй двери как укрытие и быстро отходи при пуше.</li>
+        <li><strong>Ретейк B:</strong> Заходи через двери и окно, используй HE и молотов, чтобы выбить Т с плента.</li>
       </ul>
     </div>
 
     <!-- INFERNO -->
     <div id="inferno" class="tab-content">
       <h2>🔥 Inferno</h2>
+      <p>Самая узкая карта. Всё решает контроль Банана и правильные задымления на А-пленте.</p>
       <h3>Атака (Т)</h3>
       <ul>
-        <li><strong>Контроль Банана:</strong> 80% успеха. Закидайте гранатами и займите его.</li>
-        <li><strong>Смок на Coffins (B):</strong> С Half Wall, изолирует сильную позицию CT.</li>
+        <li><strong>Контроль Банана:</strong> 80% успеха. Закидайте гранатами (молотов, флешки) и займите его.</li>
+        <li><strong>Смок на Coffins (B):</strong> С Half Wall, изолирует самую сильную позицию якоря CT.</li>
         <li><strong>Смок на Arch (A):</strong> Для выхода через Mid, убирает прострел с CT-спавна.</li>
+        <li><strong>Смок на Library (A):</strong> Задыми Library, чтобы убрать прострел со стороны CT.</li>
         <li><strong>Молотов на Balcony:</strong> С Boiler, чтобы выкурить CT с балкона.</li>
       </ul>
       <h3>Защита (CT)</h3>
       <ul>
-        <li><strong>Banana:</strong> Кидайте молотов (Car Molotov), чтобы задержать Т. Используйте pop-flash через стену.</li>
-        <li><strong>Позиции на А:</strong> Играйте от Pit, Library, Graveyard. Не стойте в центре.</li>
+        <li><strong>Banana:</strong> Кидай молотов (Car Molotov) в начале раунда. Используй pop-flash через стену.</li>
+        <li><strong>Позиции на А:</strong> Играй от Pit, Library, Graveyard. Не стой в центре плента.</li>
+        <li><strong>Ретейк B:</strong> Заходи через Coffins и New Box, используй молотов, чтобы выкурить Т из-за укрытий.</li>
       </ul>
+      <div class="tip-box"><strong>Совет:</strong> На Inferno очень часто решает один игрок на Banana. Учись кидать молотов с Car и правильно отходить.</div>
     </div>
 
     <!-- ANCIENT -->
     <div id="ancient" class="tab-content">
       <h2>🏛️ Ancient</h2>
+      <p>Карта решается гранатами и контролем мида. Заходы узкие, поэтому смоки критичны.</p>
       <h3>Атака (Т)</h3>
       <ul>
-        <li><strong>Захват мида:</strong> Смок на снайперскую позицию и смок на окно. Флешки в мид.</li>
-        <li><strong>Заход на A:</strong> Смок на Храм (Temple) — обязателен.</li>
-        <li><strong>Заход на B:</strong> Смок на B-Long и смок на Pit, чтобы безопасно занять Ruins.</li>
+        <li><strong>Захват мида:</strong> Смок на снайперскую позицию (с Т-спавна) и смок на окно. Флешки в мид, чтобы ослепить CT.</li>
+        <li><strong>Заход на A:</strong> Смок на Храм (Temple) — самый важный смок на карте. Кидается со штанов или лестницы.</li>
+        <li><strong>Заход на B:</strong> Смок на B-Long (с Т-спавна) и смок на Pit, чтобы безопасно занять Ruins/B Doors.</li>
+        <li><strong>Молотов на Cave:</strong> Если идешь на B, кинь молотов в Cave, чтобы выкурить якоря.</li>
       </ul>
       <h3>Защита (CT)</h3>
       <ul>
-        <li><strong>Ретейк A:</strong> Смоки на Temple, Donut и Heaven.</li>
-        <li><strong>Ретейк B:</strong> Смоки на Cave и Ramp.</li>
+        <li><strong>Ретейк A:</strong> Смоки на Temple, Donut и Heaven, чтобы безопасно зайти.</li>
+        <li><strong>Ретейк B:</strong> Смоки на Cave и Ramp, чтобы лишить Т удобных позиций.</li>
+        <li><strong>Контроль мида:</strong> Держи окно и снайперскую позицию, не давая Т пройти в центр.</li>
       </ul>
     </div>
 
     <!-- ANUBIS -->
     <div id="anubis" class="tab-content">
       <h2>🐊 Anubis</h2>
+      <p>Ключ к карте — контроль Mid и воды. Ротация между плентами быстрая, поэтому смоки должны отрезать подходы.</p>
       <h3>Атака (Т)</h3>
       <ul>
-        <li><strong>Заход на A:</strong> Смок на Heaven. Молотов под лестницу.</li>
-        <li><strong>Заход на B:</strong> Смок на Street. Флешки в Ruins.</li>
-        <li><strong>Mid:</strong> Займите Bridge, чтобы контролировать воду.</li>
+        <li><strong>Заход на A:</strong> Смок на Heaven (с Walkway), чтобы закрыть обзор. Молотов под лестницу, чтобы выкурить CT.</li>
+        <li><strong>Заход на B:</strong> Смок на Street (с Mid), чтобы безопасно подойти к Coffins. Флешки в Ruins.</li>
+        <li><strong>Mid:</strong> Займи Bridge, чтобы контролировать воду и иметь возможность сплита.</li>
+        <li><strong>Смок на Connector:</strong> Если идешь на B, задыми Connector, чтобы отрезать ротацию с А.</li>
       </ul>
       <h3>Защита (CT)</h3>
       <ul>
-        <li><strong>A:</strong> Держите Palace и Heaven. Используйте HE.</li>
-        <li><strong>B:</strong> Играйте от Ruins и Coffins.</li>
+        <li><strong>A:</strong> Держи Palace (высокая позиция) и Heaven. Используй HE, чтобы выбить Т из-под лестницы.</li>
+        <li><strong>B:</strong> Играй от Ruins и Coffins, но не засиживайся глубоко, чтобы успеть на ротацию.</li>
+        <li><strong>Ретейк A:</strong> Заходи через Heaven и Palace, используй смоки на выходе с плента.</li>
       </ul>
     </div>
 
     <!-- VERTIGO -->
     <div id="vertigo" class="tab-content">
       <h2>🏗️ Vertigo</h2>
+      <p>Очень открытые пленты. Без смоков заходить почти нереально. Много вертикальных позиций.</p>
       <h3>Атака (Т)</h3>
       <ul>
-        <li><strong>Смок на Девятку (A):</strong> Целься по второй плите у крана, джамптроу.</li>
-        <li><strong>Смок на Буст (A):</strong> По стыку лесов, целься в угол красной конструкции.</li>
-        <li><strong>Смок на Элеватор (A):</strong> Между желтыми трубами, джамптроу с ЛКМ+ПКМ.</li>
-        <li><strong>Смок за Электрик (B):</strong> Целься в замочек троса на перилах.</li>
+        <li><strong>Смок на Девятку (A):</strong> С угла у мешков с цементом, целься по второй плите у крана, джамптроу.</li>
+        <li><strong>Смок на Буст (A):</strong> По стыку лесов, целься в угол красной конструкции, ЛКМ без прыжка.</li>
+        <li><strong>Смок на Элеватор (A):</strong> Упереться в мешки, целься между желтыми трубами, джамптроу с ЛКМ+ПКМ.</li>
+        <li><strong>Смок за Электрик (B):</strong> Под лестницу, целься в замочек троса на перилах, ЛКМ.</li>
       </ul>
-      <h3>Совет</h3>
-      <div class="tip-box">На A используйте молотов под плент, чтобы выкурить CT с позиций.</div>
+      <h3>Защита (CT)</h3>
+      <ul>
+        <li><strong>Позиции на A:</strong> Используй высоту (Elevator, Scaffolding). Не стой на краю плента — тебя снимут с лестницы.</li>
+        <li><strong>Позиции на B:</strong> Играй от Electrical и Box. Используй молотов, чтобы задержать выход с лестницы.</li>
+        <li><strong>Ретейк A:</strong> Заходи через лестницу и CT-спавн, используй флешки, чтобы зачистить плент.</li>
+      </ul>
+      <div class="tip-box"><strong>Совет:</strong> На A используй молотов под плент, чтобы выкурить CT с позиций. На B — молотов за ящик.</div>
     </div>
 
     <!-- OVERPASS -->
     <div id="overpass" class="tab-content">
       <h2>🌉 Overpass</h2>
+      <p>Самая зависимая от гранат карта. Банк на A и Девятка на B решают всё.</p>
       <h3>Атака (Т)</h3>
       <ul>
-        <li><strong>Туалеты:</strong> Смок с фонтана, чтобы забрать Mid.</li>
-        <li><strong>Заход на A:</strong> Смок на Банк. Молотов на Машину.</li>
-        <li><strong>Заход на B:</strong> Смок на Девятку. Молотов на Пески.</li>
+        <li><strong>Туалеты:</strong> Смок с фонтана, чтобы забрать Mid. Молотов туда же, чтобы выкурить CT.</li>
+        <li><strong>Заход на A:</strong> Смок на Банк (обязательно). Молотов на Машину (с A-Long), чтобы выжечь укрытие.</li>
+        <li><strong>Заход на B:</strong> Смок на Девятку (с воды или катушки). Молотов на Пески.</li>
+        <li><strong>Мид:</strong> Займи контроль, чтобы отрезать ротацию между плентами.</li>
       </ul>
       <h3>Защита (CT)</h3>
       <ul>
-        <li><strong>B:</strong> Инста-смоки на Монстр и проход с воды.</li>
-        <li><strong>A:</strong> Задерживайте выход с Банана и Туалетов.</li>
+        <li><strong>B:</strong> Инста-смоки на Монстр и проход с воды прямо со спавна.</li>
+        <li><strong>A:</strong> Используй смоки, чтобы задержать выход с Банана и Туалетов.</li>
+        <li><strong>Ретейк A:</strong> Заходи через Туалеты и Bank, используй молотов, чтобы выкурить Т с плента.</li>
       </ul>
     </div>
 
