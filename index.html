@@ -12,6 +12,8 @@
     --text: #f8fafc;
     --accent: #fbbf24;
     --border: #334155;
+    --green: #10b981;
+    --red: #ef4444;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
   body { background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
@@ -38,6 +40,43 @@
   .tip-box { background: rgba(251, 191, 36, 0.1); border-left: 4px solid var(--accent); padding: 12px; border-radius: 0 8px 8px 0; margin: 15px 0; font-size: 14px; color: #e2e8f0; }
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   @media (max-width: 700px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  /* Конфиги */
+  .config-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+  .config-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  .config-card h3 { margin-top: 0; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+  .config-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }
+  .config-row span:first-child { color: #94a3b8; }
+  .config-row span:last-child { font-weight: 700; color: var(--accent); }
+  .code-box { background: #000; padding: 10px; border-radius: 8px; font-family: monospace; font-size: 12px; word-break: break-all; margin-top: 10px; border: 1px solid #333; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .copy-btn { background: var(--accent); color: #000; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 11px; white-space: nowrap; }
+  .copy-btn:hover { background: #e0a800; }
+
+  /* Квиз */
+  .quiz-start { text-align: center; padding: 40px 20px; }
+  .quiz-start h3 { margin-bottom: 20px; }
+  .btn-level { background: var(--border); color: var(--text); border: 2px solid transparent; padding: 15px 30px; border-radius: 10px; font-size: 16px; font-weight: bold; cursor: pointer; margin: 10px; transition: 0.3s; }
+  .btn-level:hover { border-color: var(--accent); transform: scale(1.05); }
+  .btn-easy:hover { background: #166534; }
+  .btn-medium:hover { background: #854d0e; }
+  .btn-hard:hover { background: #7f1d1d; }
+
+  .quiz-header { display: flex; justify-content: space-between; margin-bottom: 20px; font-weight: bold; color: var(--accent); }
+  .question-text { font-size: 18px; margin-bottom: 20px; font-weight: 700; }
+  .options-list { display: flex; flex-direction: column; gap: 10px; }
+  .option-btn { background: rgba(255,255,255,0.05); border: 2px solid var(--border); color: var(--text); padding: 15px; border-radius: 8px; font-size: 16px; cursor: pointer; text-align: left; transition: 0.2s; }
+  .option-btn:hover:not(:disabled) { border-color: var(--accent); background: rgba(251, 191, 36, 0.1); }
+  .option-btn.correct { background: rgba(16, 185, 129, 0.2); border-color: var(--green); color: var(--green); }
+  .option-btn.wrong { background: rgba(239, 68, 68, 0.2); border-color: var(--red); color: var(--red); }
+  .option-btn:disabled { cursor: not-allowed; opacity: 0.8; }
+
+  .next-btn { margin-top: 20px; background: var(--accent); color: #000; border: none; padding: 12px 30px; border-radius: 8px; font-weight: 900; font-size: 16px; cursor: pointer; display: none; width: 100%; }
+  .next-btn:hover { background: #e0a800; }
+
+  .quiz-result { text-align: center; padding: 30px; }
+  .quiz-result h3 { font-size: 28px; color: var(--accent); margin-bottom: 10px; }
+  .quiz-result p { font-size: 18px; margin-bottom: 20px; }
+  .restart-btn { background: var(--accent); color: #000; border: none; padding: 12px 30px; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer; }
 </style>
 </head>
 <body>
@@ -58,6 +97,8 @@
     <button class="tab-btn" onclick="openTab('train', event)">Train</button>
     <button class="tab-btn" onclick="openTab('office', event)">Office</button>
     <button class="tab-btn" onclick="openTab('italy', event)">Italy</button>
+    <button class="tab-btn" onclick="openTab('configs', event)">⚙️ Конфиги</button>
+    <button class="tab-btn" onclick="openTab('quiz', event)">🧠 Квиз</button>
   </div>
 
   <div class="content-box">
@@ -65,7 +106,6 @@
     <!-- ЭКОНОМИКА -->
     <div id="economy" class="tab-content active">
       <h2>💰 Экономика</h2>
-      
       <div class="grid-2">
         <div>
           <h3>Базовые доходы</h3>
@@ -76,7 +116,6 @@
             <li><strong>Победа (взрыв/дефуз):</strong> $3500 всей команде.</li>
             <li><strong>Время раунда:</strong> 1:55 (1 минута 55 секунд).</li>
           </ul>
-          
           <h3>Loss Bonus (за проигрыш)</h3>
           <ul>
             <li>1-е поражение подряд: $1400</li>
@@ -87,7 +126,6 @@
             <li><em>*Бонус сбрасывается, если вы выиграли раунд.</em></li>
           </ul>
         </div>
-
         <div>
           <h3>Дополнительные деньги</h3>
           <ul>
@@ -101,7 +139,6 @@
           </ul>
         </div>
       </div>
-
       <h3>Стратегии закупа</h3>
       <ul>
         <li><strong>Фулл-бай (Full Buy):</strong> Есть деньги на винтовку (AK/M4), броню, шлем, дефузер (для CT), 2-3 гранаты и комплект. Обычно это $4000+ у каждого игрока.</li>
@@ -109,7 +146,6 @@
         <li><strong>Эко (Eco):</strong> Полный отказ от закупа. Все сейвят деньги, чтобы накопить на фулл-бай через 1-2 раунда.</li>
         <li><strong>Халф-бай (Half Buy):</strong> Покупка дешевого оружия (пистолеты, Galil/Famas) + легкая броня, чтобы попытаться выиграть раунд и не сильно потратиться.</li>
       </ul>
-
       <div class="tip-box">
         <strong>Главные ошибки новичков:</strong><br>
         1. <strong>Форсить в одиночку:</strong> Если команда сказала «эко», не покупай винтовку. Ты просто подаришь её врагу и сломаешь экономику себе.<br>
@@ -122,7 +158,6 @@
     <div id="dust2" class="tab-content">
       <h2>🏜️ Dust 2</h2>
       <p>Карта длинных дистанций и снайперов. Здесь смок на Mid Doors решает половину раунда.</p>
-      
       <h3>Атака (Т-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -136,7 +171,6 @@
         <li><strong>Сплит Б:</strong> Один игрок идет через верхние туннели, другой через нижние. Кидайте смоки на B Doors и окно, чтобы синхронно зайти.</li>
         <li><strong>Контроль Mid:</strong> Если вы взяли Mid Doors, вы можете зайти на Short (Catwalk) и зажать А с двух сторон.</li>
       </ul>
-
       <h3>Защита (CT-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -154,7 +188,6 @@
     <div id="mirage" class="tab-content">
       <h2>🏜️ Mirage</h2>
       <p>Самая популярная карта в CS2. Здесь решает контроль центра (Mid) и правильные задымления на А-пленте.</p>
-      
       <h3>Атака (Т-сторона)</h3>
       <h4>Раскидки (Смоки и молотовы):</h4>
       <ul>
@@ -168,7 +201,6 @@
         <li><strong>Сплит А:</strong> Контролируйте Mid. Через Connector и Short заходите одновременно с двух сторон, чтобы CT не могли зажать вас в узком проходе.</li>
         <li><strong>Быстрый раш Б:</strong> Кидайте молотов в Апсы и сразу забегайте на плент, используя лестницу для контроля.</li>
       </ul>
-
       <h3>Защита (CT-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -187,7 +219,6 @@
     <div id="inferno" class="tab-content">
       <h2>🔥 Inferno</h2>
       <p>Самая узкая карта. Здесь всё решает контроль Банана (Banana) и правильные задымления на А-пленте.</p>
-      
       <h3>Атака (Т-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -202,7 +233,6 @@
         <li><strong>Быстрый раш Б:</strong> Закидайте Банан флешками и молотовым, затем быстро забегайте на плент. Используйте смок на Coffins, чтобы отрезать обзор.</li>
         <li><strong>Сплит А:</strong> Один игрок контролирует Mid, другой идет через Alt Mid (Апсы). Синхронный выход через Arch и Library.</li>
       </ul>
-
       <h3>Защита (CT-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -222,7 +252,6 @@
     <div id="nuke" class="tab-content">
       <h2>☢️ Nuke</h2>
       <p>Самая вертикальная карта. Здесь два плента (A и B) находятся друг над другом. Игра строится на контроле Outside, Ramp и Vents. Террористам нужно либо быстро брать A через Hut, либо контролировать нижний уровень (B).</p>
-      
       <h3>Атака (Т-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -236,7 +265,6 @@
         <li><strong>Быстрый раш А:</strong> Кидаем смоки на Heaven и Squeaky, все забегают через Hut на плент.</li>
         <li><strong>Контроль Outside:</strong> Если вы взяли Outside, вы можете зайти на A через Secret или спуститься на B через Ramp.</li>
       </ul>
-
       <h3>Защита (CT-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -256,7 +284,6 @@
     <div id="cache" class="tab-content">
       <h2>🏭 Cache</h2>
       <p>Легендарная карта вернулась в CS2! Она очень похожа на Mirage по структуре: три основных направления (A, Mid, B) и быстрые ротации. Главное — контроль Mid и Highway.</p>
-      
       <h3>Атака (Т-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -270,7 +297,6 @@
         <li><strong>Контроль Mid:</strong> Если вы взяли Mid, вы можете через Vents (вентиляцию) зайти на B или через Highway на A.</li>
         <li><strong>Сплит A:</strong> Заходите одновременно с A Main и Squeaky, предварительно задымив Highway.</li>
       </ul>
-      
       <h3>Защита (CT-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -289,7 +315,6 @@
     <div id="ancient" class="tab-content">
       <h2>🏛️ Ancient</h2>
       <p>Карта решается гранатами и контролем мида. Заходы узкие, поэтому смоки критичны. Очень важно не дать Т зайти в спину через мид.</p>
-      
       <h3>Атака (Т-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -303,7 +328,6 @@
         <li><strong>Быстрый раш А:</strong> Используйте смок на Temple и забегайте на плент. Не забудьте проверить Donut и Heaven.</li>
         <li><strong>Сплит B:</strong> Один игрок идет через B-Long, другой через Mid. Синхронный выход на плент.</li>
       </ul>
-
       <h3>Защита (CT-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -322,7 +346,6 @@
     <div id="anubis" class="tab-content">
       <h2>🐊 Anubis</h2>
       <p>Ключ к карте — контроль Mid и воды. Ротация между плентами быстрая, поэтому смоки должны отрезать подходы.</p>
-      
       <h3>Атака (Т-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -336,7 +359,6 @@
         <li><strong>Сплит B:</strong> Один игрок идет через Mid (воду), другой через B-Long. Задымите Street и Connector.</li>
         <li><strong>Контроль воды:</strong> Если вы контролируете воду, вы можете быстро ротироваться между плентами.</li>
       </ul>
-
       <h3>Защита (CT-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -355,7 +377,6 @@
     <div id="overpass" class="tab-content">
       <h2>🌉 Overpass</h2>
       <p>Самая зависимая от гранат карта. Банк на A и Девятка на B решают всё. Очень важно контролировать воду и мид.</p>
-      
       <h3>Атака (Т-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -369,7 +390,6 @@
         <li><strong>Быстрый раш Б:</strong> Кидайте смок на Девятку и молотов на Пески, затем быстро забегайте на плент.</li>
         <li><strong>Сплит А:</strong> Один игрок контролирует Туалеты, другой идет через А-лонг. Синхронный выход.</li>
       </ul>
-
       <h3>Защита (CT-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -388,7 +408,6 @@
     <div id="vertigo" class="tab-content">
       <h2>🏗️ Vertigo</h2>
       <p>Очень открытые пленты. Без смоков заходить почти нереально. Много вертикальных позиций, нужно всегда смотреть вверх.</p>
-      
       <h3>Атака (Т-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -402,7 +421,6 @@
         <li><strong>Раш А:</strong> Кидайте смоки на Девятку и Буст, затем быстро забегайте на плент. Используйте молотов под плент, чтобы выкурить CT.</li>
         <li><strong>Контроль лестницы:</strong> Если вы контролируете лестницу (Stairs), вы можете зайти на А с двух сторон.</li>
       </ul>
-
       <h3>Защита (CT-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -422,7 +440,6 @@
     <div id="train" class="tab-content">
       <h2>🚂 Train</h2>
       <p>Карта с огромным количеством вагонов и снайперских позиций. Главная особенность — игра на поездах (Boiler, Popdog). Здесь нужен идеальный контроль A-лонга и Ivy.</p>
-      
       <h3>Атака (Т-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -436,7 +453,6 @@
         <li><strong>Захват A-Long:</strong> Займите A-Long (Long Dog) и заставьте CT отойти. Затем заходите на плент через Main.</li>
         <li><strong>Сплит B:</strong> Один игрок идет через T-Connector, другой через Popdog (под поездом), зачищая углы.</li>
       </ul>
-
       <h3>Защита (CT-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -455,7 +471,6 @@
     <div id="office" class="tab-content">
       <h2>🏢 Office (Заложники)</h2>
       <p>Карта из режима «Заложники» (Hostage). CT должны спасти заложников из офиса на втором этаже. Т должны их удержать. Здесь нет бомбы, а игра идет на узких коридорах и постоянных прострелах.</p>
-      
       <h3>Атака (CT-сторона) — Спасение</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -468,7 +483,6 @@
         <li><strong>Заход через Garage:</strong> Самый популярный путь. Заходите синхронно после смоков.</li>
         <li><strong>Контроль Prodigy:</strong> Это главный коридор. Старайтесь не стоять в узком проходе, вас могут зажать.</li>
       </ul>
-
       <h3>Защита (Т-сторона) — Удержание</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -487,7 +501,6 @@
     <div id="italy" class="tab-content">
       <h2>🍕 Italy (Заложники)</h2>
       <p>Еще одна карта на заложников. Очень яркая и атмосферная. CT нужно спасти заложников с рынка (Market) или из дома. Т удерживают позиции на улицах. Карта полна узких улочек и крыш.</p>
-      
       <h3>Атака (CT-сторона) — Спасение</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -500,7 +513,6 @@
         <li><strong>Заход через Market:</strong> Заходите синхронно с двух сторон, используя смоки.</li>
         <li><strong>Контроль крыш:</strong> На Italy очень сильна позиция на крышах (Balcony). Если вы контролируете крышу, вы контролируете рынок.</li>
       </ul>
-
       <h3>Защита (Т-сторона) — Удержание</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -515,14 +527,278 @@
       </ul>
     </div>
 
+    <!-- CONFIGS -->
+    <div id="configs" class="tab-content">
+      <h2>⚙️ Конфиги про-игроков</h2>
+      <p>Коды прицелов (Crosshair) и основные настройки чувствительности. Чтобы установить прицел, зайди в настройки CS2 → «Игра» → «Прицел» → «Поделиться/импортировать» и вставь код.</p>
+      
+      <div class="config-grid">
+        <div class="config-card">
+          <h3>donk</h3>
+          <div class="config-row"><span>DPI</span><span>800</span></div>
+          <div class="config-row"><span>Сенса</span><span>1.25</span></div>
+          <div class="config-row"><span>eDPI</span><span>1000</span></div>
+          <div class="code-box">
+            <span id="code-donk">CSGO-SjKEt-tcrfL-SxbjY-bBFQ4-C8XXC</span>
+            <button class="copy-btn" onclick="copyCode('code-donk')">Копировать</button>
+          </div>
+        </div>
+
+        <div class="config-card">
+          <h3>deko</h3>
+          <div class="config-row"><span>DPI</span><span>400</span></div>
+          <div class="config-row"><span>Сенса</span><span>1.12 (или 2.8)</span></div>
+          <div class="config-row"><span>eDPI</span><span>~1000</span></div>
+          <div class="code-box">
+            <span id="code-deko">CSGO-T2yih-9qOC3-uSS6R-cZOUK-PCWzE</span>
+            <button class="copy-btn" onclick="copyCode('code-deko')">Копировать</button>
+          </div>
+        </div>
+
+        <div class="config-card">
+          <h3>kyousuke</h3>
+          <div class="config-row"><span>DPI</span><span>н/д</span></div>
+          <div class="config-row"><span>Сенса</span><span>н/д</span></div>
+          <div class="config-row"><span>eDPI</span><span>н/д</span></div>
+          <div class="code-box">
+            <span id="code-kyousuke">CSGO-eHZw3-8hCwT-qipDN-CHFWT-nQopQ</span>
+            <button class="copy-btn" onclick="copyCode('code-kyousuke')">Копировать</button>
+          </div>
+        </div>
+
+        <div class="config-card">
+          <h3>m0NESY</h3>
+          <div class="config-row"><span>DPI</span><span>н/д</span></div>
+          <div class="config-row"><span>Сенса</span><span>2.3</span></div>
+          <div class="config-row"><span>eDPI</span><span>н/д</span></div>
+          <div class="code-box">
+            <span id="code-m0nesy">CSGO-wAD3c-ykt5L-zvZ98-vBisR-6sWPA</span>
+            <button class="copy-btn" onclick="copyCode('code-m0nesy')">Копировать</button>
+          </div>
+        </div>
+
+        <div class="config-card">
+          <h3>ZywOo</h3>
+          <div class="config-row"><span>DPI</span><span>400</span></div>
+          <div class="config-row"><span>Сенса</span><span>2.0</span></div>
+          <div class="config-row"><span>eDPI</span><span>800</span></div>
+          <div class="code-box">
+            <span id="code-zywoo">CSGO-QBm2i-22Y3a-X8N8C-9GAPZ-pzJzN</span>
+            <button class="copy-btn" onclick="copyCode('code-zywoo')">Копировать</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div id="quiz" class="tab-content">
+      <h2>🧠 Квиз на знание CS2</h2>
+      
+      <!-- Экран старта -->
+      <div id="quiz-start-screen" class="quiz-start">
+        <h3>Выбери уровень сложности:</h3>
+        <button class="btn-level btn-easy" onclick="startQuiz('easy')">🟢 Легкий (8 вопросов)</button>
+        <button class="btn-level btn-medium" onclick="startQuiz('medium')">🟡 Средний (15 вопросов)</button>
+        <button class="btn-level btn-hard" onclick="startQuiz('hard')">🔴 Тяжелый (20 вопросов)</button>
+      </div>
+
+      <!-- Экран вопросов -->
+      <div id="quiz-game-screen" style="display: none;">
+        <div class="quiz-header">
+          <span id="quiz-progress">Вопрос 1/8</span>
+          <span id="quiz-score">Правильно: 0</span>
+        </div>
+        <div class="question-text" id="question-text">Текст вопроса...</div>
+        <div class="options-list" id="options-list">
+          <!-- Кнопки ответов будут тут -->
+        </div>
+        <button class="next-btn" id="next-btn" onclick="nextQuestion()">Следующий вопрос</button>
+      </div>
+
+      <!-- Экран результатов -->
+      <div id="quiz-result-screen" class="quiz-result" style="display: none;">
+        <h3 id="result-title">Результат</h3>
+        <p id="result-text">Ты ответил правильно на X из Y вопросов.</p>
+        <button class="restart-btn" onclick="restartQuiz()">Пройти еще раз</button>
+      </div>
+    </div>
+
   </div>
 
 <script>
+  // ===== ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК =====
   function openTab(tabId, event) {
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
     document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
     event.target.classList.add('active');
     document.getElementById(tabId).classList.add('active');
+  }
+
+  // ===== КОПИРОВАНИЕ КОДА КОНФИГОВ =====
+  function copyCode(elementId) {
+    const codeText = document.getElementById(elementId).innerText;
+    navigator.clipboard.writeText(codeText).then(() => {
+      const btn = document.querySelector(`#${elementId} + .copy-btn`);
+      const originalText = btn.innerText;
+      btn.innerText = 'Скопировано!';
+      setTimeout(() => { btn.innerText = originalText; }, 1500);
+    }).catch(err => {
+      alert('Не удалось скопировать. Выдели код вручную.');
+    });
+  }
+
+  // ===== КВИЗ =====
+  const quizData = {
+    easy: [
+      { q: "Сколько денег дается игроку в начале соревновательного матча?", a: ["$500", "$800", "$1000", "$1200"], c: 1 },
+      { q: "Сколько стоит дефузер (Defuse Kit)?", a: ["$200", "$400", "$600", "$1000"], c: 1 },
+      { q: "Сколько раундов нужно выиграть команде для победы в соревновательном режиме (MR12)?", a: ["10", "13", "15", "16"], c: 1 },
+      { q: "Какое оружие у Т-стороны считается 'винтовкой', если у CT это M4?", a: ["AWP", "AK-47", "Galil", "Famas"], c: 1 },
+      { q: "Сколько денег дает убийство из AWP?", a: ["$100", "$300", "$600", "$900"], c: 0 },
+      { q: "Сколько денег дает плант бомбы?", a: ["$300", "$500", "$800", "$1000"], c: 0 },
+      { q: "Какая карта является самой популярной в CS2?", a: ["Dust 2", "Mirage", "Inferno", "Nuke"], c: 1 },
+      { q: "Сколько длится раунд по времени?", a: ["1:30", "1:45", "1:55", "2:00"], c: 2 }
+    ],
+    medium: [
+      { q: "Какой максимальный Loss Bonus (бонус за проигрыш) в CS2?", a: ["$2400", "$2900", "$3400", "$4000"], c: 2 },
+      { q: "Сколько времени нужно для установки бомбы (без кита)?", a: ["3 сек", "4 сек", "5 сек", "10 сек"], c: 1 },
+      { q: "Какое оружие у CT дает больше всего денег за убийство?", a: ["AWP", "M4A1-S", "MP9", "Nova"], c: 3 },
+      { q: "Какой смок на Mirage считается самым важным для контроля мида?", a: ["Смок на CT", "Смок на Jungle", "Смок на Window", "Смок на Connector"], c: 2 },
+      { q: "Сколько денег стоит AK-47?", a: ["$2500", "$2700", "$3000", "$3100"], c: 1 },
+      { q: "Если команда проиграла 3 раунда подряд, сколько она получит за 4-й проигрыш?", a: ["$1900", "$2400", "$2900", "$3400"], c: 2 },
+      { q: "Что такое 'Эко' (Eco) раунд?", a: ["Покупка всего оружия", "Покупка только пистолетов", "Сохранение денег (нет закупа)", "Покупка только брони"], c: 2 },
+      { q: "На какой карте есть 'Банк' (Bank) на пленте A?", a: ["Mirage", "Overpass", "Inferno", "Ancient"], c: 1 },
+      { q: "Сколько денег дает дефуз бомбы (игроку)?", a: ["$100", "$300", "$500", "$800"], c: 1 },
+      { q: "Какая карта имеет два плента, расположенных вертикально (друг над другом)?", a: ["Vertigo", "Nuke", "Train", "Cache"], c: 1 },
+      { q: "Какое оружие лучше всего использовать на эко-раунде у Т?", a: ["Desert Eagle", "Glock", "Tec-9", "USP-S"], c: 1 },
+      { q: "Сколько денег дает выигрыш раунда (уничтожение врага)?", a: ["$2500", "$3000", "$3250", "$3500"], c: 2 },
+      { q: "За сколько секунд бомба взрывается после планта?", a: ["30", "40", "45", "50"], c: 1 },
+      { q: "Какой самый популярный пистолет у CT на пистолетном раунде?", a: ["Glock-18", "USP-S / P2000", "P250", "Desert Eagle"], c: 1 },
+      { q: "Что означает термин 'Сплит' (Split)?", a: ["Быстрый раш через одну точку", "Атака с двух разных направлений", "Защита одной точки", "Сохранение денег"], c: 1 }
+    ],
+    hard: [
+      { q: "Сколько eDPI у donk (800 DPI * 1.25)?", a: ["800", "900", "1000", "1200"], c: 2 },
+      { q: "Какой Loss Bonus будет, если команда проиграла 5 раундов подряд?", a: ["$2900", "$3000", "$3400", "$3500"], c: 2 },
+      { q: "Сколько времени нужно для дефуза бомбы с дефузером?", a: ["5 сек", "10 сек", "15 сек", "20 сек"], c: 1 },
+      { q: "За сколько секунд Т-сторона может добежать до плента A на Mirage (примерно)?", a: ["5 сек", "10 сек", "15 сек", "20 сек"], c: 2 },
+      { q: "Какое оружие дает $900 за убийство?", a: ["AWP", "Nova", "AK-47", "MP9"], c: 1 },
+      { q: "Какой про-игрок известен своим прицелом с кодом 'CSGO-QBm2i...'?", a: ["donk", "ZywOo", "m0NESY", "s1mple"], c: 1 },
+      { q: "На какой карте есть позиция 'Девятка' (Nine)?", a: ["Vertigo", "Nuke", "Train", "Cache"], c: 0 },
+      { q: "Сколько денег нужно, чтобы купить AWP + броню + дефузер?", a: ["$5000", "$5500", "$6000", "$6500"], c: 1 },
+      { q: "Что такое 'Смок на Z' на карте Cache?", a: ["Смок на мид", "Смок на A", "Смок на B", "Смок на выход с Т-спавна"], c: 0 },
+      { q: "Какой максимальный бонус за убийство из дробовика?", a: ["$300", "$600", "$900", "$1200"], c: 2 },
+      { q: "Сколько денег стоит кевлар + шлем?", a: ["$650", "$1000", "$1200", "$1500"], c: 1 },
+      { q: "Какая карта вернулась в CS2 и имеет позицию 'Highway'?", a: ["Train", "Cache", "Cobblestone", "Tuscan"], c: 1 },
+      { q: "Сколько времени дается Т-стороне на закладку бомбы?", a: ["1:30", "1:45", "1:55", "2:00"], c: 2 },
+      { q: "Что такое 'Форс-бай' (Force Buy)?", a: ["Сохранение денег", "Покупка всего возможного на остаток", "Покупка только пистолетов", "Покупка только гранат"], c: 1 },
+      { q: "На какой карте есть 'Библиотека' (Library)?", a: ["Inferno", "Mirage", "Overpass", "Ancient"], c: 0 },
+      { q: "Сколько денег дают за убийство из SMG?", a: ["$300", "$600", "$900", "$1000"], c: 1 },
+      { q: "Какой про-игрок известен как 'ZywOo' и играет на позиции AWP?", a: ["Французский снайпер", "Российский рифлер", "Датский капитан", "Бразильский игрок"], c: 0 },
+      { q: "Сколько денег дает выигрыш раунда за взрыв/дефуз?", a: ["$3000", "$3250", "$3500", "$4000"], c: 2 },
+      { q: "Какой термин означает 'задымление' в CS2?", a: ["Flash", "Smoke", "Molotov", "HE"], c: 1 },
+      { q: "Сколько секунд длится заморозка (Freeze Time) в начале раунда?", a: ["10 сек", "15 сек", "20 сек", "25 сек"], c: 2 }
+    ]
+  };
+
+  let currentQuiz = [];
+  let currentQuestionIndex = 0;
+  let score = 0;
+  let currentLevel = 'easy';
+
+  function startQuiz(level) {
+    currentLevel = level;
+    currentQuiz = quizData[level];
+    currentQuestionIndex = 0;
+    score = 0;
+
+    document.getElementById('quiz-start-screen').style.display = 'none';
+    document.getElementById('quiz-result-screen').style.display = 'none';
+    document.getElementById('quiz-game-screen').style.display = 'block';
+    
+    loadQuestion();
+  }
+
+  function loadQuestion() {
+    const qData = currentQuiz[currentQuestionIndex];
+    document.getElementById('quiz-progress').innerText = `Вопрос ${currentQuestionIndex + 1}/${currentQuiz.length}`;
+    document.getElementById('quiz-score').innerText = `Правильно: ${score}`;
+    document.getElementById('question-text').innerText = qData.q;
+    
+    const optionsContainer = document.getElementById('options-list');
+    optionsContainer.innerHTML = '';
+    
+    qData.a.forEach((option, index) => {
+      const btn = document.createElement('button');
+      btn.className = 'option-btn';
+      btn.innerText = option;
+      btn.onclick = () => selectAnswer(index, qData.c, btn);
+      optionsContainer.appendChild(btn);
+    });
+
+    document.getElementById('next-btn').style.display = 'none';
+  }
+
+  function selectAnswer(selectedIndex, correctIndex, btnElement) {
+    const allBtns = document.querySelectorAll('.option-btn');
+    allBtns.forEach(btn => btn.disabled = true); // Блокируем все кнопки
+
+    if (selectedIndex === correctIndex) {
+      btnElement.classList.add('correct');
+      score++;
+    } else {
+      btnElement.classList.add('wrong');
+      // Подсвечиваем правильный ответ зеленым
+      allBtns[correctIndex].classList.add('correct');
+    }
+
+    document.getElementById('quiz-score').innerText = `Правильно: ${score}`;
+    
+    const nextBtn = document.getElementById('next-btn');
+    nextBtn.style.display = 'block';
+    
+    if (currentQuestionIndex === currentQuiz.length - 1) {
+      nextBtn.innerText = 'Показать результат';
+    } else {
+      nextBtn.innerText = 'Следующий вопрос';
+    }
+  }
+
+  function nextQuestion() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < currentQuiz.length) {
+      loadQuestion();
+    } else {
+      showResult();
+    }
+  }
+
+  function showResult() {
+    document.getElementById('quiz-game-screen').style.display = 'none';
+    document.getElementById('quiz-result-screen').style.display = 'block';
+    
+    const total = currentQuiz.length;
+    const percent = (score / total) * 100;
+    
+    let title = "";
+    let text = `Ты ответил правильно на ${score} из ${total} вопросов (${percent}%).`;
+
+    if (score === total) {
+      title = "🏆 Идеально! Ты настоящий про!";
+    } else if (percent >= 80) {
+      title = "🔥 Отличный результат! Ты хорошо знаешь игру.";
+    } else if (percent >= 50) {
+      title = "👍 Неплохо, но есть куда расти.";
+    } else {
+      title = "📚 Нужно еще почитать гайды!";
+    }
+
+    document.getElementById('result-title').innerText = title;
+    document.getElementById('result-text').innerText = text;
+  }
+
+  function restartQuiz() {
+    document.getElementById('quiz-result-screen').style.display = 'none';
+    document.getElementById('quiz-start-screen').style.display = 'block';
   }
 </script>
 </body>
