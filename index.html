@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CS2 Мега-Гайд | Полный арсенал</title>
+<title>CS2: Полный Гайд</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -70,6 +70,15 @@
   .glossary-item strong { color: var(--accent); display: block; margin-bottom: 5px; font-size: 16px; }
   .glossary-item span { color: #cbd5e1; font-size: 14px; line-height: 1.5; }
 
+  /* Стили для команд */
+  .cmd-category { margin-bottom: 25px; }
+  .cmd-item { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 15px; flex-wrap: wrap; }
+  .cmd-info { flex: 1; min-width: 200px; }
+  .cmd-code { font-family: monospace; color: var(--accent); font-size: 13px; font-weight: bold; margin-bottom: 4px; display: block; }
+  .cmd-desc { font-size: 12px; color: #94a3b8; }
+  .cmd-copy-btn { background: var(--accent); color: #000; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 12px; white-space: nowrap; }
+  .cmd-copy-btn:hover { background: #e0a800; }
+
   .quiz-start { text-align: center; padding: 40px 20px; }
   .quiz-start h3 { margin-bottom: 20px; }
   .btn-level { background: var(--border); color: var(--text); border: 2px solid transparent; padding: 15px 30px; border-radius: 10px; font-size: 16px; font-weight: bold; cursor: pointer; margin: 10px; transition: 0.3s; width: 100%; max-width: 300px; }
@@ -115,18 +124,22 @@
     .tabs { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; padding-bottom: 5px; scrollbar-width: none; -ms-overflow-style: none; }
     .tabs::-webkit-scrollbar { display: none; }
     .tab-btn { flex-shrink: 0; }
+    
+    .cmd-item { flex-direction: column; align-items: stretch; }
+    .cmd-copy-btn { width: 100%; }
   }
 </style>
 </head>
 <body>
 
-  <h1>CS2: Полный Арсенал</h1>
+  <h1>CS2: Полный Гайд</h1>
 
   <div class="tabs">
     <button class="tab-btn active" onclick="openTab('economy', event)">💰 Экономика</button>
     <button class="tab-btn" onclick="openTab('weapons', event)">🔫 Оружие</button>
     <button class="tab-btn" onclick="openTab('crosshairs', event)">🎯 Прицелы</button>
     <button class="tab-btn" onclick="openTab('glossary', event)">📖 Сленг</button>
+    <button class="tab-btn" onclick="openTab('commands', event)">⌨️ Команды</button>
     <button class="tab-btn" onclick="openTab('dust2', event)">Dust 2</button>
     <button class="tab-btn" onclick="openTab('mirage', event)">Mirage</button>
     <button class="tab-btn" onclick="openTab('inferno', event)">Inferno</button>
@@ -291,11 +304,101 @@
       </div>
     </div>
 
+    <!-- КОМАНДЫ -->
+    <div id="commands" class="tab-content">
+      <h2>⌨️ Консольные команды CS2</h2>
+      <p>Полезные команды для тренировки, настройки и развлечения. Нажми «Копировать» и вставь в консоль (открывается на клавишу <code>~</code>).</p>
+      
+      <div class="tip-box"><strong>Важно:</strong> Команды из разделов «Тренировка» и «Разное» (noclip, god, give) работают только на локальном сервере с ботами и требуют включения <code>sv_cheats 1</code>.</div>
+
+      <!-- ТРЕНИРОВКА -->
+      <div class="cmd-category">
+        <h3>🎯 Тренировка и практика</h3>
+        <div class="cmd-item">
+          <div class="cmd-info"><span class="cmd-code">sv_cheats 1</span><span class="cmd-desc">Включает читы (обязательно для большинства команд ниже).</span></div>
+          <button class="cmd-copy-btn" onclick="copyCmd('sv_cheats 1')">Копировать</button>
+        </div>
+        <div class="cmd-item">
+          <div class="cmd-info"><span class="cmd-code">sv_infinite_ammo 1</span><span class="cmd-desc">Бесконечные патроны и гранаты.</span></div>
+          <button class="cmd-copy-btn" onclick="copyCmd('sv_infinite_ammo 1')">Копировать</button>
+        </div>
+        <div class="cmd-item">
+          <div class="cmd-info"><span class="cmd-code">sv_grenade_trajectory_prac_pipreview 1</span><span class="cmd-desc">Показывает траекторию полета гранаты в отдельном окошке.</span></div>
+          <button class="cmd-copy-btn" onclick="copyCmd('sv_grenade_trajectory_prac_pipreview 1')">Копировать</button>
+        </div>
+        <div class="cmd-item">
+          <div class="cmd-info"><span class="cmd-code">sv_showimpacts 1</span><span class="cmd-desc">Показывает точки попадания пуль.</span></div>
+          <button class="cmd-copy-btn" onclick="copyCmd('sv_showimpacts 1')">Копировать</button>
+        </div>
+        <div class="cmd-item">
+          <div class="cmd-info"><span class="cmd-code">mp_roundtime_defuse 60</span><span class="cmd-desc">Увеличивает время раунда до 60 минут.</span></div>
+          <button class="cmd-copy-btn" onclick="copyCmd('mp_roundtime_defuse 60')">Копировать</button>
+        </div>
+        <div class="cmd-item">
+          <div class="cmd-info"><span class="cmd-code">mp_startmoney 16000</span><span class="cmd-desc">Дает $16000 на старте.</span></div>
+          <button class="cmd-copy-btn" onclick="copyCmd('mp_startmoney 16000')">Копировать</button>
+        </div>
+        <div class="cmd-item">
+          <div class="cmd-info"><span class="cmd-code">mp_buy_anywhere 1</span><span class="cmd-desc">Позволяет покупать оружие в любом месте карты.</span></div>
+          <button class="cmd-copy-btn" onclick="copyCmd('mp_buy_anywhere 1')">Копировать</button>
+        </div>
+        <div class="cmd-item">
+          <div class="cmd-info"><span class="cmd-code">bot_kick</span><span class="cmd-desc">Убирает всех ботов с сервера.</span></div>
+          <button class="cmd-copy-btn" onclick="copyCmd('bot_kick')">Копировать</button>
+        </div>
+        <div class="cmd-item">
+          <div class="cmd-info"><span class="cmd-code">noclip</span><span class="cmd-desc">Режим полета сквозь стены.</span></div>
+          <button class="cmd-copy-btn" onclick="copyCmd('noclip')">Копировать</button>
+        </div>
+      </div>
+
+      <!-- НАСТРОЙКИ -->
+      <div class="cmd-category">
+        <h3>⚙️ Полезные настройки</h3>
+        <div class="cmd-item">
+          <div class="cmd-info"><span class="cmd-code">fps_max 0</span><span class="cmd-desc">Убирает лимит FPS (максимальная производительность).</span></div>
+          <button class="cmd-copy-btn" onclick="copyCmd('fps_max 0')">Копировать</button>
+        </div>
+        <div class="cmd-item">
+          <div class="cmd-info"><span class="cmd-code">cl_showfps 1</span><span class="cmd-desc">Показывает счетчик FPS в углу экрана.</span></div>
+          <button class="cmd-copy-btn" onclick="copyCmd('cl_showfps 1')">Копировать</button>
+        </div>
+        <div class="cmd-item">
+          <div class="cmd-info"><span class="cmd-code">cl_crosshairstyle 4</span><span class="cmd-desc">Ставит статичный прицел (не расширяется при стрельбе).</span></div>
+          <button class="cmd-copy-btn" onclick="copyCmd('cl_crosshairstyle 4')">Копировать</button>
+        </div>
+        <div class="cmd-item">
+          <div class="cmd-info"><span class="cmd-code">sensitivity 1.5</span><span class="cmd-desc">Устанавливает чувствительность мыши (замени 1.5 на свою).</span></div>
+          <button class="cmd-copy-btn" onclick="copyCmd('sensitivity 1.5')">Копировать</button>
+        </div>
+        <div class="cmd-item">
+          <div class="cmd-info"><span class="cmd-code">voice_scale 0.5</span><span class="cmd-desc">Уменьшает громкость голосового чата.</span></div>
+          <button class="cmd-copy-btn" onclick="copyCmd('voice_scale 0.5')">Копировать</button>
+        </div>
+      </div>
+
+      <!-- РАЗНОЕ -->
+      <div class="cmd-category">
+        <h3>🎮 Разное</h3>
+        <div class="cmd-item">
+          <div class="cmd-info"><span class="cmd-code">disconnect</span><span class="cmd-desc">Выход с текущего сервера.</span></div>
+          <button class="cmd-copy-btn" onclick="copyCmd('disconnect')">Копировать</button>
+        </div>
+        <div class="cmd-item">
+          <div class="cmd-info"><span class="cmd-code">retry</span><span class="cmd-desc">Переподключение к текущему серверу.</span></div>
+          <button class="cmd-copy-btn" onclick="copyCmd('retry')">Копировать</button>
+        </div>
+        <div class="cmd-item">
+          <div class="cmd-info"><span class="cmd-code">status</span><span class="cmd-desc">Показывает статистику сервера (пинг, тикрейт).</span></div>
+          <button class="cmd-copy-btn" onclick="copyCmd('status')">Копировать</button>
+        </div>
+      </div>
+    </div>
+
     <!-- DUST 2 -->
     <div id="dust2" class="tab-content">
       <h2>🏜️ Dust 2</h2>
       <p>Карта длинных дистанций и снайперов. Здесь смок на Mid Doors решает половину раунда.</p>
-      
       <h3>⏱️ Тайминги и позиции</h3>
       <div class="timing-grid">
         <div class="timing-card"><h4>Т: до A Long Doors</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
@@ -305,30 +408,18 @@
         <div class="timing-card"><h4>CT: до B Doors</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
         <div class="timing-card"><h4>CT: до Mid Doors</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
       </div>
-
       <h3>Атака (Т-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
-        <li><strong>Смок на Mid Doors:</strong> Это <strong>самый важный</strong> смок на карте. Блокирует прострел AWP с CT. Встань на спавне и целься в определенную точку на небе (обычно по линии крыши). Бросок обычный.</li>
-        <li><strong>Смок на Long (A Cross):</strong> Если вы идете на А через Long, нужно задымить место, где CT может простреливать вас с Short (Catwalk). Это позволяет безопасно перебежать.</li>
-        <li><strong>Смок на B Doors:</strong> С верхних туннелей, чтобы CT не простреливали вход в туннель. После этого можно заходить на плент.</li>
-        <li><strong>Флешки на Long:</strong> Перед выходом с дверей кидай флешку в сторону Pit и Blue. Она должна взорваться в воздухе, чтобы враг не успел отвернуться.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Сплит Б:</strong> Один игрок идет через верхние туннели, другой через нижние. Кидайте смоки на B Doors и окно, чтобы синхронно зайти.</li>
-        <li><strong>Контроль Mid:</strong> Если вы взяли Mid Doors, вы можете зайти на Short (Catwalk) и зажать А с двух сторон.</li>
+        <li><strong>Смок на Mid Doors:</strong> Блокирует прострел AWP с CT. Встань на спавне и целься в точку на небе (по линии крыши).</li>
+        <li><strong>Смок на Long (A Cross):</strong> Задымить место прострела с Short (Catwalk).</li>
+        <li><strong>Смок на B Doors:</strong> С верхних туннелей, чтобы CT не простреливали вход.</li>
       </ul>
       <h3>Защита (CT-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
-        <li><strong>Смок на Long Doors (с CT):</strong> В начале раунда можно задымить двери, чтобы Т не видели ваши позиции.</li>
-        <li><strong>Молотов на Long (с Pit):</strong> Если Т пушут Long, киньте молотов в сторону дверей, чтобы отрезать путь.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Держи Long:</strong> Если ты играешь на Long, твоя задача — не дать врагу выйти. Используй укрытия (Pit, Blue, Car). Если враг кинул смок на Cross, отходи ближе к пленту.</li>
-        <li><strong>Ретейк B:</strong> Заходите через двери и окно. Используйте HE и молотов, чтобы выбить Т с плента.</li>
+        <li><strong>Смок на Long Doors:</strong> В начале раунда, чтобы Т не видели позиции.</li>
+        <li><strong>Молотов на Long:</strong> Если Т пушут, отрезать путь.</li>
       </ul>
     </div>
 
@@ -336,7 +427,6 @@
     <div id="mirage" class="tab-content">
       <h2>🏜️ Mirage</h2>
       <p>Самая популярная карта в CS2. Здесь решает контроль центра (Mid) и правильные задымления на А-пленте.</p>
-      
       <h3>⏱️ Тайминги и позиции</h3>
       <div class="timing-grid">
         <div class="timing-card"><h4>Т: до A Ramp (выход на А)</h4><div class="timing-row"><span>Время</span><span>~10-12 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
@@ -346,39 +436,25 @@
         <div class="timing-card"><h4>CT: до Mid (Window)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
         <div class="timing-card"><h4>CT: до B Site (Bench)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
       </div>
-
       <h3>Атака (Т-сторона)</h3>
-      <h4>Раскидки (Смоки и молотовы):</h4>
+      <h4>Раскидки:</h4>
       <ul>
-        <li><strong>Смок на CT:</strong> Встань на Т-спавне у ящиков. Целься в палку на здании, делай прыжок-бросок (Jumpthrow). Отрезает обзор с CT-спавна.</li>
-        <li><strong>Смок на Jungle:</strong> Встань между двумя арками. Целься в верхний левый угол выступа на стене, обычный бросок (ЛКМ). Закрывает правую часть плента.</li>
-        <li><strong>Смок на Window:</strong> Встань перед мусоркой справа от Т-спавна. Целься в верх забора на стыке белой и красной стены. Зажми «D» и одновременно делай прыжок-бросок.</li>
-        <li><strong>Молотов под Palace:</strong> Если ты в Palace, встань к краю второй колонны от выхода. Целься в угол, где стена встречается с крышей, и беги вперед, отпуская молотов, когда пересечешь зеленую линию.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Сплит А:</strong> Контролируйте Mid. Через Connector и Short заходите одновременно с двух сторон, чтобы CT не могли зажать вас в узком проходе.</li>
-        <li><strong>Быстрый раш Б:</strong> Кидайте молотов в Апсы и сразу забегайте на плент, используя лестницу для контроля.</li>
+        <li><strong>Смок на CT:</strong> С Т-спавна у ящиков, прыжок-бросок. Отрезает обзор.</li>
+        <li><strong>Смок на Jungle:</strong> Между арками, в верхний левый угол выступа.</li>
+        <li><strong>Смок на Window:</strong> Перед мусоркой справа, зажми D + прыжок-бросок.</li>
       </ul>
       <h3>Защита (CT-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
-        <li><strong>Смок на Window (с CT):</strong> Для защиты мида можно кинуть смок на окно со стороны CT, чтобы Т не могли простреливать вас с Short.</li>
-        <li><strong>Молотов на Banana (Б):</strong> В начале раунда киньте молотов в сторону Апсов, чтобы замедлить выход Т.</li>
+        <li><strong>Смок на Window (с CT):</strong> Защита мида.</li>
+        <li><strong>Молотов на Banana (Б):</strong> В начале раунда, чтобы замедлить Т.</li>
       </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Позиции на А:</strong> Играйте от укрытий (Triple, Default, Jungle). Не стойте на открытом месте. Если враги кинули смоки на CT и Jungle, отходите вглубь плента или за стойку.</li>
-        <li><strong>Ретейк А:</strong> Если плент захвачен, заходите одновременно с Connector и Jungle. Используйте флешки, чтобы ослепить Т и выбить их с позиций.</li>
-      </ul>
-      <div class="tip-box"><strong>Совет:</strong> Очень важно не пускать Т в Коннектор. Если вы контролируете Коннектор, вы можете ротироваться между А и Б быстрее.</div>
     </div>
 
     <!-- INFERNO -->
     <div id="inferno" class="tab-content">
       <h2>🔥 Inferno</h2>
       <p>Самая узкая карта. Здесь всё решает контроль Банана (Banana) и правильные задымления на А-пленте.</p>
-      
       <h3>⏱️ Тайминги и позиции</h3>
       <div class="timing-grid">
         <div class="timing-card"><h4>Т: до Banana (Car)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
@@ -388,393 +464,179 @@
         <div class="timing-card"><h4>CT: до A Site (Pit)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
         <div class="timing-card"><h4>CT: до B Site (Coffins)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
       </div>
-
       <h3>Атака (Т-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
-        <li><strong>Контроль Банана:</strong> Это 80% успеха на Т-стороне. В начале раунда нужно закидать Банан гранатами (молотов, флешки) и занять его. Если вы контролируете Банан, вы можете идти на B или через Mid на A.</li>
-        <li><strong>Смок на Coffins (с Half Wall):</strong> Если вы зашли на B, задыми Coffins (гробы). Это изолирует самую сильную позицию якоря CT.</li>
-        <li><strong>Смок на Arch (с Mid):</strong> Для выхода на A через Mid или Alt Mid нужно задымить Arch (Арку), чтобы CT не простреливали вас со стороны спавна.</li>
-        <li><strong>Смок на Library (с Mid):</strong> Задыми Library (Библиотеку), чтобы убрать прострел со стороны CT на позицию T-спавна.</li>
-        <li><strong>Молотов на Balcony (с Boiler):</strong> Перед выходом на плент А, кинь молотов на балкон (Balcony), чтобы выкурить оттуда CT.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Быстрый раш Б:</strong> Закидайте Банан флешками и молотовым, затем быстро забегайте на плент. Используйте смок на Coffins, чтобы отрезать обзор.</li>
-        <li><strong>Сплит А:</strong> Один игрок контролирует Mid, другой идет через Alt Mid (Апсы). Синхронный выход через Arch и Library.</li>
+        <li><strong>Контроль Банана:</strong> 80% успеха. Закидать гранатами и занять.</li>
+        <li><strong>Смок на Coffins (с Half Wall):</strong> Изолирует позицию CT.</li>
+        <li><strong>Смок на Arch (с Mid):</strong> Для выхода на A.</li>
       </ul>
       <h3>Защита (CT-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
-        <li><strong>Car Molotov:</strong> В начале раунда киньте молотов с машины (Car) в сторону Банана, чтобы не дать Т занять позиции.</li>
-        <li><strong>Pop-flash на Банане:</strong> Используйте флешки, которые взрываются сразу за стеной, чтобы ослепить Т, выходящих с Банана.</li>
+        <li><strong>Car Molotov:</strong> С машины в сторону Банана.</li>
+        <li><strong>Pop-flash на Банане:</strong> Флешки за стеной.</li>
       </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Banana:</strong> Твоя задача — задержать врага. Если ты играешь B-сайт, учись правильно отходить, чтобы не умирать в первые 10 секунд.</li>
-        <li><strong>Позиции на А:</strong> Играй от укрытий (Pit, Library, Graveyard). Не стой в центре плента, тебя просто разберут с дистанции.</li>
-        <li><strong>Ретейк B:</strong> Заходите через Coffins и New Box, используйте молотов, чтобы выкурить Т из-за укрытий.</li>
-      </ul>
-      <div class="tip-box"><strong>Совет:</strong> На Inferno очень часто решает <strong>один игрок на Banana</strong>. Если ты играешь B-сайт, учись кидать молотов с Car (с первого оранжа) и правильно отходить.</div>
     </div>
 
-    <!-- NUKE (ПОЛНОЕ) -->
+    <!-- NUKE (сокращенно, как и было) -->
     <div id="nuke" class="tab-content">
       <h2>☢️ Nuke</h2>
-      <p>Самая вертикальная карта. Здесь два плента (A и B) находятся друг над другом.</p>
-      <h3>⏱️ Тайминги и позиции</h3>
+      <p>Самая вертикальная карта. Два плента друг над другом.</p>
+      <h3>⏱️ Тайминги</h3>
       <div class="timing-grid">
         <div class="timing-card"><h4>Т: до Hut (A)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
         <div class="timing-card"><h4>Т: до Outside (Secret)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до Ramp (спуск на B)</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
         <div class="timing-card"><h4>CT: до A Site (Heaven)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
         <div class="timing-card"><h4>CT: до B Site (Vents)</h4><div class="timing-row"><span>Время</span><span>~4-5 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до Ramp (B)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
       </div>
-      <h3>Атака (Т-сторона)</h3>
-      <h4>Раскидки:</h4>
+      <h3>Раскидки (Т)</h3>
       <ul>
-        <li><strong>Смок на Squeaky (A):</strong> Ставит дым, чтобы безопасно выйти из Hut. Кидается с T-спавна.</li>
-        <li><strong>Смок на Heaven (A):</strong> Критически важно задымить Heaven, иначе CT будут простреливать весь плент сверху.</li>
-        <li><strong>Смок на Vents (B):</strong> Блокирует выход с вентиляции, чтобы CT не зашли в спину при раше B.</li>
-        <li><strong>Смок на Mini (A):</strong> Закрывает позицию Mini, чтобы CT не простреливали с выхода на плент.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Быстрый раш А:</strong> Кидаем смоки на Heaven и Squeaky, все забегают через Hut на плент.</li>
-        <li><strong>Контроль Outside:</strong> Если вы взяли Outside, вы можете зайти на A через Secret или спуститься на B через Ramp.</li>
-      </ul>
-      <h3>Защита (CT-сторона)</h3>
-      <h4>Раскидки:</h4>
-      <ul>
-        <li><strong>Смок на Hut (A):</strong> Задерживает выход Т на A.</li>
-        <li><strong>Смок на Ramp (B):</strong> Перекрывает спуск на нижний плент, давая время занять позиции.</li>
-        <li><strong>Молотов на Outside:</strong> Кидается в начале раунда, чтобы замедлить Т, выходящих на улицу.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>A Site:</strong> Играйте от Heaven и Mini. Не стойте в центре плента.</li>
-        <li><strong>B Site:</strong> Держите Vents и Ramp. B — очень тесный плент, здесь решают гранаты и позиционирование.</li>
-        <li><strong>Ретейк:</strong> Заходите через Vents на B или через Secret на A. Обязательно используйте флешки.</li>
+        <li><strong>Смок на Squeaky (A):</strong> Безопасный выход из Hut.</li>
+        <li><strong>Смок на Heaven (A):</strong> Критически важно, иначе CT простреливают сверху.</li>
+        <li><strong>Смок на Vents (B):</strong> Блокирует выход CT.</li>
       </ul>
     </div>
 
-    <!-- CACHE (ПОЛНОЕ) -->
+    <!-- CACHE (сокращенно) -->
     <div id="cache" class="tab-content">
       <h2>🏭 Cache</h2>
-      <p>Легендарная карта вернулась в CS2! Она очень похожа на Mirage по структуре: три основных направления (A, Mid, B) и быстрые ротации.</p>
-      <h3>⏱️ Тайминги и позиции</h3>
+      <p>Легендарная карта вернулась в CS2! Похожа на Mirage по структуре.</p>
+      <h3>⏱️ Тайминги</h3>
       <div class="timing-grid">
         <div class="timing-card"><h4>Т: до A Main</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
         <div class="timing-card"><h4>Т: до Mid (Z)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до B Main</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
         <div class="timing-card"><h4>CT: до A Site (Quad)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до Mid (Highway)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до B Site (Checkers)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
       </div>
-      <h3>Атака (Т-сторона)</h3>
-      <h4>Раскидки:</h4>
+      <h3>Раскидки (Т)</h3>
       <ul>
-        <li><strong>Смок на Highway (A):</strong> С T-спавна, обычный бросок. Закрывает прострел с Highway, позволяя зайти на A через Main.</li>
-        <li><strong>Смок на Z (Mid):</strong> С T-спавна, беги к синей постройке, целься в верх зеленых панелей, прыжок-бросок. Блокирует выход CT в Mid.</li>
-        <li><strong>Смок на Checkers (B):</strong> Критически важно задымить Checkers, иначе CT будут простреливать спины при заходе на B.</li>
-        <li><strong>Смок на Squeaky (A):</strong> Закрывает выход с Squeaky, чтобы CT не зажали вас с двух сторон.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Контроль Mid:</strong> Если вы взяли Mid, вы можете через Vents (вентиляцию) зайти на B или через Highway на A.</li>
-        <li><strong>Сплит A:</strong> Заходите одновременно с A Main и Squeaky, предварительно задымив Highway.</li>
-      </ul>
-      <h3>Защита (CT-сторона)</h3>
-      <h4>Раскидки:</h4>
-      <ul>
-        <li><strong>Смок на A Main:</strong> С CT-спавна, прыжок-бросок. Задерживает выход Т на A.</li>
-        <li><strong>Смок на B Main:</strong> Перекрывает основной вход на B, давая время занять позиции.</li>
-        <li><strong>Смок на Mid:</strong> Ранний смок в Mid, чтобы Т не могли занять центр бесплатно.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>A Site:</strong> Играйте от Quad, Forklift или Highway. Не стойте в центре плента, вас разберут с Highway.</li>
-        <li><strong>B Site:</strong> Держите Checkers и New Box. Если Checkers потерян, отходите на плент и играйте на ретейк.</li>
+        <li><strong>Смок на Highway (A):</strong> Закрывает прострел.</li>
+        <li><strong>Смок на Z (Mid):</strong> Блокирует выход CT в Mid.</li>
+        <li><strong>Смок на Checkers (B):</strong> Критически важно для захода на B.</li>
       </ul>
     </div>
 
-    <!-- ANCIENT (ПОЛНОЕ) -->
+    <!-- ANCIENT (сокращенно) -->
     <div id="ancient" class="tab-content">
       <h2>🏛️ Ancient</h2>
-      <p>Карта решается гранатами и контролем мида. Заходы узкие, поэтому смоки критичны.</p>
-      <h3>⏱️ Тайминги и позиции</h3>
+      <p>Карта решается гранатами и контролем мида.</p>
+      <h3>⏱️ Тайминги</h3>
       <div class="timing-grid">
         <div class="timing-card"><h4>Т: до Mid (Top Mid)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
         <div class="timing-card"><h4>Т: до A Ramp</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до B Long</h4><div class="timing-row"><span>Время</span><span>~9-10 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
         <div class="timing-card"><h4>CT: до A Site (Temple)</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до Mid (Window)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до B Site (Cave)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
       </div>
-      <h3>Атака (Т-сторона)</h3>
-      <h4>Раскидки:</h4>
+      <h3>Раскидки (Т)</h3>
       <ul>
-        <li><strong>Захват мида:</strong> Смок на снайперскую позицию (с Т-спавна) и смок на окно. Флешки в мид, чтобы ослепить CT и не дать им занять выгодные позиции.</li>
-        <li><strong>Заход на A:</strong> Смок на Храм (Temple) — самый важный смок на карте. Кидается со штанов или лестницы. Закрывает обзор с CT-спавна и Heaven.</li>
-        <li><strong>Заход на B:</strong> Смок на B-Long (с Т-спавна) и смок на Pit, чтобы безопасно занять Ruins/B Doors.</li>
-        <li><strong>Молотов на Cave:</strong> Если идешь на B, кинь молотов в Cave, чтобы выкурить якоря и заставить их отойти.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Быстрый раш А:</strong> Используйте смок на Temple и забегайте на плент. Не забудьте проверить Donut и Heaven.</li>
-        <li><strong>Сплит B:</strong> Один игрок идет через B-Long, другой через Mid. Синхронный выход на плент.</li>
-      </ul>
-      <h3>Защита (CT-сторона)</h3>
-      <h4>Раскидки:</h4>
-      <ul>
-        <li><strong>Смок на Mid (с CT):</strong> Задымите мид, чтобы Т не могли занять центр и контролировать ротации.</li>
-        <li><strong>Молотов на Ramp (B):</strong> Кидайте молотов в Ramp, чтобы замедлить выход Т на B.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Ретейк A:</strong> Смоки на Temple, Donut и Heaven, чтобы безопасно зайти и зачистить плент.</li>
-        <li><strong>Ретейк B:</strong> Смоки на Cave и Ramp, чтобы лишить Т удобных позиций. Заходите с двух сторон.</li>
-        <li><strong>Контроль мида:</strong> Держи окно и снайперскую позицию, не давая Т пройти в центр.</li>
+        <li><strong>Захват мида:</strong> Смок на снайперскую позицию и окно.</li>
+        <li><strong>Заход на A:</strong> Смок на Храм (Temple) — самый важный.</li>
+        <li><strong>Заход на B:</strong> Смок на B-Long и Pit.</li>
       </ul>
     </div>
 
-    <!-- ANUBIS (ПОЛНОЕ) -->
+    <!-- ANUBIS (сокращенно) -->
     <div id="anubis" class="tab-content">
       <h2>🐊 Anubis</h2>
-      <p>Ключ к карте — контроль Mid и воды. Ротация между плентами быстрая, поэтому смоки должны отрезать подходы.</p>
-      <h3>⏱️ Тайминги и позиции</h3>
+      <p>Ключ к карте — контроль Mid и воды.</p>
+      <h3>⏱️ Тайминги</h3>
       <div class="timing-grid">
         <div class="timing-card"><h4>Т: до Mid (Bridge)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
         <div class="timing-card"><h4>Т: до A Main (Walkway)</h4><div class="timing-row"><span>Время</span><span>~9-10 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до B Long</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
         <div class="timing-card"><h4>CT: до A Site (Heaven)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до Mid (Water)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до B Site (Coffins)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
       </div>
-      <h3>Атака (Т-сторона)</h3>
-      <h4>Раскидки:</h4>
+      <h3>Раскидки (Т)</h3>
       <ul>
-        <li><strong>Заход на A:</strong> Смок на Heaven (с Walkway), чтобы закрыть обзор. Молотов под лестницу, чтобы выкурить CT с позиции.</li>
-        <li><strong>Заход на B:</strong> Смок на Street (с Mid), чтобы безопасно подойти к Coffins. Флешки в Ruins, чтобы ослепить якоря.</li>
-        <li><strong>Mid:</strong> Займи Bridge, чтобы контролировать воду и иметь возможность сплита.</li>
-        <li><strong>Смок на Connector:</strong> Если идешь на B, задыми Connector, чтобы отрезать ротацию с А.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Сплит B:</strong> Один игрок идет через Mid (воду), другой через B-Long. Задымите Street и Connector.</li>
-        <li><strong>Контроль воды:</strong> Если вы контролируете воду, вы можете быстро ротироваться между плентами.</li>
-      </ul>
-      <h3>Защита (CT-сторона)</h3>
-      <h4>Раскидки:</h4>
-      <ul>
-        <li><strong>Смок на Mid (с CT):</strong> Задымите Mid, чтобы Т не могли контролировать воду и Bridge.</li>
-        <li><strong>Молотов на Water (A):</strong> Если Т пушут воду, киньте молотов, чтобы отрезать путь.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>A:</strong> Держи Palace (высокая позиция) и Heaven. Используй HE, чтобы выбить Т из-под лестницы.</li>
-        <li><strong>B:</strong> Играй от Ruins и Coffins, но не засиживайся глубоко, чтобы успеть на ротацию.</li>
-        <li><strong>Ретейк A:</strong> Заходи через Heaven и Palace, используй смоки на выходе с плента.</li>
+        <li><strong>Заход на A:</strong> Смок на Heaven (с Walkway).</li>
+        <li><strong>Заход на B:</strong> Смок на Street (с Mid).</li>
+        <li><strong>Смок на Connector:</strong> Чтобы отрезать ротацию.</li>
       </ul>
     </div>
 
-    <!-- OVERPASS (ПОЛНОЕ) -->
+    <!-- OVERPASS (сокращенно) -->
     <div id="overpass" class="tab-content">
       <h2>🌉 Overpass</h2>
       <p>Самая зависимая от гранат карта. Банк на A и Девятка на B решают всё.</p>
-      <h3>⏱️ Тайминги и позиции</h3>
+      <h3>⏱️ Тайминги</h3>
       <div class="timing-grid">
         <div class="timing-card"><h4>Т: до Toilets (Mid)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
         <div class="timing-card"><h4>Т: до A Long</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до B Water</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
         <div class="timing-card"><h4>CT: до A Site (Bank)</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до Mid (Monster)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до B Site (Nine)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
       </div>
-      <h3>Атака (Т-сторона)</h3>
-      <h4>Раскидки:</h4>
+      <h3>Раскидки (Т)</h3>
       <ul>
-        <li><strong>Туалеты:</strong> Смок с фонтана, чтобы забрать Mid. Молотов туда же, чтобы выкурить CT.</li>
-        <li><strong>Заход на A:</strong> Смок на Банк (обязательно). Молотов на Машину (с A-Long), чтобы выжечь укрытие.</li>
-        <li><strong>Заход на B:</strong> Смок на Девятку (с воды или катушки). Молотов на Пески, чтобы выкурить якоря.</li>
-        <li><strong>Мид:</strong> Займи контроль, чтобы отрезать ротацию между плентами.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Быстрый раш Б:</strong> Кидайте смок на Девятку и молотов на Пески, затем быстро забегайте на плент.</li>
-        <li><strong>Сплит А:</strong> Один игрок контролирует Туалеты, другой идет через А-лонг. Синхронный выход.</li>
-      </ul>
-      <h3>Защита (CT-сторона)</h3>
-      <h4>Раскидки:</h4>
-      <ul>
-        <li><strong>Инста-смоки на B:</strong> Спавн-смоки на Монстр и проход с воды, чтобы Т не могли зайти.</li>
-        <li><strong>Смоки на A:</strong> Используйте смоки, чтобы задержать выход с Банана и Туалетов.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>B:</strong> Держите Монстр и воду. Не пускайте Т на плент.</li>
-        <li><strong>A:</strong> Используйте высоту (Bank, Heaven). Играйте от укрытий, не стойте на открытом месте.</li>
-        <li><strong>Ретейк A:</strong> Заходи через Туалеты и Bank, используй молотов, чтобы выкурить Т с плента.</li>
+        <li><strong>Туалеты:</strong> Смок с фонтана, чтобы забрать Mid.</li>
+        <li><strong>Заход на A:</strong> Смок на Банк (обязательно).</li>
+        <li><strong>Заход на B:</strong> Смок на Девятку.</li>
       </ul>
     </div>
 
-    <!-- VERTIGO (ПОЛНОЕ) -->
+    <!-- VERTIGO (сокращенно) -->
     <div id="vertigo" class="tab-content">
       <h2>🏗️ Vertigo</h2>
-      <p>Очень открытые пленты. Без смоков заходить почти нереально. Много вертикальных позиций.</p>
-      <h3>⏱️ Тайминги и позиции</h3>
+      <p>Очень открытые пленты. Без смоков заходить почти нереально.</p>
+      <h3>⏱️ Тайминги</h3>
       <div class="timing-grid">
-        <div class="timing-card"><h4>Т: до A Stairs (лестница)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
+        <div class="timing-card"><h4>Т: до A Stairs</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
         <div class="timing-card"><h4>Т: до Mid (Top Mid)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до B Ramp</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
         <div class="timing-card"><h4>CT: до A Site (Elevator)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до Mid (Scaffolding)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до B Site (Electrical)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
       </div>
-      <h3>Атака (Т-сторона)</h3>
-      <h4>Раскидки:</h4>
+      <h3>Раскидки (Т)</h3>
       <ul>
-        <li><strong>Смок на Девятку (A):</strong> С угла у мешков с цементом, целься по второй плите у крана, джамптроу (Jumpthrow).</li>
-        <li><strong>Смок на Буст (A):</strong> По стыку лесов, целься в угол красной конструкции, ЛКМ без прыжка. Закрывает позицию для буста.</li>
-        <li><strong>Смок на Элеватор (A):</strong> Упереться в мешки, целься между желтыми трубами, джамптроу с ЛКМ+ПКМ.</li>
-        <li><strong>Смок за Электрик (B):</strong> Под лестницу, целься в замочек троса на перилах, ЛКМ. Закрывает позицию за электрическим щитком.</li>
+        <li><strong>Смок на Девятку (A):</strong> Джамптроу.</li>
+        <li><strong>Смок на Буст (A):</strong> Закрывает позицию для буста.</li>
+        <li><strong>Смок на Элеватор (A):</strong> Между желтыми трубами.</li>
       </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Раш А:</strong> Кидайте смоки на Девятку и Буст, затем быстро забегайте на плент. Используйте молотов под плент, чтобы выкурить CT.</li>
-        <li><strong>Контроль лестницы:</strong> Если вы контролируете лестницу (Stairs), вы можете зайти на А с двух сторон.</li>
-      </ul>
-      <h3>Защита (CT-сторона)</h3>
-      <h4>Раскидки:</h4>
-      <ul>
-        <li><strong>Смок на Mid (с CT):</strong> Задымите Mid, чтобы Т не могли видеть ваши позиции.</li>
-        <li><strong>Молотов на Ramp (B):</strong> Кидайте молотов в Ramp, чтобы замедлить выход Т на B.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Позиции на A:</strong> Используй высоту (Elevator, Scaffolding). Не стой на краю плента — тебя снимут с лестницы.</li>
-        <li><strong>Позиции на B:</strong> Играй от Electrical и Box. Используй молотов, чтобы задержать выход с лестницы.</li>
-        <li><strong>Ретейк A:</strong> Заходи через лестницу и CT-спавн, используй флешки, чтобы зачистить плент.</li>
-      </ul>
-      <div class="tip-box"><strong>Совет:</strong> На A используй молотов под плент, чтобы выкурить CT с позиций. На B — молотов за ящик.</div>
     </div>
 
-    <!-- TRAIN (ПОЛНОЕ) -->
+    <!-- TRAIN (сокращенно) -->
     <div id="train" class="tab-content">
       <h2>🚂 Train</h2>
-      <p>Карта с огромным количеством вагонов и снайперских позиций. Главная особенность — игра на поездах (Boiler, Popdog).</p>
-      <h3>⏱️ Тайминги и позиции</h3>
+      <p>Карта с огромным количеством вагонов и снайперских позиций.</p>
+      <h3>⏱️ Тайминги</h3>
       <div class="timing-grid">
         <div class="timing-card"><h4>Т: до A Long (Long Dog)</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
         <div class="timing-card"><h4>Т: до Ivy (A)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до Popdog (B)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
         <div class="timing-card"><h4>CT: до A Site (Bomb Train)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до B Site (Upper B)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до Mid (Z)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
       </div>
-      <h3>Атака (Т-сторона)</h3>
-      <h4>Раскидки:</h4>
+      <h3>Раскидки (Т)</h3>
       <ul>
-        <li><strong>Смок на Z (Mid):</strong> С T-спавна, прыжок-бросок. Отрезает прострел с CT на Mid.</li>
-        <li><strong>Смок на Ivy (A):</strong> Закрывает выход с Ivy, чтобы CT не зажали вас с фланга.</li>
-        <li><strong>Смок на Bomb Train (A):</strong> Задымите поезд с бомбой, чтобы безопасно поставить бомбу.</li>
-        <li><strong>Смок на CT (A):</strong> Отрезает обзор с CT-спавна на плент.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Захват A-Long:</strong> Займите A-Long (Long Dog) и заставьте CT отойти. Затем заходите на плент через Main.</li>
-        <li><strong>Сплит B:</strong> Один игрок идет через T-Connector, другой через Popdog (под поездом), зачищая углы.</li>
-      </ul>
-      <h3>Защита (CT-сторона)</h3>
-      <h4>Раскидки:</h4>
-      <ul>
-        <li><strong>Смок на A Main:</strong> Задерживает выход Т на A.</li>
-        <li><strong>Смок на Popdog (B):</strong> Блокирует выход из-под поезда на B.</li>
-        <li><strong>Молотов на Ivy:</strong> Выкуривает Т, которые пытаются зайти на плент через Ivy.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>A Site:</strong> Играйте на поездах (Bomb Train, eBox). AWP очень сильна на A-Long.</li>
-        <li><strong>B Site:</strong> Держите Upper B (высокую позицию) и Popdog.</li>
+        <li><strong>Смок на Z (Mid):</strong> Отрезает прострел.</li>
+        <li><strong>Смок на Ivy (A):</strong> Закрывает фланг.</li>
+        <li><strong>Смок на Bomb Train (A):</strong> Безопасная постановка.</li>
       </ul>
     </div>
 
-    <!-- OFFICE (ПОЛНОЕ) -->
+    <!-- OFFICE (сокращенно) -->
     <div id="office" class="tab-content">
       <h2>🏢 Office (Заложники)</h2>
-      <p>Карта из режима «Заложники» (Hostage). CT должны спасти заложников из офиса на втором этаже.</p>
-      <h3>⏱️ Тайминги и позиции</h3>
+      <p>Карта из режима «Заложники».</p>
+      <h3>⏱️ Тайминги</h3>
       <div class="timing-grid">
         <div class="timing-card"><h4>CT: до Garage (вход)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
         <div class="timing-card"><h4>CT: до Main Hall</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до Prodigy</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
         <div class="timing-card"><h4>Т: до Garage (удержание)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до Prodigy (удержание)</h4><div class="timing-row"><span>Время</span><span>~4-5 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до Office (второй этаж)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
       </div>
-      <h3>Атака (CT-сторона) — Спасение</h3>
-      <h4>Раскидки:</h4>
+      <h3>Раскидки (CT)</h3>
       <ul>
-        <li><strong>Смок на Garage:</strong> Задымите гараж, чтобы безопасно подойти к зданию.</li>
-        <li><strong>Смок на Main Hall:</strong> Закрывает прострел из главного зала, когда вы заходите с улицы.</li>
-        <li><strong>Смок на Kitchen:</strong> Если вы идете через кухню, задымите ее, чтобы Т не прострелили вас с лестницы.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Заход через Garage:</strong> Самый популярный путь. Заходите синхронно после смоков.</li>
-        <li><strong>Контроль Prodigy:</strong> Это главный коридор. Старайтесь не стоять в узком проходе, вас могут зажать.</li>
-      </ul>
-      <h3>Защита (Т-сторона) — Удержание</h3>
-      <h4>Раскидки:</h4>
-      <ul>
-        <li><strong>Молотов на Garage:</strong> Не давайте CT зайти в гараж.</li>
-        <li><strong>Смок на Main Hall:</strong> Перекройте главный зал, чтобы снизить видимость.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Офис:</strong> Держите заложника в офисе на втором этаже. Основные позиции — у окон и дверей.</li>
-        <li><strong>Узкие проходы:</strong> Office — это карта для дробовиков и SMG. В узких коридорах они deadly.</li>
-        <li><strong>Контроль Prodigy:</strong> Не пускайте CT в Prodigy, иначе они будут постоянно давить.</li>
+        <li><strong>Смок на Garage:</strong> Безопасный подход.</li>
+        <li><strong>Смок на Main Hall:</strong> Закрывает прострел.</li>
       </ul>
     </div>
 
-    <!-- ITALY (ПОЛНОЕ) -->
+    <!-- ITALY (сокращенно) -->
     <div id="italy" class="tab-content">
       <h2>🍕 Italy (Заложники)</h2>
-      <p>Еще одна карта на заложников. Очень яркая и атмосферная. CT нужно спасти заложников с рынка (Market).</p>
-      <h3>⏱️ Тайминги и позиции</h3>
+      <p>Карта на заложников с рынком (Market).</p>
+      <h3>⏱️ Тайминги</h3>
       <div class="timing-grid">
         <div class="timing-card"><h4>CT: до Market</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
         <div class="timing-card"><h4>CT: до Long</h4><div class="timing-row"><span>Время</span><span>~9-10 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до Stairs (балкон)</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
         <div class="timing-card"><h4>Т: до Market (удержание)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до Long (удержание)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до Balcony (крыша)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
       </div>
-      <h3>Атака (CT-сторона) — Спасение</h3>
-      <h4>Раскидки:</h4>
+      <h3>Раскидки (CT)</h3>
       <ul>
-        <li><strong>Смок на Market:</strong> Задымите рынок, чтобы безопасно подойти к заложнику.</li>
-        <li><strong>Смок на Stairs (сверху):</strong> Закрывает прострел с балкона, когда вы заходите на рынок.</li>
-        <li><strong>Смок на Long:</strong> Блокирует прострел с длинной улицы.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Заход через Market:</strong> Заходите синхронно с двух сторон, используя смоки.</li>
-        <li><strong>Контроль крыш:</strong> На Italy очень сильна позиция на крышах (Balcony). Если вы контролируете крышу, вы контролируете рынок.</li>
-      </ul>
-      <h3>Защита (Т-сторона) — Удержание</h3>
-      <h4>Раскидки:</h4>
-      <ul>
-        <li><strong>Молотов на Market:</strong> Выкуривает CT с рынка.</li>
-        <li><strong>Смок на Long:</strong> Перекрывает вход с длинной улицы.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Рынок:</strong> Держите Market и Balcony. Не пускайте CT на крышу.</li>
-        <li><strong>Дом:</strong> Держите лестницы и окна. Италия очень любит дробовики и позиции в узких местах.</li>
-        <li><strong>Контроль Long:</strong> Не дайте CT пройти через Long, иначе они зайдут в спину.</li>
+        <li><strong>Смок на Market:</strong> Безопасный подход к заложнику.</li>
+        <li><strong>Смок на Stairs (сверху):</strong> Закрывает балкон.</li>
       </ul>
     </div>
 
@@ -822,6 +684,14 @@
       setTimeout(() => { btn.innerText = originalText; }, 1500);
     }).catch(err => {
       alert('Не удалось скопировать. Выдели код вручную.');
+    });
+  }
+
+  function copyCmd(cmdText) {
+    navigator.clipboard.writeText(cmdText).then(() => {
+      alert('Команда скопирована: ' + cmdText);
+    }).catch(err => {
+      alert('Не удалось скопировать. Выдели команду вручную.');
     });
   }
 
