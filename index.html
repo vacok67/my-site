@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CS2 Мега-Гайд | Экономика и Карты</title>
+<title>CS2 Мега-Гайд | Полный арсенал</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -17,12 +17,12 @@
   body { background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
   h1 { color: var(--accent); margin-bottom: 20px; font-weight: 900; text-transform: uppercase; text-align: center; }
   
-  .tabs { display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center; max-width: 1000px; }
-  .tab-btn { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: 700; font-size: 13px; transition: all 0.2s; }
+  .tabs { display: flex; gap: 5px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center; max-width: 1100px; }
+  .tab-btn { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: 700; font-size: 12px; transition: all 0.2s; }
   .tab-btn:hover { border-color: var(--accent); }
   .tab-btn.active { background: var(--accent); color: #0f172a; border-color: var(--accent); }
 
-  .content-box { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 25px; width: 100%; max-width: 1000px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+  .content-box { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 25px; width: 100%; max-width: 1100px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
   .tab-content { display: none; animation: fadeIn 0.3s ease; }
   .tab-content.active { display: block; }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -42,7 +42,7 @@
 </head>
 <body>
 
-  <h1>CS2: Мега-Гайд</h1>
+  <h1>CS2: Полный Арсенал</h1>
 
   <div class="tabs">
     <button class="tab-btn active" onclick="openTab('economy', event)">💰 Экономика</button>
@@ -53,6 +53,11 @@
     <button class="tab-btn" onclick="openTab('anubis', event)">Anubis</button>
     <button class="tab-btn" onclick="openTab('vertigo', event)">Vertigo</button>
     <button class="tab-btn" onclick="openTab('overpass', event)">Overpass</button>
+    <button class="tab-btn" onclick="openTab('cache', event)">Cache</button>
+    <button class="tab-btn" onclick="openTab('nuke', event)">Nuke</button>
+    <button class="tab-btn" onclick="openTab('train', event)">Train</button>
+    <button class="tab-btn" onclick="openTab('office', event)">Office</button>
+    <button class="tab-btn" onclick="openTab('italy', event)">Italy</button>
   </div>
 
   <div class="content-box">
@@ -97,7 +102,7 @@
         </div>
       </div>
 
-      <h3>Стратегии закупа (Базовые правила)</h3>
+      <h3>Стратегии закупа</h3>
       <ul>
         <li><strong>Фулл-бай (Full Buy):</strong> Есть деньги на винтовку (AK/M4), броню, шлем, дефузер (для CT), 2-3 гранаты и комплект. Обычно это $4000+ у каждого игрока.</li>
         <li><strong>Форс-бай (Force Buy):</strong> Покупка всего возможного на ограниченные деньги (например, Mac-10 + броня без шлема). Делается, чтобы сломать серию врага или спасти раунд.</li>
@@ -343,6 +348,170 @@
         <li><strong>B:</strong> Держите Монстр и воду. Не пускайте Т на плент.</li>
         <li><strong>A:</strong> Используйте высоту (Bank, Heaven). Играйте от укрытий, не стойте на открытом месте.</li>
         <li><strong>Ретейк A:</strong> Заходи через Туалеты и Bank, используй молотов, чтобы выкурить Т с плента.</li>
+      </ul>
+    </div>
+
+    <!-- CACHE -->
+    <div id="cache" class="tab-content">
+      <h2>🏭 Cache</h2>
+      <p>Легендарная карта вернулась в CS2! Она очень похожа на Mirage по структуре: три основных направления (A, Mid, B) и быстрые ротации. Главное — контроль Mid и Highway.</p>
+      
+      <h3>Атака (Т-сторона)</h3>
+      <h4>Раскидки:</h4>
+      <ul>
+        <li><strong>Смок на Highway (A):</strong> С T-спавна, обычный бросок. Закрывает прострел с Highway, позволяя зайти на A через Main.</li>
+        <li><strong>Смок на Z (Mid):</strong> С T-спавна, беги к синей постройке, целься в верх зеленых панелей, прыжок-бросок. Блокирует выход CT в Mid.</li>
+        <li><strong>Смок на Checkers (B):</strong> Критически важно задымить Checkers, иначе CT будут простреливать спины при заходе на B.</li>
+        <li><strong>Смок на Squeaky (A):</strong> Закрывает выход с Squeaky, чтобы CT не зажали вас с двух сторон.</li>
+      </ul>
+      <h4>Тактика:</h4>
+      <ul>
+        <li><strong>Контроль Mid:</strong> Если вы взяли Mid, вы можете через Vents (вентиляцию) зайти на B или через Highway на A.</li>
+        <li><strong>Сплит A:</strong> Заходите одновременно с A Main и Squeaky, предварительно задымив Highway.</li>
+      </ul>
+      
+      <h3>Защита (CT-сторона)</h3>
+      <h4>Раскидки:</h4>
+      <ul>
+        <li><strong>Смок на A Main:</strong> С CT-спавна, прыжок-бросок. Задерживает выход Т на A.</li>
+        <li><strong>Смок на B Main:</strong> Перекрывает основной вход на B, давая время занять позиции.</li>
+        <li><strong>Смок на Mid:</strong> Ранний смок в Mid, чтобы Т не могли занять центр бесплатно.</li>
+      </ul>
+      <h4>Тактика:</h4>
+      <ul>
+        <li><strong>A Site:</strong> Играйте от Quad, Forklift или Highway. Не стойте в центре плента, вас разберут с Highway.</li>
+        <li><strong>B Site:</strong> Держите Checkers и New Box. Если Checkers потерян, отходите на плент и играйте на ретейк.</li>
+      </ul>
+    </div>
+
+    <!-- NUKE -->
+    <div id="nuke" class="tab-content">
+      <h2>☢️ Nuke</h2>
+      <p>Самая вертикальная карта. Здесь два плента (A и B) находятся друг над другом. Игра строится на контроле Outside, Ramp и Vents. Террористам нужно либо быстро брать A через Hut, либо контролировать нижний уровень (B).</p>
+      
+      <h3>Атака (Т-сторона)</h3>
+      <h4>Раскидки:</h4>
+      <ul>
+        <li><strong>Смок на Squeaky (A):</strong> Ставит дым, чтобы безопасно выйти из Hut. Кидается с T-спавна.</li>
+        <li><strong>Смок на Heaven (A):</strong> Критически важно задымить Heaven, иначе CT будут простреливать весь плент сверху.</li>
+        <li><strong>Смок на Vents (B):</strong> Блокирует выход с вентиляции, чтобы CT не зашли в спину при раше B.</li>
+        <li><strong>Смок на Mini (A):</strong> Закрывает позицию Mini, чтобы CT не простреливали с выхода на плент.</li>
+      </ul>
+      <h4>Тактика:</h4>
+      <ul>
+        <li><strong>Быстрый раш А:</strong> Кидаем смоки на Heaven и Squeaky, все забегают через Hut на плент.</li>
+        <li><strong>Контроль Outside:</strong> Если вы взяли Outside, вы можете зайти на A через Secret или спуститься на B через Ramp.</li>
+      </ul>
+
+      <h3>Защита (CT-сторона)</h3>
+      <h4>Раскидки:</h4>
+      <ul>
+        <li><strong>Смок на Hut (A):</strong> Задерживает выход Т на A.</li>
+        <li><strong>Смок на Ramp (B):</strong> Перекрывает спуск на нижний плент, давая время занять позиции.</li>
+        <li><strong>Молотов на Outside:</strong> Кидается в начале раунда, чтобы замедлить Т, выходящих на улицу.</li>
+      </ul>
+      <h4>Тактика:</h4>
+      <ul>
+        <li><strong>A Site:</strong> Играйте от Heaven и Mini. Не стойте в центре плента.</li>
+        <li><strong>B Site:</strong> Держите Vents и Ramp. B — очень тесный плент, здесь решают гранаты и позиционирование.</li>
+        <li><strong>Ретейк:</strong> Заходите через Vents на B или через Secret на A. Обязательно используйте флешки.</li>
+      </ul>
+    </div>
+
+    <!-- TRAIN -->
+    <div id="train" class="tab-content">
+      <h2>🚂 Train</h2>
+      <p>Карта с огромным количеством вагонов и снайперских позиций. Главная особенность — игра на поездах (Boiler, Popdog). Здесь нужен идеальный контроль A-лонга и Ivy.</p>
+      
+      <h3>Атака (Т-сторона)</h3>
+      <h4>Раскидки:</h4>
+      <ul>
+        <li><strong>Смок на Z (Mid):</strong> С T-спавна, прыжок-бросок. Отрезает прострел с CT на Mid.</li>
+        <li><strong>Смок на Ivy (A):</strong> Закрывает выход с Ivy, чтобы CT не зажали вас с фланга.</li>
+        <li><strong>Смок на Bomb Train (A):</strong> Задымите поезд с бомбой, чтобы безопасно поставить бомбу.</li>
+        <li><strong>Смок на CT (A):</strong> Отрезает обзор с CT-спавна на плент.</li>
+      </ul>
+      <h4>Тактика:</h4>
+      <ul>
+        <li><strong>Захват A-Long:</strong> Займите A-Long (Long Dog) и заставьте CT отойти. Затем заходите на плент через Main.</li>
+        <li><strong>Сплит B:</strong> Один игрок идет через T-Connector, другой через Popdog (под поездом), зачищая углы.</li>
+      </ul>
+
+      <h3>Защита (CT-сторона)</h3>
+      <h4>Раскидки:</h4>
+      <ul>
+        <li><strong>Смок на A Main:</strong> Задерживает выход Т на A.</li>
+        <li><strong>Смок на Popdog (B):</strong> Блокирует выход из-под поезда на B.</li>
+        <li><strong>Молотов на Ivy:</strong> Выкуривает Т, которые пытаются зайти на плент через Ivy.</li>
+      </ul>
+      <h4>Тактика:</h4>
+      <ul>
+        <li><strong>A Site:</strong> Играйте на поездах (Bomb Train, eBox). AWP очень сильна на A-Long.</li>
+        <li><strong>B Site:</strong> Держите Upper B (высокую позицию) и Popdog.</li>
+      </ul>
+    </div>
+
+    <!-- OFFICE -->
+    <div id="office" class="tab-content">
+      <h2>🏢 Office (Заложники)</h2>
+      <p>Карта из режима «Заложники» (Hostage). CT должны спасти заложников из офиса на втором этаже. Т должны их удержать. Здесь нет бомбы, а игра идет на узких коридорах и постоянных прострелах.</p>
+      
+      <h3>Атака (CT-сторона) — Спасение</h3>
+      <h4>Раскидки:</h4>
+      <ul>
+        <li><strong>Смок на Garage:</strong> Задымите гараж, чтобы безопасно подойти к зданию.</li>
+        <li><strong>Смок на Main Hall:</strong> Закрывает прострел из главного зала, когда вы заходите с улицы.</li>
+        <li><strong>Смок на Kitchen:</strong> Если вы идете через кухню, задымите ее, чтобы Т не прострелили вас с лестницы.</li>
+      </ul>
+      <h4>Тактика:</h4>
+      <ul>
+        <li><strong>Заход через Garage:</strong> Самый популярный путь. Заходите синхронно после смоков.</li>
+        <li><strong>Контроль Prodigy:</strong> Это главный коридор. Старайтесь не стоять в узком проходе, вас могут зажать.</li>
+      </ul>
+
+      <h3>Защита (Т-сторона) — Удержание</h3>
+      <h4>Раскидки:</h4>
+      <ul>
+        <li><strong>Молотов на Garage:</strong> Не давайте CT зайти в гараж.</li>
+        <li><strong>Смок на Main Hall:</strong> Перекройте главный зал, чтобы снизить видимость.</li>
+      </ul>
+      <h4>Тактика:</h4>
+      <ul>
+        <li><strong>Офис:</strong> Держите заложника в офисе на втором этаже. Основные позиции — у окон и дверей.</li>
+        <li><strong>Узкие проходы:</strong> Office — это карта для дробовиков и SMG. В узких коридорах они deadly.</li>
+        <li><strong>Контроль Prodigy:</strong> Не пускайте CT в Prodigy, иначе они будут постоянно давить.</li>
+      </ul>
+    </div>
+
+    <!-- ITALY -->
+    <div id="italy" class="tab-content">
+      <h2>🍕 Italy (Заложники)</h2>
+      <p>Еще одна карта на заложников. Очень яркая и атмосферная. CT нужно спасти заложников с рынка (Market) или из дома. Т удерживают позиции на улицах. Карта полна узких улочек и крыш.</p>
+      
+      <h3>Атака (CT-сторона) — Спасение</h3>
+      <h4>Раскидки:</h4>
+      <ul>
+        <li><strong>Смок на Market:</strong> Задымите рынок, чтобы безопасно подойти к заложнику.</li>
+        <li><strong>Смок на Stairs (сверху):</strong> Закрывает прострел с балкона, когда вы заходите на рынок.</li>
+        <li><strong>Смок на Long:</strong> Блокирует прострел с длинной улицы.</li>
+      </ul>
+      <h4>Тактика:</h4>
+      <ul>
+        <li><strong>Заход через Market:</strong> Заходите синхронно с двух сторон, используя смоки.</li>
+        <li><strong>Контроль крыш:</strong> На Italy очень сильна позиция на крышах (Balcony). Если вы контролируете крышу, вы контролируете рынок.</li>
+      </ul>
+
+      <h3>Защита (Т-сторона) — Удержание</h3>
+      <h4>Раскидки:</h4>
+      <ul>
+        <li><strong>Молотов на Market:</strong> Выкуривает CT с рынка.</li>
+        <li><strong>Смок на Long:</strong> Перекрывает вход с длинной улицы.</li>
+      </ul>
+      <h4>Тактика:</h4>
+      <ul>
+        <li><strong>Рынок:</strong> Держите Market и Balcony. Не пускайте CT на крышу.</li>
+        <li><strong>Дом:</strong> Держите лестницы и окна. Италия очень любит дробовики и позиции в узких местах.</li>
+        <li><strong>Контроль Long:</strong> Не дайте CT пройти через Long, иначе они зайдут в спину.</li>
       </ul>
     </div>
 
