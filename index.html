@@ -19,33 +19,11 @@
   body { background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
   h1 { color: var(--accent); margin-bottom: 20px; font-weight: 900; text-transform: uppercase; text-align: center; font-size: 24px; }
   
-  /* --- ВКЛАДКИ --- */
-  .tabs { 
-    display: flex; 
-    gap: 5px; 
-    margin-bottom: 20px; 
-    width: 100%; 
-    max-width: 1100px; 
-    flex-wrap: wrap; /* На ПК переносятся аккуратно */
-    justify-content: center;
-  }
-
-  .tab-btn { 
-    background: var(--card); 
-    border: 1px solid var(--border); 
-    color: var(--text); 
-    padding: 8px 12px; 
-    border-radius: 6px; 
-    cursor: pointer; 
-    font-weight: 700; 
-    font-size: 12px; 
-    transition: all 0.2s; 
-    white-space: nowrap; 
-  }
+  .tabs { display: flex; gap: 5px; margin-bottom: 20px; width: 100%; max-width: 1100px; flex-wrap: wrap; justify-content: center; }
+  .tab-btn { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: 700; font-size: 12px; transition: all 0.2s; white-space: nowrap; }
   .tab-btn:hover { border-color: var(--accent); }
   .tab-btn.active { background: var(--accent); color: #0f172a; border-color: var(--accent); }
 
-  /* --- ОСНОВНОЙ БЛОК --- */
   .content-box { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 25px; width: 100%; max-width: 1100px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
   .tab-content { display: none; animation: fadeIn 0.3s ease; }
   .tab-content.active { display: block; }
@@ -62,7 +40,6 @@
   .tip-box { background: rgba(251, 191, 36, 0.1); border-left: 4px solid var(--accent); padding: 12px; border-radius: 0 8px 8px 0; margin: 15px 0; font-size: 14px; color: #e2e8f0; }
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
-  /* --- ТАБЛИЦА ОРУЖИЯ --- */
   .table-wrapper { width: 100%; overflow-x: auto; margin-top: 15px; scrollbar-width: none; -ms-overflow-style: none; }
   .table-wrapper::-webkit-scrollbar { display: none; }
   .weapon-table { width: 100%; min-width: 600px; border-collapse: collapse; font-size: 13px; }
@@ -70,14 +47,12 @@
   .weapon-table th { background: rgba(255,255,255,0.05); color: var(--accent); }
   .weapon-table tr:nth-child(even) { background: rgba(255,255,255,0.02); }
 
-  /* --- ТАЙМИНГИ --- */
   .timing-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-top: 15px; }
   .timing-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; padding: 15px; }
   .timing-card h4 { margin-top: 0; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 5px; }
   .timing-row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 5px; }
   .timing-row span:last-child { font-weight: bold; color: var(--accent); }
 
-  /* --- КОНФИГИ --- */
   .config-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
   .config-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
   .config-card h3 { margin-top: 0; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
@@ -88,7 +63,13 @@
   .copy-btn { background: var(--accent); color: #000; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 11px; white-space: nowrap; width: 100%; margin-top: 5px;}
   .copy-btn:hover { background: #e0a800; }
 
-  /* --- КВИЗ --- */
+  .crosshair-preview { width: 60px; height: 60px; background: #1a1a1a; border-radius: 8px; margin: 10px auto; display: flex; align-items: center; justify-content: center; border: 1px solid #333; }
+  .crosshair-icon { color: #00ff00; font-weight: bold; font-size: 20px; font-family: monospace; }
+
+  .glossary-item { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; padding: 15px; margin-bottom: 10px; }
+  .glossary-item strong { color: var(--accent); display: block; margin-bottom: 5px; font-size: 16px; }
+  .glossary-item span { color: #cbd5e1; font-size: 14px; line-height: 1.5; }
+
   .quiz-start { text-align: center; padding: 40px 20px; }
   .quiz-start h3 { margin-bottom: 20px; }
   .btn-level { background: var(--border); color: var(--text); border: 2px solid transparent; padding: 15px 30px; border-radius: 10px; font-size: 16px; font-weight: bold; cursor: pointer; margin: 10px; transition: 0.3s; width: 100%; max-width: 300px; }
@@ -114,28 +95,13 @@
   .quiz-result p { font-size: 18px; margin-bottom: 20px; }
   .restart-btn { background: var(--accent); color: #000; border: none; padding: 12px 30px; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer; }
 
-  /* --- КНОПКА НАВЕРХ --- */
   #scrollTopBtn {
-    display: none;
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 99;
-    font-size: 18px;
-    border: none;
-    outline: none;
-    background-color: var(--accent);
-    color: #0f172a;
-    cursor: pointer;
-    padding: 15px 18px;
-    border-radius: 50%;
-    font-weight: bold;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: 0.3s;
+    display: none; position: fixed; bottom: 30px; right: 30px; z-index: 99; font-size: 18px; border: none; outline: none;
+    background-color: var(--accent); color: #0f172a; cursor: pointer; padding: 15px 18px; border-radius: 50%;
+    font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: 0.3s;
   }
   #scrollTopBtn:hover { background-color: #e0a800; transform: scale(1.1); }
 
-  /* --- АДАПТИВНОСТЬ --- */
   @media (max-width: 768px) {
     body { padding: 10px; }
     h1 { font-size: 18px; }
@@ -146,16 +112,8 @@
     .weapon-table { font-size: 12px; }
     .weapon-table th, .weapon-table td { padding: 8px; }
     
-    /* --- ВКЛАДКИ НА ТЕЛЕФОНЕ (Листаются без полосы) --- */
-    .tabs { 
-      flex-wrap: nowrap; 
-      overflow-x: auto; 
-      justify-content: flex-start; 
-      padding-bottom: 5px; 
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE 10+ */
-    }
-    .tabs::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+    .tabs { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; padding-bottom: 5px; scrollbar-width: none; -ms-overflow-style: none; }
+    .tabs::-webkit-scrollbar { display: none; }
     .tab-btn { flex-shrink: 0; }
   }
 </style>
@@ -167,6 +125,8 @@
   <div class="tabs">
     <button class="tab-btn active" onclick="openTab('economy', event)">💰 Экономика</button>
     <button class="tab-btn" onclick="openTab('weapons', event)">🔫 Оружие</button>
+    <button class="tab-btn" onclick="openTab('crosshairs', event)">🎯 Прицелы</button>
+    <button class="tab-btn" onclick="openTab('glossary', event)">📖 Сленг</button>
     <button class="tab-btn" onclick="openTab('dust2', event)">Dust 2</button>
     <button class="tab-btn" onclick="openTab('mirage', event)">Mirage</button>
     <button class="tab-btn" onclick="openTab('inferno', event)">Inferno</button>
@@ -179,7 +139,6 @@
     <button class="tab-btn" onclick="openTab('train', event)">Train</button>
     <button class="tab-btn" onclick="openTab('office', event)">Office</button>
     <button class="tab-btn" onclick="openTab('italy', event)">Italy</button>
-    <button class="tab-btn" onclick="openTab('configs', event)">⚙️ Конфиги</button>
     <button class="tab-btn" onclick="openTab('quiz', event)">🧠 Квиз</button>
   </div>
 
@@ -259,6 +218,77 @@
         </table>
       </div>
       <div class="tip-box"><strong>Совет:</strong> На сломанной экономике не покупай винтовку. Возьми броню + P250 ($300) или MAC-10/MP9 и играй раунд всерьёз.</div>
+    </div>
+
+    <!-- ПРИЦЕЛЫ -->
+    <div id="crosshairs" class="tab-content">
+      <h2>🎯 Прицелы про-игроков (Актуальные коды)</h2>
+      <p>Коды в новом формате CS2. Чтобы установить, зайди в настройки: <strong>«Игра» → «Прицел» → «Поделиться/Импортировать»</strong> и вставь код.</p>
+      <div class="config-grid">
+        <div class="config-card">
+          <h3>donk</h3>
+          <div class="crosshair-preview"><span class="crosshair-icon">+</span></div>
+          <div class="config-row"><span>Стиль</span><span>Желтый, плотный</span></div>
+          <div class="code-box">
+            <span id="ch-donk">CSQLSQnN7JUPt7DVEaUdCXEiFdkpzdoNmU982zydJxfY9h</span>
+            <button class="copy-btn" onclick="copyCode('ch-donk')">Копировать</button>
+          </div>
+        </div>
+        <div class="config-card">
+          <h3>m0NESY</h3>
+          <div class="crosshair-preview"><span class="crosshair-icon">+</span></div>
+          <div class="config-row"><span>Стиль</span><span>Белый, тонкий</span></div>
+          <div class="code-box">
+            <span id="ch-m0nesy">CSCGKsJy8pO3kWLUYrerppFQNFxmtk5bxq93ZZ25x79hkX</span>
+            <button class="copy-btn" onclick="copyCode('ch-m0nesy')">Копировать</button>
+          </div>
+        </div>
+        <div class="config-card">
+          <h3>ZywOo</h3>
+          <div class="crosshair-preview"><span class="crosshair-icon">+</span></div>
+          <div class="config-row"><span>Стиль</span><span>Зеленый, статичный</span></div>
+          <div class="code-box">
+            <span id="ch-zywoo">CSxJxY5w5K4FkuxFizBR3ftDtNaMQqoTxiJnqjaAaJhO9C</span>
+            <button class="copy-btn" onclick="copyCode('ch-zywoo')">Копировать</button>
+          </div>
+        </div>
+        <div class="config-card">
+          <h3>kyousuke</h3>
+          <div class="crosshair-preview"><span class="crosshair-icon">+</span></div>
+          <div class="config-row"><span>Стиль</span><span>Кастомный, статичный</span></div>
+          <div class="code-box">
+            <span id="ch-kyousuke">CSHZJowmcXaUVz57pSOTSCRPU5x887Wq65OuOGCVi9JDAA</span>
+            <button class="copy-btn" onclick="copyCode('ch-kyousuke')">Копировать</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- СЛЕНГ -->
+    <div id="glossary" class="tab-content">
+      <h2>📖 Словарь сленга CS2</h2>
+      <p>Базовые термины, которые помогут понимать тиммейтов.</p>
+      <div class="grid-2">
+        <div>
+          <h3>🎯 Стрельба и механики</h3>
+          <div class="glossary-item"><strong>Стрейф (Strafe)</strong><span>Движение влево-вправо (A/D). Правильный стрейф + стрельба = победа в перестрелке.</span></div>
+          <div class="glossary-item"><strong>Флик (Flick)</strong><span>Резкое движение мышью, чтобы мгновенно навести прицел на врага.</span></div>
+          <div class="glossary-item"><strong>Префаер (Prefire)</strong><span>Выстрел заранее в место, где скорее всего стоит враг.</span></div>
+          <div class="glossary-item"><strong>Воллбенг (Wallbang)</strong><span>Убийство через стену или тонкое укрытие.</span></div>
+          <div class="glossary-item"><strong>Ноускоуп (No-scope)</strong><span>Выстрел из снайперки без прицела.</span></div>
+        </div>
+        <div>
+          <h3>🧠 Тактика и экономика</h3>
+          <div class="glossary-item"><strong>Раш (Rush)</strong><span>Быстрый массовый заход всей командой на одну точку.</span></div>
+          <div class="glossary-item"><strong>Сплит (Split)</strong><span>Атака точки с двух разных направлений одновременно.</span></div>
+          <div class="glossary-item"><strong>Фейк (Fake)</strong><span>Обманный манёвр: имитация атаки на одну точку.</span></div>
+          <div class="glossary-item"><strong>Ретейк (Retake)</strong><span>Отбивание точки после того, как Т уже поставили бомбу.</span></div>
+          <div class="glossary-item"><strong>Клатч (Clutch)</strong><span>Ситуация 1 против 2+ и ты выигрываешь раунд.</span></div>
+          <div class="glossary-item"><strong>Сейв (Save)</strong><span>Сохранение оружия, когда раунд уже не выиграть.</span></div>
+          <div class="glossary-item"><strong>Эко (Eco)</strong><span>Раунд без закупа, чтобы накопить деньги.</span></div>
+          <div class="glossary-item"><strong>Форс (Force)</strong><span>Закуп на последние деньги.</span></div>
+        </div>
+      </div>
     </div>
 
     <!-- DUST 2 -->
@@ -388,11 +418,10 @@
       <div class="tip-box"><strong>Совет:</strong> На Inferno очень часто решает <strong>один игрок на Banana</strong>. Если ты играешь B-сайт, учись кидать молотов с Car (с первого оранжа) и правильно отходить.</div>
     </div>
 
-    <!-- NUKE -->
+    <!-- NUKE (ПОЛНОЕ) -->
     <div id="nuke" class="tab-content">
       <h2>☢️ Nuke</h2>
       <p>Самая вертикальная карта. Здесь два плента (A и B) находятся друг над другом.</p>
-      
       <h3>⏱️ Тайминги и позиции</h3>
       <div class="timing-grid">
         <div class="timing-card"><h4>Т: до Hut (A)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
@@ -402,7 +431,6 @@
         <div class="timing-card"><h4>CT: до B Site (Vents)</h4><div class="timing-row"><span>Время</span><span>~4-5 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
         <div class="timing-card"><h4>CT: до Ramp (B)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
       </div>
-
       <h3>Атака (Т-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -431,11 +459,10 @@
       </ul>
     </div>
 
-    <!-- CACHE -->
+    <!-- CACHE (ПОЛНОЕ) -->
     <div id="cache" class="tab-content">
       <h2>🏭 Cache</h2>
       <p>Легендарная карта вернулась в CS2! Она очень похожа на Mirage по структуре: три основных направления (A, Mid, B) и быстрые ротации.</p>
-      
       <h3>⏱️ Тайминги и позиции</h3>
       <div class="timing-grid">
         <div class="timing-card"><h4>Т: до A Main</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
@@ -445,7 +472,6 @@
         <div class="timing-card"><h4>CT: до Mid (Highway)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
         <div class="timing-card"><h4>CT: до B Site (Checkers)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
       </div>
-
       <h3>Атака (Т-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -473,11 +499,10 @@
       </ul>
     </div>
 
-    <!-- ANCIENT -->
+    <!-- ANCIENT (ПОЛНОЕ) -->
     <div id="ancient" class="tab-content">
       <h2>🏛️ Ancient</h2>
       <p>Карта решается гранатами и контролем мида. Заходы узкие, поэтому смоки критичны.</p>
-      
       <h3>⏱️ Тайминги и позиции</h3>
       <div class="timing-grid">
         <div class="timing-card"><h4>Т: до Mid (Top Mid)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
@@ -487,7 +512,6 @@
         <div class="timing-card"><h4>CT: до Mid (Window)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
         <div class="timing-card"><h4>CT: до B Site (Cave)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
       </div>
-
       <h3>Атака (Т-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -515,11 +539,10 @@
       </ul>
     </div>
 
-    <!-- ANUBIS -->
+    <!-- ANUBIS (ПОЛНОЕ) -->
     <div id="anubis" class="tab-content">
       <h2>🐊 Anubis</h2>
       <p>Ключ к карте — контроль Mid и воды. Ротация между плентами быстрая, поэтому смоки должны отрезать подходы.</p>
-      
       <h3>⏱️ Тайминги и позиции</h3>
       <div class="timing-grid">
         <div class="timing-card"><h4>Т: до Mid (Bridge)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
@@ -529,7 +552,6 @@
         <div class="timing-card"><h4>CT: до Mid (Water)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
         <div class="timing-card"><h4>CT: до B Site (Coffins)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
       </div>
-
       <h3>Атака (Т-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -557,11 +579,10 @@
       </ul>
     </div>
 
-    <!-- OVERPASS -->
+    <!-- OVERPASS (ПОЛНОЕ) -->
     <div id="overpass" class="tab-content">
       <h2>🌉 Overpass</h2>
       <p>Самая зависимая от гранат карта. Банк на A и Девятка на B решают всё.</p>
-      
       <h3>⏱️ Тайминги и позиции</h3>
       <div class="timing-grid">
         <div class="timing-card"><h4>Т: до Toilets (Mid)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
@@ -571,7 +592,6 @@
         <div class="timing-card"><h4>CT: до Mid (Monster)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
         <div class="timing-card"><h4>CT: до B Site (Nine)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
       </div>
-
       <h3>Атака (Т-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -599,11 +619,10 @@
       </ul>
     </div>
 
-    <!-- VERTIGO -->
+    <!-- VERTIGO (ПОЛНОЕ) -->
     <div id="vertigo" class="tab-content">
       <h2>🏗️ Vertigo</h2>
       <p>Очень открытые пленты. Без смоков заходить почти нереально. Много вертикальных позиций.</p>
-      
       <h3>⏱️ Тайминги и позиции</h3>
       <div class="timing-grid">
         <div class="timing-card"><h4>Т: до A Stairs (лестница)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
@@ -613,7 +632,6 @@
         <div class="timing-card"><h4>CT: до Mid (Scaffolding)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
         <div class="timing-card"><h4>CT: до B Site (Electrical)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
       </div>
-
       <h3>Атака (Т-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -642,11 +660,10 @@
       <div class="tip-box"><strong>Совет:</strong> На A используй молотов под плент, чтобы выкурить CT с позиций. На B — молотов за ящик.</div>
     </div>
 
-    <!-- TRAIN -->
+    <!-- TRAIN (ПОЛНОЕ) -->
     <div id="train" class="tab-content">
       <h2>🚂 Train</h2>
       <p>Карта с огромным количеством вагонов и снайперских позиций. Главная особенность — игра на поездах (Boiler, Popdog).</p>
-      
       <h3>⏱️ Тайминги и позиции</h3>
       <div class="timing-grid">
         <div class="timing-card"><h4>Т: до A Long (Long Dog)</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
@@ -656,7 +673,6 @@
         <div class="timing-card"><h4>CT: до B Site (Upper B)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
         <div class="timing-card"><h4>CT: до Mid (Z)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
       </div>
-
       <h3>Атака (Т-сторона)</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -684,11 +700,10 @@
       </ul>
     </div>
 
-    <!-- OFFICE -->
+    <!-- OFFICE (ПОЛНОЕ) -->
     <div id="office" class="tab-content">
       <h2>🏢 Office (Заложники)</h2>
       <p>Карта из режима «Заложники» (Hostage). CT должны спасти заложников из офиса на втором этаже.</p>
-      
       <h3>⏱️ Тайминги и позиции</h3>
       <div class="timing-grid">
         <div class="timing-card"><h4>CT: до Garage (вход)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
@@ -698,7 +713,6 @@
         <div class="timing-card"><h4>Т: до Prodigy (удержание)</h4><div class="timing-row"><span>Время</span><span>~4-5 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
         <div class="timing-card"><h4>Т: до Office (второй этаж)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
       </div>
-
       <h3>Атака (CT-сторона) — Спасение</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -725,11 +739,10 @@
       </ul>
     </div>
 
-    <!-- ITALY -->
+    <!-- ITALY (ПОЛНОЕ) -->
     <div id="italy" class="tab-content">
       <h2>🍕 Italy (Заложники)</h2>
       <p>Еще одна карта на заложников. Очень яркая и атмосферная. CT нужно спасти заложников с рынка (Market).</p>
-      
       <h3>⏱️ Тайминги и позиции</h3>
       <div class="timing-grid">
         <div class="timing-card"><h4>CT: до Market</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
@@ -739,7 +752,6 @@
         <div class="timing-card"><h4>Т: до Long (удержание)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
         <div class="timing-card"><h4>Т: до Balcony (крыша)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
       </div>
-
       <h3>Атака (CT-сторона) — Спасение</h3>
       <h4>Раскидки:</h4>
       <ul>
@@ -766,90 +778,21 @@
       </ul>
     </div>
 
-    <!-- CONFIGS -->
-    <div id="configs" class="tab-content">
-      <h2>⚙️ Конфиги про-игроков</h2>
-      <p>Коды прицелов (Crosshair) и основные настройки чувствительности. Чтобы установить прицел, зайди в настройки CS2 → «Игра» → «Прицел» → «Поделиться/Импортировать» и вставь код.</p>
-      
-      <div class="config-grid">
-        <div class="config-card">
-          <h3>donk</h3>
-          <div class="config-row"><span>DPI</span><span>800</span></div>
-          <div class="config-row"><span>Сенса</span><span>1.25</span></div>
-          <div class="config-row"><span>eDPI</span><span>1000</span></div>
-          <div class="code-box">
-            <span id="code-donk">CSHMaMsuZ4tkuSMkpx6ajXU9XyuWcjcxMG5nKQKj8STPGH</span>
-            <button class="copy-btn" onclick="copyCode('code-donk')">Копировать</button>
-          </div>
-        </div>
-
-        <div class="config-card">
-          <h3>deko</h3>
-          <div class="config-row"><span>DPI</span><span>400</span></div>
-          <div class="config-row"><span>Сенса</span><span>2.8</span></div>
-          <div class="config-row"><span>eDPI</span><span>1120</span></div>
-          <div class="code-box">
-            <span id="code-deko">CSGO-T2yih-9qOC3-uSS6R-cZOUK-PCWzE</span>
-            <button class="copy-btn" onclick="copyCode('code-deko')">Копировать</button>
-          </div>
-        </div>
-
-        <div class="config-card">
-          <h3>kyousuke</h3>
-          <div class="config-row"><span>DPI</span><span>800</span></div>
-          <div class="config-row"><span>Сенса</span><span>1.05</span></div>
-          <div class="config-row"><span>eDPI</span><span>840</span></div>
-          <div class="code-box">
-            <span id="code-kyousuke">CSGO-DsMq8-mQRUy-aVcBn-fc4by-f8KvM</span>
-            <button class="copy-btn" onclick="copyCode('code-kyousuke')">Копировать</button>
-          </div>
-        </div>
-
-        <div class="config-card">
-          <h3>m0NESY</h3>
-          <div class="config-row"><span>DPI</span><span>400</span></div>
-          <div class="config-row"><span>Сенса</span><span>2.3</span></div>
-          <div class="config-row"><span>eDPI</span><span>920</span></div>
-          <div class="code-box">
-            <span id="code-m0nesy">CSB7LR2KRBWqjL7jxzzHmnL7zG5Rk2dGLjCGos38Cmrv6M</span>
-            <button class="copy-btn" onclick="copyCode('code-m0nesy')">Копировать</button>
-          </div>
-        </div>
-
-        <div class="config-card">
-          <h3>ZywOo</h3>
-          <div class="config-row"><span>DPI</span><span>400</span></div>
-          <div class="config-row"><span>Сенса</span><span>2.0</span></div>
-          <div class="config-row"><span>eDPI</span><span>800</span></div>
-          <div class="code-box">
-            <span id="code-zywoo">CSH2Rx7cGRU5apQ4VSnZwjsr9RyLEiOrCAaVYWYvW6dz7H</span>
-            <button class="copy-btn" onclick="copyCode('code-zywoo')">Копировать</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- QUIZ -->
     <div id="quiz" class="tab-content">
       <h2>🧠 Квиз на знание CS2</h2>
-      
       <div id="quiz-start-screen" class="quiz-start">
         <h3>Выбери уровень сложности:</h3>
         <button class="btn-level btn-easy" onclick="startQuiz('easy')">🟢 Легкий (8 вопросов)</button>
         <button class="btn-level btn-medium" onclick="startQuiz('medium')">🟡 Средний (15 вопросов)</button>
         <button class="btn-level btn-hard" onclick="startQuiz('hard')">🔴 Тяжелый (20 вопросов)</button>
       </div>
-
       <div id="quiz-game-screen" style="display: none;">
-        <div class="quiz-header">
-          <span id="quiz-progress">Вопрос 1/8</span>
-          <span id="quiz-score">Правильно: 0</span>
-        </div>
+        <div class="quiz-header"><span id="quiz-progress">Вопрос 1/8</span><span id="quiz-score">Правильно: 0</span></div>
         <div class="question-text" id="question-text">Текст вопроса...</div>
         <div class="options-list" id="options-list"></div>
         <button class="next-btn" id="next-btn" onclick="nextQuestion()">Следующий вопрос</button>
       </div>
-
       <div id="quiz-result-screen" class="quiz-result" style="display: none;">
         <h3 id="result-title">Результат</h3>
         <p id="result-text">Ты ответил правильно на X из Y вопросов.</p>
@@ -859,7 +802,6 @@
 
   </div>
 
-  <!-- Кнопка наверх -->
   <button onclick="scrollToTop()" id="scrollTopBtn" title="Наверх">↑</button>
 
 <script>
@@ -883,7 +825,6 @@
     });
   }
 
-  // Кнопка наверх
   window.onscroll = function() {
     const btn = document.getElementById("scrollTopBtn");
     if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
@@ -897,7 +838,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Квиз
   const quizData = {
     easy: [
       { q: "Сколько денег дается игроку в начале соревновательного матча?", a: ["$500", "$800", "$1000", "$1200"], c: 1 },
@@ -958,11 +898,9 @@
     currentQuiz = quizData[level];
     currentQuestionIndex = 0;
     score = 0;
-
     document.getElementById('quiz-start-screen').style.display = 'none';
     document.getElementById('quiz-result-screen').style.display = 'none';
     document.getElementById('quiz-game-screen').style.display = 'block';
-    
     loadQuestion();
   }
 
@@ -971,10 +909,8 @@
     document.getElementById('quiz-progress').innerText = `Вопрос ${currentQuestionIndex + 1}/${currentQuiz.length}`;
     document.getElementById('quiz-score').innerText = `Правильно: ${score}`;
     document.getElementById('question-text').innerText = qData.q;
-    
     const optionsContainer = document.getElementById('options-list');
     optionsContainer.innerHTML = '';
-    
     qData.a.forEach((option, index) => {
       const btn = document.createElement('button');
       btn.className = 'option-btn';
@@ -982,14 +918,12 @@
       btn.onclick = () => selectAnswer(index, qData.c, btn);
       optionsContainer.appendChild(btn);
     });
-
     document.getElementById('next-btn').style.display = 'none';
   }
 
   function selectAnswer(selectedIndex, correctIndex, btnElement) {
     const allBtns = document.querySelectorAll('.option-btn');
     allBtns.forEach(btn => btn.disabled = true);
-
     if (selectedIndex === correctIndex) {
       btnElement.classList.add('correct');
       score++;
@@ -997,17 +931,10 @@
       btnElement.classList.add('wrong');
       allBtns[correctIndex].classList.add('correct');
     }
-
     document.getElementById('quiz-score').innerText = `Правильно: ${score}`;
-    
     const nextBtn = document.getElementById('next-btn');
     nextBtn.style.display = 'block';
-    
-    if (currentQuestionIndex === currentQuiz.length - 1) {
-      nextBtn.innerText = 'Показать результат';
-    } else {
-      nextBtn.innerText = 'Следующий вопрос';
-    }
+    nextBtn.innerText = (currentQuestionIndex === currentQuiz.length - 1) ? 'Показать результат' : 'Следующий вопрос';
   }
 
   function nextQuestion() {
@@ -1022,23 +949,14 @@
   function showResult() {
     document.getElementById('quiz-game-screen').style.display = 'none';
     document.getElementById('quiz-result-screen').style.display = 'block';
-    
     const total = currentQuiz.length;
     const percent = (score / total) * 100;
-    
     let title = "";
     let text = `Ты ответил правильно на ${score} из ${total} вопросов (${percent}%).`;
-
-    if (score === total) {
-      title = "🏆 Идеально! Ты настоящий про!";
-    } else if (percent >= 80) {
-      title = "🔥 Отличный результат! Ты хорошо знаешь игру.";
-    } else if (percent >= 50) {
-      title = "👍 Неплохо, но есть куда расти.";
-    } else {
-      title = "📚 Нужно еще почитать гайды!";
-    }
-
+    if (score === total) title = "🏆 Идеально! Ты настоящий про!";
+    else if (percent >= 80) title = "🔥 Отличный результат! Ты хорошо знаешь игру.";
+    else if (percent >= 50) title = "👍 Неплохо, но есть куда расти.";
+    else title = "📚 Нужно еще почитать гайды!";
     document.getElementById('result-title').innerText = title;
     document.getElementById('result-text').innerText = text;
   }
