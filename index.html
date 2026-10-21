@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CS2 База Знаний | Полный гайд</title>
+<title>CS2 Гайд | Экономика и Карты</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -15,27 +15,31 @@
   }
   * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
   body { background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
-  h1 { color: var(--accent); margin-bottom: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; text-align: center; }
+  h1 { color: var(--accent); margin-bottom: 20px; font-weight: 900; text-transform: uppercase; text-align: center; }
   
-  .tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center; max-width: 1000px; }
-  .tab-btn { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 10px 18px; border-radius: 8px; cursor: pointer; font-weight: 700; transition: all 0.2s; font-size: 14px; }
+  /* Компактные вкладки */
+  .tabs { display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center; max-width: 950px; }
+  .tab-btn { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: 700; font-size: 13px; transition: all 0.2s; }
   .tab-btn:hover { border-color: var(--accent); }
   .tab-btn.active { background: var(--accent); color: #0f172a; border-color: var(--accent); }
 
-  .content-box { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 25px; width: 100%; max-width: 1000px; min-height: 500px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+  /* Основной контейнер */
+  .content-box { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 25px; width: 100%; max-width: 950px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
   .tab-content { display: none; animation: fadeIn 0.3s ease; }
   .tab-content.active { display: block; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-  h2 { color: var(--accent); margin-bottom: 12px; font-size: 20px; border-bottom: 2px solid var(--border); padding-bottom: 8px; }
-  h3 { color: var(--accent); margin-top: 18px; margin-bottom: 8px; font-size: 16px; }
-  ul { list-style-position: inside; margin-bottom: 12px; }
-  li { margin-bottom: 6px; line-height: 1.5; color: #cbd5e1; font-size: 14px; }
+  h2 { color: var(--accent); margin-bottom: 10px; font-size: 20px; border-bottom: 2px solid var(--border); padding-bottom: 8px; }
+  h3 { color: var(--accent); margin-top: 15px; margin-bottom: 6px; font-size: 15px; }
+  
+  /* Компактные списки */
+  ul { list-style-position: inside; margin-bottom: 10px; }
+  li { margin-bottom: 5px; line-height: 1.4; color: #cbd5e1; font-size: 13.5px; }
   strong { color: var(--text); }
   
-  .tip-box { background: rgba(251, 191, 36, 0.1); border-left: 4px solid var(--accent); padding: 12px; border-radius: 0 8px 8px 0; margin: 12px 0; font-size: 13px; color: #e2e8f0; }
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  @media (max-width: 700px) { .grid-2 { grid-template-columns: 1fr; } .tabs { gap: 5px; } .tab-btn { padding: 8px 12px; font-size: 12px; } }
+  .tip-box { background: rgba(251, 191, 36, 0.1); border-left: 4px solid var(--accent); padding: 10px; border-radius: 0 8px 8px 0; margin: 10px 0; font-size: 13px; color: #e2e8f0; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+  @media (max-width: 700px) { .grid-2 { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -43,7 +47,7 @@
   <h1>CS2: База Знаний</h1>
 
   <div class="tabs">
-    <button class="tab-btn active" onclick="openTab('economy', event)">💰 Экономика</button>
+    <button class="tab-btn active" onclick="openTab('economy', event)">💰 Экономика (Подробно)</button>
     <button class="tab-btn" onclick="openTab('mirage', event)">Mirage</button>
     <button class="tab-btn" onclick="openTab('dust2', event)">Dust 2</button>
     <button class="tab-btn" onclick="openTab('inferno', event)">Inferno</button>
@@ -57,25 +61,57 @@
 
     <!-- ЭКОНОМИКА -->
     <div id="economy" class="tab-content active">
-      <h2>💰 Экономика и база</h2>
+      <h2>💰 Полный гайд по экономике</h2>
+      
       <div class="grid-2">
         <div>
-          <h3>Стартовые цифры</h3>
+          <h3>Базовые доходы</h3>
           <ul>
-            <li><strong>Старт:</strong> $800</li>
-            <li><strong>Максимум:</strong> $16 000</li>
-            <li><strong>За победу:</strong> $3250 (или $3500 за плант/дефуз)</li>
+            <li><strong>Старт игры:</strong> $800 у каждого игрока.</li>
+            <li><strong>Лимит денег:</strong> $16 000 (больше накопить нельзя).</li>
+            <li><strong>Победа (уничтожение):</strong> $3250 всей команде.</li>
+            <li><strong>Победа (взрыв/дефуз):</strong> $3500 всей команде.</li>
+            <li><strong>Время раунда:</strong> 1:55 (1 минута 55 секунд).</li>
+          </ul>
+          
+          <h3>Loss Bonus (за проигрыш)</h3>
+          <ul>
+            <li>1-е поражение подряд: $1400</li>
+            <li>2-е подряд: $1900</li>
+            <li>3-е подряд: $2400</li>
+            <li>4-е подряд: $2900</li>
+            <li>5-е и далее: <strong>$3400</strong> (максимум).</li>
+            <li><em>*Бонус сбрасывается, если вы выиграли раунд.</em></li>
           </ul>
         </div>
+
         <div>
-          <h3>Loss Bonus</h3>
+          <h3>Дополнительные деньги</h3>
           <ul>
-            <li>1: $1400 / 2: $1900 / 3: $2400 / 4: $2900 / 5+: <strong>$3400</strong></li>
+            <li><strong>Убийство из пистолета:</strong> +$300</li>
+            <li><strong>Убийство из SMG:</strong> +$600</li>
+            <li><strong>Убийство из дробовика:</strong> +$900</li>
+            <li><strong>Убийство из AWP:</strong> +$100</li>
+            <li><strong>Убийство из винтовки:</strong> +$300</li>
+            <li><strong>Плант бомбы (Т):</strong> +$300 (игроку) и +$800 всей команде.</li>
+            <li><strong>Дефуз бомбы (CT):</strong> +$300 (игроку) и +$3500 всей команде.</li>
           </ul>
         </div>
       </div>
+
+      <h3>Стратегии закупа (Базовые правила)</h3>
+      <ul>
+        <li><strong>Фулл-бай (Full Buy):</strong> Есть деньги на винтовку (AK/M4), броню, шлем, дефузер (для CT), 2-3 гранаты и комплект. Обычно это $4000+ у каждого игрока.</li>
+        <li><strong>Форс-бай (Force Buy):</strong> Покупка всего возможного на ограниченные деньги (например, Mac-10 + броня без шлема). Делается, чтобы сломать серию врага или спасти раунд.</li>
+        <li><strong>Эко (Eco):</strong> Полный отказ от закупа. Все сейвят деньги, чтобы накопить на фулл-бай через 1-2 раунда.</li>
+        <li><strong>Халф-бай (Half Buy):</strong> Покупка дешевого оружия (пистолеты, Galil/Famas) + легкая броня, чтобы попытаться выиграть раунд и не сильно потратиться.</li>
+      </ul>
+
       <div class="tip-box">
-        <strong>Правило:</strong> Если нет денег на фулл-бай — сейвитесь всей командой. Не форсите в одиночку, иначе подарите врагу винтовку. Террористам на эко всегда стоит пытаться поставить бомбу (+$800 всей команде).
+        <strong>Главные ошибки новичков:</strong><br>
+        1. <strong>Форсить в одиночку:</strong> Если команда сказала «эко», не покупай винтовку. Ты просто подаришь её врагу и сломаешь экономику себе.<br>
+        2. <strong>Покупать без брони:</strong> Броня + шлем — это приоритет. Без шлема любой пистолет врага будет убивать тебя в голову с одного выстрела.<br>
+        3. <strong>Не покупать дефузер:</strong> Если у CT есть деньги, дефузер должен быть у 2-3 игроков. Это может спасти раунд.
       </div>
     </div>
 
@@ -131,66 +167,62 @@
     <!-- ANCIENT -->
     <div id="ancient" class="tab-content">
       <h2>🏛️ Ancient</h2>
-      <p>Карта решается гранатами и контролем мида. Заходы узкие, поэтому смоки критичны [citation:1].</p>
       <h3>Атака (Т)</h3>
       <ul>
-        <li><strong>Захват мида:</strong> Смок на снайперскую позицию (с Т-спавна) и смок на окно. Флешки в мид, чтобы ослепить CT [citation:1].</li>
-        <li><strong>Заход на A:</strong> Смок на Храм (Temple) — самый важный смок на карте. Кидается со штанов или лестницы [citation:1].</li>
-        <li><strong>Заход на B:</strong> Смок на B-Long (с Т-спавна) и смок на Pit, чтобы безопасно занять Ruins/B Doors [citation:15].</li>
+        <li><strong>Захват мида:</strong> Смок на снайперскую позицию и смок на окно. Флешки в мид.</li>
+        <li><strong>Заход на A:</strong> Смок на Храм (Temple) — обязателен.</li>
+        <li><strong>Заход на B:</strong> Смок на B-Long и смок на Pit, чтобы безопасно занять Ruins.</li>
       </ul>
       <h3>Защита (CT)</h3>
       <ul>
-        <li><strong>Ретейк A:</strong> Смоки на Temple, Donut и Heaven, чтобы безопасно зайти [citation:8].</li>
-        <li><strong>Ретейк B:</strong> Смоки на Cave и Ramp, чтобы лишить Т удобных позиций [citation:8].</li>
+        <li><strong>Ретейк A:</strong> Смоки на Temple, Donut и Heaven.</li>
+        <li><strong>Ретейк B:</strong> Смоки на Cave и Ramp.</li>
       </ul>
     </div>
 
     <!-- ANUBIS -->
     <div id="anubis" class="tab-content">
       <h2>🐊 Anubis</h2>
-      <p>Ключ к карте — контроль Mid и воды. Ротация между плентами быстрая, поэтому смоки должны отрезать подходы [citation:13].</p>
       <h3>Атака (Т)</h3>
       <ul>
-        <li><strong>Заход на A:</strong> Смок на Heaven (с Walkway), чтобы закрыть обзор. Молотов под лестницу, чтобы выкурить CT [citation:13].</li>
-        <li><strong>Заход на B:</strong> Смок на Street (с Mid), чтобы безопасно подойти к Coffins. Флешки в Ruins [citation:13].</li>
-        <li><strong>Mid:</strong> Займите Bridge, чтобы контролировать воду и иметь возможность сплита [citation:13].</li>
+        <li><strong>Заход на A:</strong> Смок на Heaven. Молотов под лестницу.</li>
+        <li><strong>Заход на B:</strong> Смок на Street. Флешки в Ruins.</li>
+        <li><strong>Mid:</strong> Займите Bridge, чтобы контролировать воду.</li>
       </ul>
       <h3>Защита (CT)</h3>
       <ul>
-        <li><strong>A:</strong> Держите Palace (высокая позиция) и Heaven. Используйте HE, чтобы выбить Т из-под лестницы [citation:13].</li>
-        <li><strong>B:</strong> Играйте от Ruins и Coffins, но не засиживайтесь глубоко, чтобы успеть на ротацию [citation:13].</li>
+        <li><strong>A:</strong> Держите Palace и Heaven. Используйте HE.</li>
+        <li><strong>B:</strong> Играйте от Ruins и Coffins.</li>
       </ul>
     </div>
 
     <!-- VERTIGO -->
     <div id="vertigo" class="tab-content">
       <h2>🏗️ Vertigo</h2>
-      <p>Очень открытые пленты. Без смоков заходить почти нереально [citation:10].</p>
       <h3>Атака (Т)</h3>
       <ul>
-        <li><strong>Смок на Девятку (A):</strong> С угла у мешков с цементом, целься по второй плите у крана, джамптроу [citation:10].</li>
-        <li><strong>Смок на Буст (A):</strong> По стыку лесов, целься в угол красной конструкции, ЛКМ без прыжка [citation:10].</li>
-        <li><strong>Смок на Элеватор (A):</strong> Упереться в мешки, целься между желтыми трубами, джамптроу с ЛКМ+ПКМ [citation:10].</li>
-        <li><strong>Смок за Электрик (B):</strong> Под лестницу, целься в замочек троса на перилах, ЛКМ [citation:10].</li>
+        <li><strong>Смок на Девятку (A):</strong> Целься по второй плите у крана, джамптроу.</li>
+        <li><strong>Смок на Буст (A):</strong> По стыку лесов, целься в угол красной конструкции.</li>
+        <li><strong>Смок на Элеватор (A):</strong> Между желтыми трубами, джамптроу с ЛКМ+ПКМ.</li>
+        <li><strong>Смок за Электрик (B):</strong> Целься в замочек троса на перилах.</li>
       </ul>
       <h3>Совет</h3>
-      <div class="tip-box">На A используйте молотов под плент, чтобы выкурить CT с позиций. На B — молотов за ящик [citation:3].</div>
+      <div class="tip-box">На A используйте молотов под плент, чтобы выкурить CT с позиций.</div>
     </div>
 
     <!-- OVERPASS -->
     <div id="overpass" class="tab-content">
       <h2>🌉 Overpass</h2>
-      <p>Самая зависимая от гранат карта. Банк на A и Девятка на B решают всё [citation:11].</p>
       <h3>Атака (Т)</h3>
       <ul>
-        <li><strong>Туалеты:</strong> Смок с фонтана, чтобы забрать Mid. Молотов туда же, чтобы выкурить CT [citation:11].</li>
-        <li><strong>Заход на A:</strong> Смок на Банк (обязательно). Молотов на Машину (с A-Long), чтобы выжечь укрытие [citation:4][citation:11].</li>
-        <li><strong>Заход на B:</strong> Смок на Девятку (с воды или катушки). Молотов на Пески [citation:4].</li>
+        <li><strong>Туалеты:</strong> Смок с фонтана, чтобы забрать Mid.</li>
+        <li><strong>Заход на A:</strong> Смок на Банк. Молотов на Машину.</li>
+        <li><strong>Заход на B:</strong> Смок на Девятку. Молотов на Пески.</li>
       </ul>
       <h3>Защита (CT)</h3>
       <ul>
-        <li><strong>B:</strong> Инста-смоки на Монстр и проход с воды прямо со спавна [citation:4].</li>
-        <li><strong>A:</strong> Используйте смоки, чтобы задержать выход с Банана и Туалетов.</li>
+        <li><strong>B:</strong> Инста-смоки на Монстр и проход с воды.</li>
+        <li><strong>A:</strong> Задерживайте выход с Банана и Туалетов.</li>
       </ul>
     </div>
 
