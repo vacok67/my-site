@@ -70,7 +70,6 @@
   .glossary-item strong { color: var(--accent); display: block; margin-bottom: 5px; font-size: 16px; }
   .glossary-item span { color: #cbd5e1; font-size: 14px; line-height: 1.5; }
 
-  /* Стили для команд */
   .cmd-category { margin-bottom: 25px; }
   .cmd-item { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 15px; flex-wrap: wrap; }
   .cmd-info { flex: 1; min-width: 200px; }
@@ -138,21 +137,22 @@
     <button class="tab-btn active" onclick="openTab('economy', event)">💰 Экономика</button>
     <button class="tab-btn" onclick="openTab('weapons', event)">🔫 Оружие</button>
     <button class="tab-btn" onclick="openTab('crosshairs', event)">🎯 Прицелы</button>
+    <button class="tab-btn" onclick="openTab('configs', event)">⚙️ Конфиги</button>
     <button class="tab-btn" onclick="openTab('glossary', event)">📖 Сленг</button>
     <button class="tab-btn" onclick="openTab('commands', event)">⌨️ Команды</button>
+    <button class="tab-btn" onclick="openTab('quiz', event)">🧠 Квиз</button>
     <button class="tab-btn" onclick="openTab('dust2', event)">Dust 2</button>
     <button class="tab-btn" onclick="openTab('mirage', event)">Mirage</button>
     <button class="tab-btn" onclick="openTab('inferno', event)">Inferno</button>
     <button class="tab-btn" onclick="openTab('nuke', event)">Nuke</button>
-    <button class="tab-btn" onclick="openTab('cache', event)">Cache</button>
     <button class="tab-btn" onclick="openTab('ancient', event)">Ancient</button>
     <button class="tab-btn" onclick="openTab('anubis', event)">Anubis</button>
     <button class="tab-btn" onclick="openTab('overpass', event)">Overpass</button>
     <button class="tab-btn" onclick="openTab('vertigo', event)">Vertigo</button>
     <button class="tab-btn" onclick="openTab('train', event)">Train</button>
+    <button class="tab-btn" onclick="openTab('cache', event)">Cache</button>
     <button class="tab-btn" onclick="openTab('office', event)">Office</button>
     <button class="tab-btn" onclick="openTab('italy', event)">Italy</button>
-    <button class="tab-btn" onclick="openTab('quiz', event)">🧠 Квиз</button>
   </div>
 
   <div class="content-box">
@@ -160,103 +160,79 @@
     <!-- ЭКОНОМИКА -->
     <div id="economy" class="tab-content active">
       <h2>💰 Экономика</h2>
-      
       <div class="grid-2">
         <div>
           <h3>Базовые доходы</h3>
           <ul>
-            <li><strong>Старт игры:</strong> $800 у каждого игрока (хватает на броню или пистолет).</li>
-            <li><strong>Лимит денег:</strong> $16 000. Больше накопить нельзя, лишнее сгорает.</li>
+            <li><strong>Старт игры:</strong> $800 у каждого игрока.</li>
+            <li><strong>Лимит денег:</strong> $16 000 (лишнее сгорает).</li>
             <li><strong>Победа (уничтожение):</strong> $3250 всей команде.</li>
-            <li><strong>Победа (взрыв/дефуз):</strong> $3500 всей команде (плюс бонусы за действия).</li>
-            <li><strong>Время раунда:</strong> 1:55 (1 минута 55 секунд).</li>
+            <li><strong>Победа (взрыв/дефуз):</strong> $3500 всей команде.</li>
+            <li><strong>Время раунда:</strong> 1:55 (1 мин 55 сек).</li>
           </ul>
-          
           <h3>Loss Bonus (за проигрыш)</h3>
-          <p>Если вы проигрываете раунды подряд, деньги растут. Это спасает от «смерти экономики».</p>
           <ul>
             <li>1-е поражение подряд: $1400</li>
             <li>2-е подряд: $1900</li>
             <li>3-е подряд: $2400</li>
             <li>4-е подряд: $2900</li>
             <li>5-е и далее: <strong>$3400</strong> (максимум).</li>
-            <li><em>*Бонус сбрасывается до $1400, как только вы выиграли раунд.</em></li>
+            <li><em>*Бонус сбрасывается, если вы выиграли раунд.</em></li>
           </ul>
         </div>
-
         <div>
           <h3>Дополнительные деньги</h3>
-          <p>Индивидуальные награды за действия в раунде.</p>
           <ul>
             <li><strong>Убийство из пистолета:</strong> +$300</li>
-            <li><strong>Убийство из винтовки (AK/M4):</strong> +$300</li>
-            <li><strong>Убийство из SMG (MAC-10/MP9):</strong> +$600</li>
-            <li><strong>Убийство из дробовика (Nova):</strong> +$900</li>
-            <li><strong>Убийство из AWP:</strong> +$100 (поэтому AWP не окупается)</li>
-            <li><strong>Плант бомбы (Т):</strong> +$300 игроку, поставившему бомбу, и +$800 всей команде (даже если раунд проигран).</li>
-            <li><strong>Дефуз бомбы (CT):</strong> +$300 игроку и +$3500 всей команде (если раунд выигран).</li>
+            <li><strong>Убийство из SMG:</strong> +$600</li>
+            <li><strong>Убийство из дробовика:</strong> +$900</li>
+            <li><strong>Убийство из AWP:</strong> +$100</li>
+            <li><strong>Убийство из винтовки:</strong> +$300</li>
+            <li><strong>Плант бомбы (Т):</strong> +$300 (игроку) и +$800 всей команде.</li>
+            <li><strong>Дефуз бомбы (CT):</strong> +$300 (игроку) и +$3500 всей команде.</li>
           </ul>
         </div>
       </div>
-
-      <h3>Стратегии закупа (Как не слить игру)</h3>
+      <h3>Стратегии закупа</h3>
       <ul>
-        <li><strong>Фулл-бай (Full Buy):</strong> У вас и команды есть деньги на винтовку (AK/M4), полную броню (кевлар + шлем), дефузер (для CT), 2-3 гранаты (дым, флешка, молотов). Обычно это $4000–$4500+ на человека. В этом раунде вы играете на победу.</li>
-        <li><strong>Форс-бай (Force Buy):</strong> Когда денег нет на фулл, но есть, например, $2500. Вы покупаете дешевое оружие (Mac-10, Galil, или пистолет Deagle) + броню без шлема. Это риск. Делается, чтобы сломать серию побед врага или спасти критический раунд (например, 12:11).</li>
-        <li><strong>Эко (Eco / Сейв):</strong> Полный отказ от закупа. Вы не покупаете ничего (или только броню, если она осталась). Задача — сохранить деньги на следующий раунд и, если повезет, забрать 1-2 фрага пистолетами.</li>
-        <li><strong>Халф-бай (Half Buy):</strong> Покупка дешевого оружия (пистолеты, Galil/Famas) + легкая броня. Попытка выиграть раунд, не сильно потратившись.</li>
+        <li><strong>Фулл-бай (Full Buy):</strong> Винтовка (AK/M4), броня, шлем, дефузер (CT), 2-3 гранаты. Обычно $4000+ у каждого.</li>
+        <li><strong>Форс-бай (Force Buy):</strong> Покупка на ограниченные деньги (Mac-10 + броня без шлема), чтобы сломать серию врага.</li>
+        <li><strong>Эко (Eco):</strong> Полный отказ от закупа для накопления.</li>
+        <li><strong>Халф-бай (Half Buy):</strong> Дешевое оружие (Galil/Famas) + легкая броня.</li>
       </ul>
-
-      <h3>Правила экономики (Золотые истины)</h3>
-      <ul>
-        <li><strong>Не форсите в одиночку:</strong> Если команда сказала «эко» (сейв), а ты купил AK-47 — ты предатель. Ты умрешь, подаришь врагу винтовку, и у команды не будет денег на следующий раунд. Либо все форсят, либо все сейвят.</li>
-        <li><strong>Покупайте шлем:</strong> Броня без шлема спасает только от выстрелов в тело. Любой пистолет врага (Glock, USP) убьет тебя в голову с одного выстрела. Шлем — приоритет.</li>
-        <li><strong>Дефузер — это жизнь:</strong> Если у CT есть деньги, дефузер (Defuse Kit) должен быть у 2-3 игроков. Это 5 секунд, которые решают исход раунда.</li>
-        <li><strong>Террористам на эко:</strong> Если у вас нет денег, но вы идете на точку, постарайтесь хотя бы поставить бомбу. Даже проиграв раунд, вы получите +$800 всей команде, что сильно поможет на следующем закупе.</li>
-      </ul>
-
       <div class="tip-box">
-        <strong>Главная ошибка новичков:</strong> Покупать оружие, когда денег в обрез. Если у тебя $2000, не покупай AK-47 ($2700) с натяжкой. Лучше купи броню + P250 ($300) или MAC-10/MP9, и играй раунд. Сэкономленные деньги помогут купить AWP или полный закуп через раунд.
+        <strong>Главные ошибки:</strong><br>
+        1. <strong>Форсить в одиночку:</strong> Если команда сказала «эко», не покупай винтовку. Подаришь её врагу.<br>
+        2. <strong>Без брони:</strong> Без шлема пистолет врага убьет тебя в голову.<br>
+        3. <strong>Без дефузера:</strong> Дефузер должен быть у 2-3 игроков CT.
       </div>
     </div>
 
     <!-- ОРУЖИЕ -->
     <div id="weapons" class="tab-content">
       <h2>🔫 Таблица оружия</h2>
-      <p>Цены, награда за убийство и особенности. Данные актуальны для CS2.</p>
       <div class="table-wrapper">
         <table class="weapon-table">
-          <tr><th>Оружие</th><th>Цена</th><th>Награда за фраг</th><th>Особенность</th></tr>
-          <tr><td><strong>AK-47</strong> (T)</td><td>$2700</td><td>$300</td><td>Один выстрел в голову сквозь шлем. Лучшая винтовка T.</td></tr>
-          <tr><td><strong>M4A4</strong> (CT)</td><td>$2900</td><td>$300</td><td>Больше патронов, проще спрей. Стандарт CT.</td></tr>
-          <tr><td><strong>M4A1-S</strong> (CT)</td><td>$2900</td><td>$300</td><td>Тише, точнее, меньше патронов. Для холдов.</td></tr>
-          <tr><td><strong>AWP</strong></td><td>$4750</td><td>$100</td><td>Убивает с одного выстрела в корпус. Не окупается.</td></tr>
-          <tr><td><strong>Galil AR</strong> (T)</td><td>$1800</td><td>$300</td><td>Дешевая винтовка для форс-бая. Не убивает в голову сквозь шлем.</td></tr>
-          <tr><td><strong>FAMAS</strong> (CT)</td><td>$1950</td><td>$300</td><td>Аналог Galil для CT. Есть режим очереди.</td></tr>
-          <tr><td><strong>MAC-10</strong> (T)</td><td>$1050</td><td>$600</td><td>Очень дешевый SMG для раша. Окупается с 2 фрагов.</td></tr>
-          <tr><td><strong>MP9</strong> (CT)</td><td>$1250</td><td>$600</td><td>Быстрый SMG для CT. Хорош на анти-эко.</td></tr>
-          <tr><td><strong>Nova</strong></td><td>$1050</td><td>$900</td><td>Дробовик. Огромная награда, но только вблизи.</td></tr>
-          <tr><td><strong>XM1014</strong></td><td>$2000</td><td>$600</td><td>Автоматический дробовик. Награда меньше, чем у Nova.</td></tr>
-          <tr><td><strong>SSG 08 (Скаут)</strong></td><td>$1700</td><td>$300</td><td>Дешевая снайперка. Убивает в голову, мобильна.</td></tr>
-          <tr><td><strong>Desert Eagle</strong></td><td>$700</td><td>$300</td><td>Пистолет-пушка. Убивает в голову сквозь шлем.</td></tr>
-          <tr><td><strong>P250</strong></td><td>$300</td><td>$300</td><td>Лучший пистолет для эко/форса.</td></tr>
+          <tr><th>Оружие</th><th>Цена</th><th>Награда</th><th>Особенность</th></tr>
+          <tr><td><strong>AK-47</strong> (T)</td><td>$2700</td><td>$300</td><td>Хедшот сквозь шлем.</td></tr>
+          <tr><td><strong>M4A4</strong> (CT)</td><td>$2900</td><td>$300</td><td>Больше патронов, проще спрей.</td></tr>
+          <tr><td><strong>M4A1-S</strong> (CT)</td><td>$2900</td><td>$300</td><td>Тише, точнее, меньше патронов.</td></tr>
+          <tr><td><strong>AWP</strong></td><td>$4750</td><td>$100</td><td>Ваншот в корпус. Не окупается.</td></tr>
+          <tr><td><strong>Galil AR</strong> (T)</td><td>$1800</td><td>$300</td><td>Дешевая винтовка для форса.</td></tr>
+          <tr><td><strong>FAMAS</strong> (CT)</td><td>$1950</td><td>$300</td><td>Аналог Galil, есть очередь.</td></tr>
+          <tr><td><strong>MAC-10</strong> (T)</td><td>$1050</td><td>$600</td><td>Дешевый SMG для раша.</td></tr>
+          <tr><td><strong>MP9</strong> (CT)</td><td>$1250</td><td>$600</td><td>Быстрый SMG для CT.</td></tr>
+          <tr><td><strong>Desert Eagle</strong></td><td>$700</td><td>$300</td><td>Ваншот в голову сквозь шлем.</td></tr>
         </table>
       </div>
-      <div class="tip-box"><strong>Совет:</strong> На сломанной экономике не покупай винтовку. Возьми броню + P250 ($300) или MAC-10/MP9 и играй раунд всерьёз.</div>
     </div>
 
-    <!-- ПРИЦЕЛЫ И КОНФИГИ -->
+    <!-- ПРИЦЕЛЫ -->
     <div id="crosshairs" class="tab-content">
-      <h2>🎯 Прицелы и настройки про-игроков</h2>
-      <p>Коды в новом формате CS2 и базовая чувствительность. Чтобы установить прицел: <strong>«Игра» → «Прицел» → «Поделиться/Импортировать»</strong>.</p>
+      <h2>🎯 Прицелы про-игроков (Коды)</h2>
       <div class="config-grid">
         <div class="config-card">
           <h3>donk</h3>
-          <div class="crosshair-preview"><span class="crosshair-icon">+</span></div>
-          <div class="config-row"><span>Стиль прицела</span><span>Желтый, плотный</span></div>
-          <div class="config-row"><span>DPI</span><span>800</span></div>
-          <div class="config-row"><span>Сенса</span><span>1.25</span></div>
-          <div class="config-row"><span>eDPI</span><span>1000</span></div>
           <div class="code-box">
             <span id="ch-donk">CSQLSQnN7JUPt7DVEaUdCXEiFdkpzdoNmU982zydJxfY9h</span>
             <button class="copy-btn" onclick="copyCode('ch-donk')">Копировать</button>
@@ -264,11 +240,6 @@
         </div>
         <div class="config-card">
           <h3>m0NESY</h3>
-          <div class="crosshair-preview"><span class="crosshair-icon">+</span></div>
-          <div class="config-row"><span>Стиль прицела</span><span>Белый, тонкий</span></div>
-          <div class="config-row"><span>DPI</span><span>400</span></div>
-          <div class="config-row"><span>Сенса</span><span>2.3</span></div>
-          <div class="config-row"><span>eDPI</span><span>920</span></div>
           <div class="code-box">
             <span id="ch-m0nesy">CSCGKsJy8pO3kWLUYrerppFQNFxmtk5bxq93ZZ25x79hkX</span>
             <button class="copy-btn" onclick="copyCode('ch-m0nesy')">Копировать</button>
@@ -276,11 +247,6 @@
         </div>
         <div class="config-card">
           <h3>ZywOo</h3>
-          <div class="crosshair-preview"><span class="crosshair-icon">+</span></div>
-          <div class="config-row"><span>Стиль прицела</span><span>Зеленый, статичный</span></div>
-          <div class="config-row"><span>DPI</span><span>400</span></div>
-          <div class="config-row"><span>Сенса</span><span>2.0</span></div>
-          <div class="config-row"><span>eDPI</span><span>800</span></div>
           <div class="code-box">
             <span id="ch-zywoo">CSxJxY5w5K4FkuxFizBR3ftDtNaMQqoTxiJnqjaAaJhO9C</span>
             <button class="copy-btn" onclick="copyCode('ch-zywoo')">Копировать</button>
@@ -288,11 +254,6 @@
         </div>
         <div class="config-card">
           <h3>kyousuke</h3>
-          <div class="crosshair-preview"><span class="crosshair-icon">+</span></div>
-          <div class="config-row"><span>Стиль прицела</span><span>Кастомный, статичный</span></div>
-          <div class="config-row"><span>DPI</span><span>800</span></div>
-          <div class="config-row"><span>Сенса</span><span>1.05</span></div>
-          <div class="config-row"><span>eDPI</span><span>840</span></div>
           <div class="code-box">
             <span id="ch-kyousuke">CSHZJowmcXaUVz57pSOTSCRPU5x887Wq65OuOGCVi9JDAA</span>
             <button class="copy-btn" onclick="copyCode('ch-kyousuke')">Копировать</button>
@@ -301,410 +262,78 @@
       </div>
     </div>
 
+    <!-- КОНФИГИ -->
+    <div id="configs" class="tab-content">
+      <h2>⚙️ Настройки про-игроков (DPI, Сенса)</h2>
+      <div class="config-grid">
+        <div class="config-card">
+          <h3>donk</h3>
+          <div class="config-row"><span>DPI</span><span>800</span></div>
+          <div class="config-row"><span>Сенса</span><span>1.25</span></div>
+          <div class="config-row"><span>eDPI</span><span>1000</span></div>
+        </div>
+        <div class="config-card">
+          <h3>m0NESY</h3>
+          <div class="config-row"><span>DPI</span><span>400</span></div>
+          <div class="config-row"><span>Сенса</span><span>2.3</span></div>
+          <div class="config-row"><span>eDPI</span><span>920</span></div>
+        </div>
+        <div class="config-card">
+          <h3>ZywOo</h3>
+          <div class="config-row"><span>DPI</span><span>400</span></div>
+          <div class="config-row"><span>Сенса</span><span>2.0</span></div>
+          <div class="config-row"><span>eDPI</span><span>800</span></div>
+        </div>
+        <div class="config-card">
+          <h3>kyousuke</h3>
+          <div class="config-row"><span>DPI</span><span>800</span></div>
+          <div class="config-row"><span>Сенса</span><span>1.05</span></div>
+          <div class="config-row"><span>eDPI</span><span>840</span></div>
+        </div>
+      </div>
+    </div>
+
     <!-- СЛЕНГ -->
     <div id="glossary" class="tab-content">
-      <h2>📖 Словарь сленга CS2</h2>
-      <p>Базовые термины, которые помогут понимать тиммейтов.</p>
+      <h2>📖 Сленг CS2</h2>
       <div class="grid-2">
         <div>
-          <h3>🎯 Стрельба и механики</h3>
-          <div class="glossary-item"><strong>Стрейф (Strafe)</strong><span>Движение влево-вправо (A/D). Правильный стрейф + стрельба = победа в перестрелке.</span></div>
-          <div class="glossary-item"><strong>Флик (Flick)</strong><span>Резкое движение мышью, чтобы мгновенно навести прицел на врага.</span></div>
-          <div class="glossary-item"><strong>Префаер (Prefire)</strong><span>Выстрел заранее в место, где скорее всего стоит враг.</span></div>
-          <div class="glossary-item"><strong>Воллбенг (Wallbang)</strong><span>Убийство через стену или тонкое укрытие.</span></div>
-          <div class="glossary-item"><strong>Ноускоуп (No-scope)</strong><span>Выстрел из снайперки без прицела.</span></div>
+          <h3>Стрельба</h3>
+          <div class="glossary-item"><strong>Стрейф</strong><span>Движение A/D. Правильный стрейф + стрельба = победа.</span></div>
+          <div class="glossary-item"><strong>Флик</strong><span>Резкое движение мышью на врага.</span></div>
+          <div class="glossary-item"><strong>Префаер</strong><span>Выстрел заранее в место, где будет враг.</span></div>
+          <div class="glossary-item"><strong>Воллбенг</strong><span>Убийство через стену.</span></div>
         </div>
         <div>
-          <h3>🧠 Тактика и экономика</h3>
-          <div class="glossary-item"><strong>Раш (Rush)</strong><span>Быстрый массовый заход всей командой на одну точку.</span></div>
-          <div class="glossary-item"><strong>Сплит (Split)</strong><span>Атака точки с двух разных направлений одновременно.</span></div>
-          <div class="glossary-item"><strong>Фейк (Fake)</strong><span>Обманный манёвр: имитация атаки на одну точку.</span></div>
-          <div class="glossary-item"><strong>Ретейк (Retake)</strong><span>Отбивание точки после того, как Т уже поставили бомбу.</span></div>
-          <div class="glossary-item"><strong>Клатч (Clutch)</strong><span>Ситуация 1 против 2+ и ты выигрываешь раунд.</span></div>
-          <div class="glossary-item"><strong>Сейв (Save)</strong><span>Сохранение оружия, когда раунд уже не выиграть.</span></div>
-          <div class="glossary-item"><strong>Эко (Eco)</strong><span>Раунд без закупа, чтобы накопить деньги.</span></div>
-          <div class="glossary-item"><strong>Форс (Force)</strong><span>Закуп на последние деньги.</span></div>
+          <h3>Тактика</h3>
+          <div class="glossary-item"><strong>Раш</strong><span>Быстрый заход всей командой на точку.</span></div>
+          <div class="glossary-item"><strong>Сплит</strong><span>Атака с двух направлений одновременно.</span></div>
+          <div class="glossary-item"><strong>Ретейк</strong><span>Отбивание точки после планта.</span></div>
+          <div class="glossary-item"><strong>Клатч</strong><span>Выигрыш 1 против 2+.</span></div>
+          <div class="glossary-item"><strong>Эко</strong><span>Раунд без закупа.</span></div>
         </div>
       </div>
     </div>
 
     <!-- КОМАНДЫ -->
     <div id="commands" class="tab-content">
-      <h2>⌨️ Консольные команды CS2</h2>
-      <p>Полезные команды для тренировки, настройки и развлечения. Нажми «Копировать» и вставь в консоль (открывается на клавишу <code>~</code>).</p>
-      
-      <div class="tip-box"><strong>Важно:</strong> Команды из разделов «Тренировка» и «Разное» (noclip, god, give) работают только на локальном сервере с ботами и требуют включения <code>sv_cheats 1</code>.</div>
-
-      <!-- ТРЕНИРОВКА -->
+      <h2>⌨️ Консольные команды</h2>
       <div class="cmd-category">
-        <h3>🎯 Тренировка и практика</h3>
-        <div class="cmd-item">
-          <div class="cmd-info"><span class="cmd-code">sv_cheats 1</span><span class="cmd-desc">Включает читы (обязательно для большинства команд ниже).</span></div>
-          <button class="cmd-copy-btn" onclick="copyCmd('sv_cheats 1')">Копировать</button>
-        </div>
-        <div class="cmd-item">
-          <div class="cmd-info"><span class="cmd-code">sv_infinite_ammo 1</span><span class="cmd-desc">Бесконечные патроны и гранаты.</span></div>
-          <button class="cmd-copy-btn" onclick="copyCmd('sv_infinite_ammo 1')">Копировать</button>
-        </div>
-        <div class="cmd-item">
-          <div class="cmd-info"><span class="cmd-code">sv_grenade_trajectory_prac_pipreview 1</span><span class="cmd-desc">Показывает траекторию полета гранаты в отдельном окошке.</span></div>
-          <button class="cmd-copy-btn" onclick="copyCmd('sv_grenade_trajectory_prac_pipreview 1')">Копировать</button>
-        </div>
-        <div class="cmd-item">
-          <div class="cmd-info"><span class="cmd-code">sv_showimpacts 1</span><span class="cmd-desc">Показывает точки попадания пуль.</span></div>
-          <button class="cmd-copy-btn" onclick="copyCmd('sv_showimpacts 1')">Копировать</button>
-        </div>
-        <div class="cmd-item">
-          <div class="cmd-info"><span class="cmd-code">mp_roundtime_defuse 60</span><span class="cmd-desc">Увеличивает время раунда до 60 минут.</span></div>
-          <button class="cmd-copy-btn" onclick="copyCmd('mp_roundtime_defuse 60')">Копировать</button>
-        </div>
-        <div class="cmd-item">
-          <div class="cmd-info"><span class="cmd-code">mp_startmoney 16000</span><span class="cmd-desc">Дает $16000 на старте.</span></div>
-          <button class="cmd-copy-btn" onclick="copyCmd('mp_startmoney 16000')">Копировать</button>
-        </div>
-        <div class="cmd-item">
-          <div class="cmd-info"><span class="cmd-code">mp_buy_anywhere 1</span><span class="cmd-desc">Позволяет покупать оружие в любом месте карты.</span></div>
-          <button class="cmd-copy-btn" onclick="copyCmd('mp_buy_anywhere 1')">Копировать</button>
-        </div>
-        <div class="cmd-item">
-          <div class="cmd-info"><span class="cmd-code">bot_kick</span><span class="cmd-desc">Убирает всех ботов с сервера.</span></div>
-          <button class="cmd-copy-btn" onclick="copyCmd('bot_kick')">Копировать</button>
-        </div>
-        <div class="cmd-item">
-          <div class="cmd-info"><span class="cmd-code">noclip</span><span class="cmd-desc">Режим полета сквозь стены.</span></div>
-          <button class="cmd-copy-btn" onclick="copyCmd('noclip')">Копировать</button>
-        </div>
+        <h3>Тренировка</h3>
+        <div class="cmd-item"><div class="cmd-info"><span class="cmd-code">sv_cheats 1</span><span class="cmd-desc">Включает читы.</span></div><button class="cmd-copy-btn" onclick="copyCmd('sv_cheats 1')">Копировать</button></div>
+        <div class="cmd-item"><div class="cmd-info"><span class="cmd-code">sv_infinite_ammo 1</span><span class="cmd-desc">Бесконечные патроны.</span></div><button class="cmd-copy-btn" onclick="copyCmd('sv_infinite_ammo 1')">Копировать</button></div>
+        <div class="cmd-item"><div class="cmd-info"><span class="cmd-code">sv_grenade_trajectory_prac_pipreview 1</span><span class="cmd-desc">Траектория гранат.</span></div><button class="cmd-copy-btn" onclick="copyCmd('sv_grenade_trajectory_prac_pipreview 1')">Копировать</button></div>
+        <div class="cmd-item"><div class="cmd-info"><span class="cmd-code">mp_roundtime_defuse 60</span><span class="cmd-desc">Время раунда 60 мин.</span></div><button class="cmd-copy-btn" onclick="copyCmd('mp_roundtime_defuse 60')">Копировать</button></div>
+        <div class="cmd-item"><div class="cmd-info"><span class="cmd-code">mp_buy_anywhere 1</span><span class="cmd-desc">Закуп в любом месте.</span></div><button class="cmd-copy-btn" onclick="copyCmd('mp_buy_anywhere 1')">Копировать</button></div>
+        <div class="cmd-item"><div class="cmd-info"><span class="cmd-code">bot_kick</span><span class="cmd-desc">Убрать ботов.</span></div><button class="cmd-copy-btn" onclick="copyCmd('bot_kick')">Копировать</button></div>
+        <div class="cmd-item"><div class="cmd-info"><span class="cmd-code">noclip</span><span class="cmd-desc">Полет сквозь стены.</span></div><button class="cmd-copy-btn" onclick="copyCmd('noclip')">Копировать</button></div>
       </div>
-
-      <!-- НАСТРОЙКИ -->
       <div class="cmd-category">
-        <h3>⚙️ Полезные настройки</h3>
-        <div class="cmd-item">
-          <div class="cmd-info"><span class="cmd-code">fps_max 0</span><span class="cmd-desc">Убирает лимит FPS (максимальная производительность).</span></div>
-          <button class="cmd-copy-btn" onclick="copyCmd('fps_max 0')">Копировать</button>
-        </div>
-        <div class="cmd-item">
-          <div class="cmd-info"><span class="cmd-code">cl_showfps 1</span><span class="cmd-desc">Показывает счетчик FPS в углу экрана.</span></div>
-          <button class="cmd-copy-btn" onclick="copyCmd('cl_showfps 1')">Копировать</button>
-        </div>
-        <div class="cmd-item">
-          <div class="cmd-info"><span class="cmd-code">cl_crosshairstyle 4</span><span class="cmd-desc">Ставит статичный прицел (не расширяется при стрельбе).</span></div>
-          <button class="cmd-copy-btn" onclick="copyCmd('cl_crosshairstyle 4')">Копировать</button>
-        </div>
-        <div class="cmd-item">
-          <div class="cmd-info"><span class="cmd-code">sensitivity 1.5</span><span class="cmd-desc">Устанавливает чувствительность мыши (замени 1.5 на свою).</span></div>
-          <button class="cmd-copy-btn" onclick="copyCmd('sensitivity 1.5')">Копировать</button>
-        </div>
-        <div class="cmd-item">
-          <div class="cmd-info"><span class="cmd-code">voice_scale 0.5</span><span class="cmd-desc">Уменьшает громкость голосового чата.</span></div>
-          <button class="cmd-copy-btn" onclick="copyCmd('voice_scale 0.5')">Копировать</button>
-        </div>
+        <h3>Настройки</h3>
+        <div class="cmd-item"><div class="cmd-info"><span class="cmd-code">fps_max 0</span><span class="cmd-desc">Убрать лимит FPS.</span></div><button class="cmd-copy-btn" onclick="copyCmd('fps_max 0')">Копировать</button></div>
+        <div class="cmd-item"><div class="cmd-info"><span class="cmd-code">cl_showfps 1</span><span class="cmd-desc">Счетчик FPS.</span></div><button class="cmd-copy-btn" onclick="copyCmd('cl_showfps 1')">Копировать</button></div>
+        <div class="cmd-item"><div class="cmd-info"><span class="cmd-code">cl_crosshairstyle 4</span><span class="cmd-desc">Статичный прицел.</span></div><button class="cmd-copy-btn" onclick="copyCmd('cl_crosshairstyle 4')">Копировать</button></div>
       </div>
-
-      <!-- РАЗНОЕ -->
-      <div class="cmd-category">
-        <h3>🎮 Разное</h3>
-        <div class="cmd-item">
-          <div class="cmd-info"><span class="cmd-code">disconnect</span><span class="cmd-desc">Выход с текущего сервера.</span></div>
-          <button class="cmd-copy-btn" onclick="copyCmd('disconnect')">Копировать</button>
-        </div>
-        <div class="cmd-item">
-          <div class="cmd-info"><span class="cmd-code">retry</span><span class="cmd-desc">Переподключение к текущему серверу.</span></div>
-          <button class="cmd-copy-btn" onclick="copyCmd('retry')">Копировать</button>
-        </div>
-        <div class="cmd-item">
-          <div class="cmd-info"><span class="cmd-code">status</span><span class="cmd-desc">Показывает статистику сервера (пинг, тикрейт).</span></div>
-          <button class="cmd-copy-btn" onclick="copyCmd('status')">Копировать</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- DUST 2 (ПОДРОБНО) -->
-    <div id="dust2" class="tab-content">
-      <h2>🏜️ Dust 2</h2>
-      <p>Карта длинных дистанций и снайперов. Здесь смок на Mid Doors решает половину раунда.</p>
-      
-      <h3>⏱️ Тайминги и позиции</h3>
-      <div class="timing-grid">
-        <div class="timing-card"><h4>Т: до A Long Doors</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до Mid Doors</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до B Tunnels (верх)</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до Long (Pit)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до B Doors</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до Mid Doors</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-      </div>
-
-      <h3>Атака (Т-сторона)</h3>
-      <h4>Раскидки:</h4>
-      <ul>
-        <li><strong>Смок на Mid Doors:</strong> Это <strong>самый важный</strong> смок на карте. Блокирует прострел AWP с CT. Встань на спавне и целься в определенную точку на небе (обычно по линии крыши). Бросок обычный.</li>
-        <li><strong>Смок на Long (A Cross):</strong> Если вы идете на А через Long, нужно задымить место, где CT может простреливать вас с Short (Catwalk). Это позволяет безопасно перебежать.</li>
-        <li><strong>Смок на B Doors:</strong> С верхних туннелей, чтобы CT не простреливали вход в туннель. После этого можно заходить на плент.</li>
-        <li><strong>Флешки на Long:</strong> Перед выходом с дверей кидай флешку в сторону Pit и Blue. Она должна взорваться в воздухе, чтобы враг не успел отвернуться.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Сплит Б:</strong> Один игрок идет через верхние туннели, другой через нижние. Кидайте смоки на B Doors и окно, чтобы синхронно зайти.</li>
-        <li><strong>Контроль Mid:</strong> Если вы взяли Mid Doors, вы можете зайти на Short (Catwalk) и зажать А с двух сторон.</li>
-      </ul>
-      <h3>Защита (CT-сторона)</h3>
-      <h4>Раскидки:</h4>
-      <ul>
-        <li><strong>Смок на Long Doors (с CT):</strong> В начале раунда можно задымить двери, чтобы Т не видели ваши позиции.</li>
-        <li><strong>Молотов на Long (с Pit):</strong> Если Т пушут Long, киньте молотов в сторону дверей, чтобы отрезать путь.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Держи Long:</strong> Если ты играешь на Long, твоя задача — не дать врагу выйти. Используй укрытия (Pit, Blue, Car). Если враг кинул смок на Cross, отходи ближе к пленту.</li>
-        <li><strong>Ретейк B:</strong> Заходите через двери и окно. Используйте HE и молотов, чтобы выбить Т с плента.</li>
-      </ul>
-    </div>
-
-    <!-- MIRAGE (ПОДРОБНО) -->
-    <div id="mirage" class="tab-content">
-      <h2>🏜️ Mirage</h2>
-      <p>Самая популярная карта в CS2. Здесь решает контроль центра (Mid) и правильные задымления на А-пленте.</p>
-      
-      <h3>⏱️ Тайминги и позиции</h3>
-      <div class="timing-grid">
-        <div class="timing-card"><h4>Т: до A Ramp (выход на А)</h4><div class="timing-row"><span>Время</span><span>~10-12 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до Mid (Top Mid)</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до B Apps (Апсы)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до A Site (Default)</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до Mid (Window)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до B Site (Bench)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-      </div>
-
-      <h3>Атака (Т-сторона)</h3>
-      <h4>Раскидки (Смоки и молотовы):</h4>
-      <ul>
-        <li><strong>Смок на CT:</strong> Встань на Т-спавне у ящиков. Целься в палку на здании, делай прыжок-бросок (Jumpthrow). Отрезает обзор с CT-спавна.</li>
-        <li><strong>Смок на Jungle:</strong> Встань между двумя арками. Целься в верхний левый угол выступа на стене, обычный бросок (ЛКМ). Закрывает правую часть плента.</li>
-        <li><strong>Смок на Window:</strong> Встань перед мусоркой справа от Т-спавна. Целься в верх забора на стыке белой и красной стены. Зажми «D» и одновременно делай прыжок-бросок.</li>
-        <li><strong>Молотов под Palace:</strong> Если ты в Palace, встань к краю второй колонны от выхода. Целься в угол, где стена встречается с крышей, и беги вперед, отпуская молотов, когда пересечешь зеленую линию.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Сплит А:</strong> Контролируйте Mid. Через Connector и Short заходите одновременно с двух сторон, чтобы CT не могли зажать вас в узком проходе.</li>
-        <li><strong>Быстрый раш Б:</strong> Кидайте молотов в Апсы и сразу забегайте на плент, используя лестницу для контроля.</li>
-      </ul>
-      <h3>Защита (CT-сторона)</h3>
-      <h4>Раскидки:</h4>
-      <ul>
-        <li><strong>Смок на Window (с CT):</strong> Для защиты мида можно кинуть смок на окно со стороны CT, чтобы Т не могли простреливать вас с Short.</li>
-        <li><strong>Молотов на Banana (Б):</strong> В начале раунда киньте молотов в сторону Апсов, чтобы замедлить выход Т.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Позиции на А:</strong> Играйте от укрытий (Triple, Default, Jungle). Не стойте на открытом месте. Если враги кинули смоки на CT и Jungle, отходите вглубь плента или за стойку.</li>
-        <li><strong>Ретейк А:</strong> Если плент захвачен, заходите одновременно с Connector и Jungle. Используйте флешки, чтобы ослепить Т и выбить их с позиций.</li>
-      </ul>
-      <div class="tip-box"><strong>Совет:</strong> Очень важно не пускать Т в Коннектор. Если вы контролируете Коннектор, вы можете ротироваться между А и Б быстрее.</div>
-    </div>
-
-    <!-- INFERNO (ПОДРОБНО) -->
-    <div id="inferno" class="tab-content">
-      <h2>🔥 Inferno</h2>
-      <p>Самая узкая карта. Здесь всё решает контроль Банана (Banana) и правильные задымления на А-пленте.</p>
-      
-      <h3>⏱️ Тайминги и позиции</h3>
-      <div class="timing-grid">
-        <div class="timing-card"><h4>Т: до Banana (Car)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до A Ramp (выход)</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до Alt Mid (Апсы)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до Banana (Car)</h4><div class="timing-row"><span>Время</span><span>~4-5 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до A Site (Pit)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до B Site (Coffins)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-      </div>
-
-      <h3>Атака (Т-сторона)</h3>
-      <h4>Раскидки:</h4>
-      <ul>
-        <li><strong>Контроль Банана:</strong> Это 80% успеха на Т-стороне. В начале раунда нужно закидать Банан гранатами (молотов, флешки) и занять его. Если вы контролируете Банан, вы можете идти на B или через Mid на A.</li>
-        <li><strong>Смок на Coffins (с Half Wall):</strong> Если вы зашли на B, задыми Coffins (гробы). Это изолирует самую сильную позицию якоря CT.</li>
-        <li><strong>Смок на Arch (с Mid):</strong> Для выхода на A через Mid или Alt Mid нужно задымить Arch (Арку), чтобы CT не простреливали вас со стороны спавна.</li>
-        <li><strong>Смок на Library (с Mid):</strong> Задыми Library (Библиотеку), чтобы убрать прострел со стороны CT на позицию T-спавна.</li>
-        <li><strong>Молотов на Balcony (с Boiler):</strong> Перед выходом на плент А, кинь молотов на балкон (Balcony), чтобы выкурить оттуда CT.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Быстрый раш Б:</strong> Закидайте Банан флешками и молотовым, затем быстро забегайте на плент. Используйте смок на Coffins, чтобы отрезать обзор.</li>
-        <li><strong>Сплит А:</strong> Один игрок контролирует Mid, другой идет через Alt Mid (Апсы). Синхронный выход через Arch и Library.</li>
-      </ul>
-      <h3>Защита (CT-сторона)</h3>
-      <h4>Раскидки:</h4>
-      <ul>
-        <li><strong>Car Molotov:</strong> В начале раунда киньте молотов с машины (Car) в сторону Банана, чтобы не дать Т занять позиции.</li>
-        <li><strong>Pop-flash на Банане:</strong> Используйте флешки, которые взрываются сразу за стеной, чтобы ослепить Т, выходящих с Банана.</li>
-      </ul>
-      <h4>Тактика:</h4>
-      <ul>
-        <li><strong>Banana:</strong> Твоя задача — задержать врага. Если ты играешь B-сайт, учись правильно отходить, чтобы не умирать в первые 10 секунд.</li>
-        <li><strong>Позиции на А:</strong> Играй от укрытий (Pit, Library, Graveyard). Не стой в центре плента, тебя просто разберут с дистанции.</li>
-        <li><strong>Ретейк B:</strong> Заходите через Coffins и New Box, используйте молотов, чтобы выкурить Т из-за укрытий.</li>
-      </ul>
-      <div class="tip-box"><strong>Совет:</strong> На Inferno очень часто решает <strong>один игрок на Banana</strong>. Если ты играешь B-сайт, учись кидать молотов с Car (с первого оранжа) и правильно отходить.</div>
-    </div>
-
-    <!-- NUKE -->
-    <div id="nuke" class="tab-content">
-      <h2>☢️ Nuke</h2>
-      <p>Самая вертикальная карта. Здесь два плента (A и B) находятся друг над другом.</p>
-      <h3>⏱️ Тайминги</h3>
-      <div class="timing-grid">
-        <div class="timing-card"><h4>Т: до Hut (A)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до Outside (Secret)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до A Site (Heaven)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до B Site (Vents)</h4><div class="timing-row"><span>Время</span><span>~4-5 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-      </div>
-      <h3>Раскидки (Т)</h3>
-      <ul>
-        <li><strong>Смок на Squeaky (A):</strong> Безопасный выход из Hut.</li>
-        <li><strong>Смок на Heaven (A):</strong> Критически важно, иначе CT простреливают сверху.</li>
-        <li><strong>Смок на Vents (B):</strong> Блокирует выход CT.</li>
-      </ul>
-    </div>
-
-    <!-- CACHE -->
-    <div id="cache" class="tab-content">
-      <h2>🏭 Cache</h2>
-      <p>Легендарная карта вернулась в CS2! Похожа на Mirage по структуре.</p>
-      <h3>⏱️ Тайминги</h3>
-      <div class="timing-grid">
-        <div class="timing-card"><h4>Т: до A Main</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до Mid (Z)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до A Site (Quad)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-      </div>
-      <h3>Раскидки (Т)</h3>
-      <ul>
-        <li><strong>Смок на Highway (A):</strong> Закрывает прострел.</li>
-        <li><strong>Смок на Z (Mid):</strong> Блокирует выход CT в Mid.</li>
-        <li><strong>Смок на Checkers (B):</strong> Критически важно для захода на B.</li>
-      </ul>
-    </div>
-
-    <!-- ANCIENT -->
-    <div id="ancient" class="tab-content">
-      <h2>🏛️ Ancient</h2>
-      <p>Карта решается гранатами и контролем мида.</p>
-      <h3>⏱️ Тайминги</h3>
-      <div class="timing-grid">
-        <div class="timing-card"><h4>Т: до Mid (Top Mid)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до A Ramp</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до A Site (Temple)</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-      </div>
-      <h3>Раскидки (Т)</h3>
-      <ul>
-        <li><strong>Захват мида:</strong> Смок на снайперскую позицию и окно.</li>
-        <li><strong>Заход на A:</strong> Смок на Храм (Temple) — самый важный.</li>
-        <li><strong>Заход на B:</strong> Смок на B-Long и Pit.</li>
-      </ul>
-    </div>
-
-    <!-- ANUBIS -->
-    <div id="anubis" class="tab-content">
-      <h2>🐊 Anubis</h2>
-      <p>Ключ к карте — контроль Mid и воды.</p>
-      <h3>⏱️ Тайминги</h3>
-      <div class="timing-grid">
-        <div class="timing-card"><h4>Т: до Mid (Bridge)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до A Main (Walkway)</h4><div class="timing-row"><span>Время</span><span>~9-10 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до A Site (Heaven)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-      </div>
-      <h3>Раскидки (Т)</h3>
-      <ul>
-        <li><strong>Заход на A:</strong> Смок на Heaven (с Walkway).</li>
-        <li><strong>Заход на B:</strong> Смок на Street (с Mid).</li>
-        <li><strong>Смок на Connector:</strong> Чтобы отрезать ротацию.</li>
-      </ul>
-    </div>
-
-    <!-- OVERPASS -->
-    <div id="overpass" class="tab-content">
-      <h2>🌉 Overpass</h2>
-      <p>Самая зависимая от гранат карта. Банк на A и Девятка на B решают всё.</p>
-      <h3>⏱️ Тайминги</h3>
-      <div class="timing-grid">
-        <div class="timing-card"><h4>Т: до Toilets (Mid)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до A Long</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до A Site (Bank)</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-      </div>
-      <h3>Раскидки (Т)</h3>
-      <ul>
-        <li><strong>Туалеты:</strong> Смок с фонтана, чтобы забрать Mid.</li>
-        <li><strong>Заход на A:</strong> Смок на Банк (обязательно).</li>
-        <li><strong>Заход на B:</strong> Смок на Девятку.</li>
-      </ul>
-    </div>
-
-    <!-- VERTIGO -->
-    <div id="vertigo" class="tab-content">
-      <h2>🏗️ Vertigo</h2>
-      <p>Очень открытые пленты. Без смоков заходить почти нереально.</p>
-      <h3>⏱️ Тайминги</h3>
-      <div class="timing-grid">
-        <div class="timing-card"><h4>Т: до A Stairs</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до Mid (Top Mid)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до A Site (Elevator)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-      </div>
-      <h3>Раскидки (Т)</h3>
-      <ul>
-        <li><strong>Смок на Девятку (A):</strong> Джамптроу.</li>
-        <li><strong>Смок на Буст (A):</strong> Закрывает позицию для буста.</li>
-        <li><strong>Смок на Элеватор (A):</strong> Между желтыми трубами.</li>
-      </ul>
-    </div>
-
-    <!-- TRAIN -->
-    <div id="train" class="tab-content">
-      <h2>🚂 Train</h2>
-      <p>Карта с огромным количеством вагонов и снайперских позиций.</p>
-      <h3>⏱️ Тайминги</h3>
-      <div class="timing-grid">
-        <div class="timing-card"><h4>Т: до A Long (Long Dog)</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до Ivy (A)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до A Site (Bomb Train)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-      </div>
-      <h3>Раскидки (Т)</h3>
-      <ul>
-        <li><strong>Смок на Z (Mid):</strong> Отрезает прострел.</li>
-        <li><strong>Смок на Ivy (A):</strong> Закрывает фланг.</li>
-        <li><strong>Смок на Bomb Train (A):</strong> Безопасная постановка.</li>
-      </ul>
-    </div>
-
-    <!-- OFFICE -->
-    <div id="office" class="tab-content">
-      <h2>🏢 Office (Заложники)</h2>
-      <p>Карта из режима «Заложники».</p>
-      <h3>⏱️ Тайминги</h3>
-      <div class="timing-grid">
-        <div class="timing-card"><h4>CT: до Garage (вход)</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до Main Hall</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до Garage (удержание)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-      </div>
-      <h3>Раскидки (CT)</h3>
-      <ul>
-        <li><strong>Смок на Garage:</strong> Безопасный подход.</li>
-        <li><strong>Смок на Main Hall:</strong> Закрывает прострел.</li>
-      </ul>
-    </div>
-
-    <!-- ITALY -->
-    <div id="italy" class="tab-content">
-      <h2>🍕 Italy (Заложники)</h2>
-      <p>Карта на заложников с рынком (Market).</p>
-      <h3>⏱️ Тайминги</h3>
-      <div class="timing-grid">
-        <div class="timing-card"><h4>CT: до Market</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>CT: до Long</h4><div class="timing-row"><span>Время</span><span>~9-10 сек</span></div><div class="timing-row"><span>Откуда</span><span>CT Spawn</span></div></div>
-        <div class="timing-card"><h4>Т: до Market (удержание)</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div><div class="timing-row"><span>Откуда</span><span>T Spawn</span></div></div>
-      </div>
-      <h3>Раскидки (CT)</h3>
-      <ul>
-        <li><strong>Смок на Market:</strong> Безопасный подход к заложнику.</li>
-        <li><strong>Смок на Stairs (сверху):</strong> Закрывает балкон.</li>
-      </ul>
     </div>
 
     <!-- QUIZ -->
@@ -727,6 +356,244 @@
         <p id="result-text">Ты ответил правильно на X из Y вопросов.</p>
         <button class="restart-btn" onclick="restartQuiz()">Пройти еще раз</button>
       </div>
+    </div>
+
+    <!-- DUST 2 -->
+    <div id="dust2" class="tab-content">
+      <h2>🏜️ Dust 2</h2>
+      <p>Карта длинных дистанций и снайперов. Смок на Mid Doors решает половину раунда.</p>
+      <h3>⏱️ Тайминги</h3>
+      <div class="timing-grid">
+        <div class="timing-card"><h4>Т: до A Long</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div></div>
+        <div class="timing-card"><h4>Т: до Mid Doors</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div></div>
+        <div class="timing-card"><h4>CT: до Long (Pit)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div></div>
+      </div>
+      <h3>Атака (Т)</h3>
+      <ul>
+        <li><strong>Смок на Mid Doors:</strong> Блокирует AWP. Встань на спавне, целься в линию крыши.</li>
+        <li><strong>Смок на Long (A Cross):</strong> Задымить прострел с Short (Catwalk).</li>
+        <li><strong>Смок на B Doors:</strong> С верхних туннелей.</li>
+        <li><strong>Флешки на Long:</strong> Кидай в сторону Pit и Blue.</li>
+      </ul>
+      <h3>Защита (CT)</h3>
+      <ul>
+        <li><strong>Смок на Long Doors:</strong> Ранний смок для блокировки обзора.</li>
+        <li><strong>Молотов на Long:</strong> Отрезать путь при пуше.</li>
+      </ul>
+    </div>
+
+    <!-- MIRAGE -->
+    <div id="mirage" class="tab-content">
+      <h2>🏜️ Mirage</h2>
+      <p>Самая популярная карта. Контроль Mid и правильные смоки на А.</p>
+      <h3>⏱️ Тайминги</h3>
+      <div class="timing-grid">
+        <div class="timing-card"><h4>Т: до A Ramp</h4><div class="timing-row"><span>Время</span><span>~10-12 сек</span></div></div>
+        <div class="timing-card"><h4>Т: до Mid (Top Mid)</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div></div>
+        <div class="timing-card"><h4>CT: до A Site</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div></div>
+      </div>
+      <h3>Атака (Т)</h3>
+      <ul>
+        <li><strong>Смок на CT:</strong> С Т-спавна, прыжок-бросок в палку на здании.</li>
+        <li><strong>Смок на Jungle:</strong> Между арками, в верхний левый угол.</li>
+        <li><strong>Смок на Window:</strong> Перед мусоркой, зажми D + прыжок-бросок.</li>
+        <li><strong>Молотов под Palace:</strong> От края второй колонны.</li>
+      </ul>
+      <h3>Защита (CT)</h3>
+      <ul>
+        <li><strong>Смок на Window:</strong> Для защиты мида.</li>
+        <li><strong>Молотов на Banana:</strong> В начале раунда.</li>
+      </ul>
+      <div class="tip-box">Не пускайте Т в Коннектор!</div>
+    </div>
+
+    <!-- INFERNO -->
+    <div id="inferno" class="tab-content">
+      <h2>🔥 Inferno</h2>
+      <p>Узкая карта. Контроль Банана и задымления на А.</p>
+      <h3>⏱️ Тайминги</h3>
+      <div class="timing-grid">
+        <div class="timing-card"><h4>Т: до Banana</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div></div>
+        <div class="timing-card"><h4>Т: до A Ramp</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div></div>
+        <div class="timing-card"><h4>CT: до Banana</h4><div class="timing-row"><span>Время</span><span>~4-5 сек</span></div></div>
+      </div>
+      <h3>Атака (Т)</h3>
+      <ul>
+        <li><strong>Контроль Банана:</strong> Закидать гранатами и занять.</li>
+        <li><strong>Смок на Coffins:</strong> С Half Wall, чтобы отрезать CT.</li>
+        <li><strong>Смок на Arch:</strong> Для выхода через Mid.</li>
+        <li><strong>Смок на Library:</strong> Закрывает прострел с CT.</li>
+      </ul>
+      <h3>Защита (CT)</h3>
+      <ul>
+        <li><strong>Car Molotov:</strong> В начале раунда в сторону Банана.</li>
+        <li><strong>Pop-flash:</strong> Флешки за стеной на Банане.</li>
+      </ul>
+    </div>
+
+    <!-- NUKE -->
+    <div id="nuke" class="tab-content">
+      <h2>☢️ Nuke</h2>
+      <p>Вертикальная карта. Два плента друг над другом.</p>
+      <h3>⏱️ Тайминги</h3>
+      <div class="timing-grid">
+        <div class="timing-card"><h4>Т: до Hut</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div></div>
+        <div class="timing-card"><h4>Т: до Outside</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div></div>
+        <div class="timing-card"><h4>CT: до Heaven</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div></div>
+      </div>
+      <h3>Атака (Т)</h3>
+      <ul>
+        <li><strong>Смок на Squeaky:</strong> Безопасный выход из Hut.</li>
+        <li><strong>Смок на Heaven:</strong> Критически важно, чтобы CT не простреливали сверху.</li>
+        <li><strong>Смок на Vents:</strong> Блокирует выход CT на B.</li>
+      </ul>
+      <h3>Защита (CT)</h3>
+      <ul>
+        <li><strong>Смок на Hut:</strong> Задерживает выход Т.</li>
+        <li><strong>Смок на Ramp:</strong> Перекрывает спуск.</li>
+      </ul>
+    </div>
+
+    <!-- ANCIENT -->
+    <div id="ancient" class="tab-content">
+      <h2>🏛️ Ancient</h2>
+      <p>Гранаты и контроль мида решают всё.</p>
+      <h3>⏱️ Тайминги</h3>
+      <div class="timing-grid">
+        <div class="timing-card"><h4>Т: до Mid</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div></div>
+        <div class="timing-card"><h4>Т: до A Ramp</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div></div>
+        <div class="timing-card"><h4>CT: до Temple</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div></div>
+      </div>
+      <h3>Атака (Т)</h3>
+      <ul>
+        <li><strong>Захват мида:</strong> Смок на снайперскую позицию и окно.</li>
+        <li><strong>Заход на A:</strong> Смок на Храм (Temple) — самый важный.</li>
+        <li><strong>Заход на B:</strong> Смок на B-Long и Pit.</li>
+        <li><strong>Молотов на Cave:</strong> Чтобы выкурить якорей.</li>
+      </ul>
+    </div>
+
+    <!-- ANUBIS -->
+    <div id="anubis" class="tab-content">
+      <h2>🐊 Anubis</h2>
+      <p>Контроль Mid и воды.</p>
+      <h3>⏱️ Тайминги</h3>
+      <div class="timing-grid">
+        <div class="timing-card"><h4>Т: до Mid (Bridge)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div></div>
+        <div class="timing-card"><h4>Т: до A Main</h4><div class="timing-row"><span>Время</span><span>~9-10 сек</span></div></div>
+        <div class="timing-card"><h4>CT: до Heaven</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div></div>
+      </div>
+      <h3>Атака (Т)</h3>
+      <ul>
+        <li><strong>Заход на A:</strong> Смок на Heaven, молотов под лестницу.</li>
+        <li><strong>Заход на B:</strong> Смок на Street, флешки в Ruins.</li>
+        <li><strong>Смок на Connector:</strong> Отрезает ротацию.</li>
+      </ul>
+    </div>
+
+    <!-- OVERPASS -->
+    <div id="overpass" class="tab-content">
+      <h2>🌉 Overpass</h2>
+      <p>Банк на A и Девятка на B решают всё.</p>
+      <h3>⏱️ Тайминги</h3>
+      <div class="timing-grid">
+        <div class="timing-card"><h4>Т: до Toilets</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div></div>
+        <div class="timing-card"><h4>Т: до A Long</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div></div>
+        <div class="timing-card"><h4>CT: до Bank</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div></div>
+      </div>
+      <h3>Атака (Т)</h3>
+      <ul>
+        <li><strong>Туалеты:</strong> Смок с фонтана для контроля Mid.</li>
+        <li><strong>Заход на A:</strong> Смок на Банк (обязательно).</li>
+        <li><strong>Заход на B:</strong> Смок на Девятку, молотов на Пески.</li>
+      </ul>
+    </div>
+
+    <!-- VERTIGO -->
+    <div id="vertigo" class="tab-content">
+      <h2>🏗️ Vertigo</h2>
+      <p>Открытые пленты, много вертикальных позиций.</p>
+      <h3>⏱️ Тайминги</h3>
+      <div class="timing-grid">
+        <div class="timing-card"><h4>Т: до A Stairs</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div></div>
+        <div class="timing-card"><h4>Т: до Mid</h4><div class="timing-row"><span>Время</span><span>~5-6 сек</span></div></div>
+        <div class="timing-card"><h4>CT: до Elevator</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div></div>
+      </div>
+      <h3>Атака (Т)</h3>
+      <ul>
+        <li><strong>Смок на Девятку:</strong> Джамптроу.</li>
+        <li><strong>Смок на Буст:</strong> Закрывает позицию для буста.</li>
+        <li><strong>Смок на Элеватор:</strong> Между желтыми трубами.</li>
+        <li><strong>Смок за Электрик (B):</strong> Закрывает щиток.</li>
+      </ul>
+    </div>
+
+    <!-- TRAIN -->
+    <div id="train" class="tab-content">
+      <h2>🚂 Train</h2>
+      <p>Игра на поездах (Boiler, Popdog).</p>
+      <h3>⏱️ Тайминги</h3>
+      <div class="timing-grid">
+        <div class="timing-card"><h4>Т: до A Long</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div></div>
+        <div class="timing-card"><h4>Т: до Ivy</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div></div>
+        <div class="timing-card"><h4>CT: до Bomb Train</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div></div>
+      </div>
+      <h3>Атака (Т)</h3>
+      <ul>
+        <li><strong>Смок на Z (Mid):</strong> Отрезает прострел.</li>
+        <li><strong>Смок на Ivy:</strong> Закрывает фланг.</li>
+        <li><strong>Смок на Bomb Train:</strong> Безопасная постановка.</li>
+      </ul>
+    </div>
+
+    <!-- CACHE -->
+    <div id="cache" class="tab-content">
+      <h2>🏭 Cache</h2>
+      <p>Похожа на Mirage по структуре.</p>
+      <h3>⏱️ Тайминги</h3>
+      <div class="timing-grid">
+        <div class="timing-card"><h4>Т: до A Main</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div></div>
+        <div class="timing-card"><h4>Т: до Mid (Z)</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div></div>
+        <div class="timing-card"><h4>CT: до Quad</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div></div>
+      </div>
+      <h3>Атака (Т)</h3>
+      <ul>
+        <li><strong>Смок на Highway:</strong> Закрывает прострел.</li>
+        <li><strong>Смок на Z:</strong> Блокирует выход CT в Mid.</li>
+        <li><strong>Смок на Checkers:</strong> Критически важно для захода на B.</li>
+      </ul>
+    </div>
+
+    <!-- OFFICE -->
+    <div id="office" class="tab-content">
+      <h2>🏢 Office (Заложники)</h2>
+      <p>Узкие коридоры и дробовики.</p>
+      <h3>⏱️ Тайминги</h3>
+      <div class="timing-grid">
+        <div class="timing-card"><h4>CT: до Garage</h4><div class="timing-row"><span>Время</span><span>~6-7 сек</span></div></div>
+        <div class="timing-card"><h4>CT: до Main Hall</h4><div class="timing-row"><span>Время</span><span>~8-9 сек</span></div></div>
+      </div>
+      <h3>Тактика (CT)</h3>
+      <ul>
+        <li><strong>Смок на Garage:</strong> Безопасный подход.</li>
+        <li><strong>Смок на Main Hall:</strong> Закрывает прострел.</li>
+      </ul>
+    </div>
+
+    <!-- ITALY -->
+    <div id="italy" class="tab-content">
+      <h2>🍕 Italy (Заложники)</h2>
+      <p>Рынок (Market) и крыши.</p>
+      <h3>⏱️ Тайминги</h3>
+      <div class="timing-grid">
+        <div class="timing-card"><h4>CT: до Market</h4><div class="timing-row"><span>Время</span><span>~7-8 сек</span></div></div>
+        <div class="timing-card"><h4>CT: до Long</h4><div class="timing-row"><span>Время</span><span>~9-10 сек</span></div></div>
+      </div>
+      <h3>Тактика (CT)</h3>
+      <ul>
+        <li><strong>Смок на Market:</strong> Безопасный подход к заложнику.</li>
+        <li><strong>Смок на Stairs:</strong> Закрывает балкон.</li>
+      </ul>
     </div>
 
   </div>
@@ -777,53 +644,53 @@
 
   const quizData = {
     easy: [
-      { q: "Сколько денег дается игроку в начале соревновательного матча?", a: ["$500", "$800", "$1000", "$1200"], c: 1 },
+      { q: "Сколько денег дается в начале соревновательного матча?", a: ["$500", "$800", "$1000", "$1200"], c: 1 },
       { q: "Сколько стоит дефузер (Defuse Kit)?", a: ["$200", "$400", "$600", "$1000"], c: 1 },
-      { q: "Сколько раундов нужно выиграть команде для победы в соревновательном режиме (MR12)?", a: ["10", "13", "15", "16"], c: 1 },
-      { q: "Какое оружие у Т-стороны считается 'винтовкой', если у CT это M4?", a: ["AWP", "AK-47", "Galil", "Famas"], c: 1 },
+      { q: "Сколько раундов нужно выиграть для победы (MR12)?", a: ["10", "13", "15", "16"], c: 1 },
+      { q: "Лучшая винтовка у Т-стороны?", a: ["AWP", "AK-47", "Galil", "Famas"], c: 1 },
       { q: "Сколько денег дает убийство из AWP?", a: ["$100", "$300", "$600", "$900"], c: 0 },
       { q: "Сколько денег дает плант бомбы?", a: ["$300", "$500", "$800", "$1000"], c: 0 },
-      { q: "Какая карта является самой популярной в CS2?", a: ["Dust 2", "Mirage", "Inferno", "Nuke"], c: 1 },
+      { q: "Самая популярная карта в CS2?", a: ["Dust 2", "Mirage", "Inferno", "Nuke"], c: 1 },
       { q: "Сколько длится раунд по времени?", a: ["1:30", "1:45", "1:55", "2:00"], c: 2 }
     ],
     medium: [
-      { q: "Какой максимальный Loss Bonus (бонус за проигрыш) в CS2?", a: ["$2400", "$2900", "$3400", "$4000"], c: 2 },
-      { q: "Сколько времени нужно для установки бомбы (без кита)?", a: ["3 сек", "4 сек", "5 сек", "10 сек"], c: 1 },
-      { q: "Какое оружие у CT дает больше всего денег за убийство?", a: ["AWP", "M4A1-S", "MP9", "Nova"], c: 3 },
-      { q: "Какой смок на Mirage считается самым важным для контроля мида?", a: ["Смок на CT", "Смок на Jungle", "Смок на Window", "Смок на Connector"], c: 2 },
-      { q: "Сколько денег стоит AK-47?", a: ["$2500", "$2700", "$3000", "$3100"], c: 1 },
-      { q: "Если команда проиграла 3 раунда подряд, сколько она получит за 4-й проигрыш?", a: ["$1900", "$2400", "$2900", "$3400"], c: 2 },
-      { q: "Что такое 'Эко' (Eco) раунд?", a: ["Покупка всего оружия", "Покупка только пистолетов", "Сохранение денег (нет закупа)", "Покупка только брони"], c: 2 },
-      { q: "На какой карте есть 'Банк' (Bank) на пленте A?", a: ["Mirage", "Overpass", "Inferno", "Ancient"], c: 1 },
-      { q: "Сколько денег дает дефуз бомбы (игроку)?", a: ["$100", "$300", "$500", "$800"], c: 1 },
-      { q: "Какая карта имеет два плента, расположенных вертикально (друг над другом)?", a: ["Vertigo", "Nuke", "Train", "Cache"], c: 1 },
-      { q: "Какое оружие лучше всего использовать на эко-раунде у Т?", a: ["Desert Eagle", "Glock", "Tec-9", "USP-S"], c: 1 },
-      { q: "Сколько денег дает выигрыш раунда (уничтожение врага)?", a: ["$2500", "$3000", "$3250", "$3500"], c: 2 },
-      { q: "За сколько секунд бомба взрывается после планта?", a: ["30", "40", "45", "50"], c: 1 },
-      { q: "Какой самый популярный пистолет у CT на пистолетном раунде?", a: ["Glock-18", "USP-S / P2000", "P250", "Desert Eagle"], c: 1 },
-      { q: "Что означает термин 'Сплит' (Split)?", a: ["Быстрый раш через одну точку", "Атака с двух разных направлений", "Защита одной точки", "Сохранение денег"], c: 1 }
+      { q: "Максимальный Loss Bonus (за проигрыш)?", a: ["$2400", "$2900", "$3400", "$4000"], c: 2 },
+      { q: "Сколько времени на установку бомбы (без кита)?", a: ["3 сек", "4 сек", "5 сек", "10 сек"], c: 1 },
+      { q: "Оружие CT, дающее больше всего денег за фраг?", a: ["AWP", "M4A1-S", "MP9", "Nova"], c: 3 },
+      { q: "Важнейший смок на Mirage для мида?", a: ["Смок на CT", "Смок на Jungle", "Смок на Window", "Смок на Connector"], c: 2 },
+      { q: "Сколько стоит AK-47?", a: ["$2500", "$2700", "$3000", "$3100"], c: 1 },
+      { q: "За 4-й проигрыш подряд команда получает?", a: ["$1900", "$2400", "$2900", "$3400"], c: 2 },
+      { q: "Что такое 'Эко' (Eco) раунд?", a: ["Покупка всего", "Покупка пистолетов", "Сохранение денег", "Покупка брони"], c: 2 },
+      { q: "На какой карте есть 'Банк' (Bank)?", a: ["Mirage", "Overpass", "Inferno", "Ancient"], c: 1 },
+      { q: "Сколько денег дает дефуз бомбы игроку?", a: ["$100", "$300", "$500", "$800"], c: 1 },
+      { q: "Карта с двумя плентами друг над другом?", a: ["Vertigo", "Nuke", "Train", "Cache"], c: 1 },
+      { q: "Лучший пистолет на эко у Т?", a: ["Desert Eagle", "Glock", "Tec-9", "USP-S"], c: 1 },
+      { q: "Сколько денег за выигрыш раунда (уничтожение)?", a: ["$2500", "$3000", "$3250", "$3500"], c: 2 },
+      { q: "Сколько секунд до взрыва бомбы после планта?", a: ["30", "40", "45", "50"], c: 1 },
+      { q: "Популярный пистолет у CT на пистолетном раунде?", a: ["Glock-18", "USP-S / P2000", "P250", "Desert Eagle"], c: 1 },
+      { q: "Что означает термин 'Сплит' (Split)?", a: ["Раш на одну точку", "Атака с двух сторон", "Защита точки", "Сохранение"], c: 1 }
     ],
     hard: [
       { q: "Сколько eDPI у donk (800 DPI * 1.25)?", a: ["800", "900", "1000", "1200"], c: 2 },
-      { q: "Какой Loss Bonus будет, если команда проиграла 5 раундов подряд?", a: ["$2900", "$3000", "$3400", "$3500"], c: 2 },
-      { q: "Сколько времени нужно для дефуза бомбы с дефузером?", a: ["5 сек", "10 сек", "15 сек", "20 сек"], c: 1 },
-      { q: "За сколько секунд Т-сторона может добежать до плента A на Mirage (примерно)?", a: ["5 сек", "10 сек", "15 сек", "20 сек"], c: 2 },
-      { q: "Какое оружие дает $900 за убийство?", a: ["AWP", "Nova", "AK-47", "MP9"], c: 1 },
-      { q: "Какой про-игрок известен своим прицелом с кодом 'CSGO-QBm2i...'?", a: ["donk", "ZywOo", "m0NESY", "s1mple"], c: 1 },
-      { q: "На какой карте есть позиция 'Девятка' (Nine)?", a: ["Vertigo", "Nuke", "Train", "Cache"], c: 0 },
-      { q: "Сколько денег нужно, чтобы купить AWP + броню + дефузер?", a: ["$5000", "$5500", "$6000", "$6500"], c: 1 },
-      { q: "Что такое 'Смок на Z' на карте Cache?", a: ["Смок на мид", "Смок на A", "Смок на B", "Смок на выход с Т-спавна"], c: 0 },
-      { q: "Какой максимальный бонус за убийство из дробовика?", a: ["$300", "$600", "$900", "$1200"], c: 2 },
-      { q: "Сколько денег стоит кевлар + шлем?", a: ["$650", "$1000", "$1200", "$1500"], c: 1 },
-      { q: "Какая карта вернулась в CS2 и имеет позицию 'Highway'?", a: ["Train", "Cache", "Cobblestone", "Tuscan"], c: 1 },
-      { q: "Сколько времени дается Т-стороне на закладку бомбы?", a: ["1:30", "1:45", "1:55", "2:00"], c: 2 },
-      { q: "Что такое 'Форс-бай' (Force Buy)?", a: ["Сохранение денег", "Покупка всего возможного на остаток", "Покупка только пистолетов", "Покупка только гранат"], c: 1 },
-      { q: "На какой карте есть 'Библиотека' (Library)?", a: ["Inferno", "Mirage", "Overpass", "Ancient"], c: 0 },
-      { q: "Сколько денег дают за убийство из SMG?", a: ["$300", "$600", "$900", "$1000"], c: 1 },
-      { q: "Какой про-игрок известен как 'ZywOo' и играет на позиции AWP?", a: ["Французский снайпер", "Российский рифлер", "Датский капитан", "Бразильский игрок"], c: 0 },
-      { q: "Сколько денег дает выигрыш раунда за взрыв/дефуз?", a: ["$3000", "$3250", "$3500", "$4000"], c: 2 },
-      { q: "Какой термин означает 'задымление' в CS2?", a: ["Flash", "Smoke", "Molotov", "HE"], c: 1 },
-      { q: "Сколько секунд длится заморозка (Freeze Time) в начале раунда?", a: ["10 сек", "15 сек", "20 сек", "25 сек"], c: 2 }
+      { q: "Loss Bonus после 5 поражений подряд?", a: ["$2900", "$3000", "$3400", "$3500"], c: 2 },
+      { q: "Время дефуза с дефузером?", a: ["5 сек", "10 сек", "15 сек", "20 сек"], c: 1 },
+      { q: "Примерное время добегания Т до плента А на Mirage?", a: ["5 сек", "10 сек", "15 сек", "20 сек"], c: 2 },
+      { q: "Оружие, дающее $900 за убийство?", a: ["AWP", "Nova", "AK-47", "MP9"], c: 1 },
+      { q: "Чей код прицела 'CSGO-QBm2i...' (старый формат)?", a: ["donk", "ZywOo", "m0NESY", "s1mple"], c: 1 },
+      { q: "Карта с позицией 'Девятка' (Nine)?", a: ["Vertigo", "Nuke", "Train", "Cache"], c: 0 },
+      { q: "Цена AWP + броня + дефузер?", a: ["$5000", "$5500", "$6000", "$6500"], c: 1 },
+      { q: "Что такое 'Смок на Z' на Cache?", a: ["Смок на мид", "Смок на A", "Смок на B", "Смок на спавн"], c: 0 },
+      { q: "Максимальный бонус за убийство из дробовика?", a: ["$300", "$600", "$900", "$1200"], c: 2 },
+      { q: "Цена кевлара + шлема?", a: ["$650", "$1000", "$1200", "$1500"], c: 1 },
+      { q: "Карта с позицией 'Highway' (вернулась в CS2)?", a: ["Train", "Cache", "Cobblestone", "Tuscan"], c: 1 },
+      { q: "Время Т-стороне на закладку бомбы?", a: ["1:30", "1:45", "1:55", "2:00"], c: 2 },
+      { q: "Что такое 'Форс-бай' (Force Buy)?", a: ["Сейв", "Закуп на остаток", "Покупка пистолетов", "Покупка гранат"], c: 1 },
+      { q: "Карта с позицией 'Библиотека' (Library)?", a: ["Inferno", "Mirage", "Overpass", "Ancient"], c: 0 },
+      { q: "Награда за убийство из SMG?", a: ["$300", "$600", "$900", "$1000"], c: 1 },
+      { q: "Кто такой ZywOo?", a: ["Французский снайпер", "Российский рифлер", "Датский капитан", "Бразильский игрок"], c: 0 },
+      { q: "Награда за победу взрывом/дефузом?", a: ["$3000", "$3250", "$3500", "$4000"], c: 2 },
+      { q: "Что означает 'Smoke'?", a: ["Flash", "Задымление", "Molotov", "HE"], c: 1 },
+      { q: "Длительность заморозки (Freeze Time)?", a: ["10 сек", "15 сек", "20 сек", "25 сек"], c: 2 }
     ]
   };
 
