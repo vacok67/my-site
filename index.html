@@ -78,9 +78,9 @@
   .cmd-copy-btn { background: var(--accent); color: #000; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 12px; white-space: nowrap; }
   .cmd-copy-btn:hover { background: #e0a800; }
 
-  /* Фото позиций */
-  .position-img { width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--border); margin: 10px 0; display: block; }
+  .position-img { width: 100%; max-width: 800px; border-radius: 8px; border: 1px solid var(--border); margin: 10px 0; display: block; }
   .img-caption { font-size: 12px; color: #94a3b8; text-align: center; margin-top: -5px; margin-bottom: 10px; font-style: italic; }
+  .map-names-text { background: rgba(255,255,255,0.02); padding: 15px; border-radius: 8px; border: 1px solid var(--border); font-size: 14px; line-height: 1.6; }
 
   .quiz-start { text-align: center; padding: 40px 20px; }
   .quiz-start h3 { margin-bottom: 20px; }
@@ -368,18 +368,13 @@
         <strong>Совет 3:</strong> Молотов под Palace с Т-стороны — один из самых важных. Он выкуривает CT с балкона, который простреливает весь плент.
       </div>
 
-      <h3>📸 Фото позиций (Раскидки)</h3>
-      <p><strong>Смок на CT (с Т-спавна):</strong></p>
-      <img class="position-img" src="https://i.imgur.com/r9l4M9K.jpg" alt="Смок на CT Mirage" onerror="this.style.display='none'">
-      <div class="img-caption">Встань у ящиков на Т-спавне, целься в палку на здании, делай прыжок-бросок.</div>
-      
-      <p><strong>Смок на Jungle (с Т-спавна):</strong></p>
-      <img class="position-img" src="https://i.imgur.com/1Q7Xq2K.jpg" alt="Смок на Jungle Mirage" onerror="this.style.display='none'">
-      <div class="img-caption">Встань между двумя арками, целься в верхний левый угол выступа, обычный бросок.</div>
-
-      <p><strong>Смок на Window (с Т-спавна):</strong></p>
-      <img class="position-img" src="https://i.imgur.com/z4XQ9R2.jpg" alt="Смок на Window Mirage" onerror="this.style.display='none'">
-      <div class="img-caption">Встань перед мусоркой, зажми D и делай прыжок-бросок.</div>
+      <h3>🗺️ Названия позиций на карте</h3>
+      <div class="map-names-text">
+        <strong>Основные зоны:</strong> T Spawn (Спавн Т), CT Spawn (Спавн СТ), A Site (Плент А), B Site (Плент Б), Mid (Центр).<br><br>
+        <strong>Позиции на А:</strong> Palace (Дворец), Ramp (Рампа), Tetris (Тетрис), Jungle (Джунгли), Connector (Коннектор), Stairs (Лестница), CT (Спавн СТ), Triple (Тройной), Default (Дефолт), Firebox (Ящик).<br><br>
+        <strong>Позиции на Б:</strong> Apps (Апсы), Market (Маркет), Window (Окно), Short (Шорт), Bench (Скамейка), Van (Фургон), Apartments (Квартиры).<br><br>
+        <strong>Мид:</strong> Top Mid (Верхний Мид), Window (Окно), Short (Шорт), Xbox (Иксбокс), Connector (Коннектор).
+      </div>
     </div>
 
     <!-- DUST 2 -->
@@ -408,14 +403,13 @@
         <strong>Совет 3:</strong> Молотов на кар (машину) с бочки у входа в пит выкуривает CT из-за машины. Это очень полезно при заходе на Long.
       </div>
 
-      <h3>📸 Фото позиций (Раскидки)</h3>
-      <p><strong>Смок на Mid Doors (с Т-спавна):</strong></p>
-      <img class="position-img" src="https://i.imgur.com/L1m7z8q.jpg" alt="Смок на Mid Doors Dust 2" onerror="this.style.display='none'">
-      <div class="img-caption">Встань на спавне, целься в точку на небе (по линии крыши). Бросок обычный.</div>
-      
-      <p><strong>Смок на Long Cross (с Т-спавна):</strong></p>
-      <img class="position-img" src="https://i.imgur.com/z2y5r4a.jpg" alt="Смок на Long Cross Dust 2" onerror="this.style.display='none'">
-      <div class="img-caption">Задымить место прострела с Short (Catwalk), чтобы безопасно перебежать.</div>
+      <h3>🗺️ Названия позиций на карте</h3>
+      <div class="map-names-text">
+        <strong>Основные зоны:</strong> T Spawn (Спавн Т), CT Spawn (Спавн СТ), Long A (Длинная А), B Site (Плент Б), Mid (Центр).<br><br>
+        <strong>Позиции на А:</strong> Long Doors (Длинные двери), Pit (Яма), Blue (Синий контейнер), Car (Машина), Cross (Перекресток), Short/Catwalk (Короткая/Кэтвок), A Site (Плент), Goose (Гусь), Ramp (Рампа), A Default (Дефолт).<br><br>
+        <strong>Позиции на Б:</strong> B Tunnels (Туннели), B Doors (Двери Б), B Site (Плент), Big Box (Большой ящик), Car (Машина), Window (Окно), Back Plat (Задняя платформа).<br><br>
+        <strong>Мид:</strong> Top Mid (Верхний Мид), Mid Doors (Двери Мида), Xbox (Иксбокс), Lower Tunnels (Нижние туннели).
+      </div>
     </div>
 
     <!-- INFERNO -->
@@ -444,17 +438,16 @@
         <strong>Совет 3:</strong> Смок на CT с банана (закрывает обзор с CT и буст) — один из самых важных при заходе на B.
       </div>
 
-      <h3>📸 Фото позиций (Раскидки)</h3>
-      <p><strong>Смок на Coffins (с Half Wall):</strong></p>
-      <img class="position-img" src="https://i.imgur.com/c1e8g4s.jpg" alt="Смок на Coffins Inferno" onerror="this.style.display='none'">
-      <div class="img-caption">Встань на Half Wall, целься в ориентир, чтобы задымить гробы (Coffins).</div>
-      
-      <p><strong>Смок на Arch (с Mid):</strong></p>
-      <img class="position-img" src="https://i.imgur.com/v4f6t2u.jpg" alt="Смок на Arch Inferno" onerror="this.style.display='none'">
-      <div class="img-caption">Встань на Mid, целься в ориентир, чтобы задымить Арку (Arch).</div>
+      <h3>🗺️ Названия позиций на карте</h3>
+      <div class="map-names-text">
+        <strong>Основные зоны:</strong> T Spawn (Спавн Т), CT Spawn (Спавн СТ), A Site (Плент А), B Site (Плент Б), Banana (Банан).<br><br>
+        <strong>Позиции на А:</strong> Apartments/Apps (Апсы), Balcony (Балкон), Pit (Яма), Library (Библиотека), Graveyard (Кладбище), Arch (Арка), Boiler (Бойлер), Alt Mid (Альт Мид).<br><br>
+        <strong>Позиции на Б:</strong> Banana (Банан), Car (Машина), Logs (Бревна), Coffins (Гробы), New Box (Новый ящик), Dark (Темная), CT (Спавн СТ).<br><br>
+        <strong>Мид:</strong> Top Mid (Верхний Мид), Short (Шорт), Arch (Арка).
+      </div>
     </div>
 
-    <!-- NUKE -->
+    <!-- NUKE (КРАТКО) -->
     <div id="nuke" class="tab-content">
       <h2>☢️ Nuke</h2>
       <p>Вертикальная карта. Два плента друг над другом.</p>
@@ -466,7 +459,7 @@
       <div class="tip-box"><strong>Совет:</strong> Смок на Squeaky (A) и смок на Heaven (A) — критически важны. Без них CT будут простреливать весь плент сверху.</div>
     </div>
 
-    <!-- ANCIENT -->
+    <!-- ANCIENT (КРАТКО) -->
     <div id="ancient" class="tab-content">
       <h2>🏛️ Ancient</h2>
       <p>Гранаты и контроль мида решают всё.</p>
@@ -478,7 +471,7 @@
       <div class="tip-box"><strong>Совет:</strong> Смок на Храм (Temple) — самый важный на карте. Без него заход на A превращается в лотерею.</div>
     </div>
 
-    <!-- ANUBIS -->
+    <!-- ANUBIS (КРАТКО) -->
     <div id="anubis" class="tab-content">
       <h2>🐊 Anubis</h2>
       <p>Контроль Mid и воды.</p>
@@ -490,7 +483,7 @@
       <div class="tip-box"><strong>Совет:</strong> Смок на Heaven (с Walkway) и молотов под лестницу — ключ к заходу на A.</div>
     </div>
 
-    <!-- OVERPASS -->
+    <!-- OVERPASS (КРАТКО) -->
     <div id="overpass" class="tab-content">
       <h2>🌉 Overpass</h2>
       <p>Банк на A и Девятка на B решают всё.</p>
@@ -502,7 +495,7 @@
       <div class="tip-box"><strong>Совет:</strong> Смок на Банк — обязателен. Без него заход на A почти невозможен.</div>
     </div>
 
-    <!-- VERTIGO -->
+    <!-- VERTIGO (КРАТКО) -->
     <div id="vertigo" class="tab-content">
       <h2>🏗️ Vertigo</h2>
       <p>Открытые пленты, много вертикальных позиций.</p>
@@ -514,7 +507,7 @@
       <div class="tip-box"><strong>Совет:</strong> Смок на Девятку (A) — джамптроу. Без него CT будут простреливать весь плент.</div>
     </div>
 
-    <!-- TRAIN -->
+    <!-- TRAIN (КРАТКО) -->
     <div id="train" class="tab-content">
       <h2>🚂 Train</h2>
       <p>Игра на поездах (Boiler, Popdog).</p>
@@ -526,7 +519,7 @@
       <div class="tip-box"><strong>Совет:</strong> Смок на Ivy (A) закрывает фланг. Без него CT зажмут тебя с двух сторон.</div>
     </div>
 
-    <!-- CACHE -->
+    <!-- CACHE (КРАТКО) -->
     <div id="cache" class="tab-content">
       <h2>🏭 Cache</h2>
       <p>Похожа на Mirage по структуре.</p>
@@ -538,7 +531,7 @@
       <div class="tip-box"><strong>Совет:</strong> Смок на Checkers (B) — критически важен. Иначе CT будут простреливать спины.</div>
     </div>
 
-    <!-- OFFICE -->
+    <!-- OFFICE (КРАТКО) -->
     <div id="office" class="tab-content">
       <h2>🏢 Office (Заложники)</h2>
       <p>Узкие коридоры и дробовики.</p>
@@ -549,7 +542,7 @@
       </ul>
     </div>
 
-    <!-- ITALY -->
+    <!-- ITALY (КРАТКО) -->
     <div id="italy" class="tab-content">
       <h2>🍕 Italy (Заложники)</h2>
       <p>Рынок (Market) и крыши.</p>
